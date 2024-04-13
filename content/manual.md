@@ -6,7 +6,7 @@ weight = 3
 
 # User Manual
 
-The [User Manual](/book/index.html), book, for Hickory DNS.
+The [User Manual](book/index.html), book, for Hickory DNS.
 
 # Logo
 

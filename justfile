@@ -50,4 +50,4 @@ deploy: gh-pages clean build
         git diff --staged --quiet || \
           (git commit -m "deployed on $(shell date) by ${USER}" && \
            git push origin gh-pages)
-    $(MAKE) clean_worktree
+    @just clean_worktree
