@@ -28,4 +28,5 @@ fuzz/Cargo.lock
 *~
 
 # ignore zola output
-public/**
+public
+

@@ -1,0 +1,15 @@
+[book]
+authors = ["Benjamin Fry <benjaminfry@me.com"]
+multilingual = false
+src = "book/src"
+title = "Hickory DNS User Manual"
+
+[build]
+build-dir = "public/book"
+create-missing = true
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output.html]
+additional-js = ["book/theme/mermaid.min.js", "book/theme/mermaid-init.js"]
