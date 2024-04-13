@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Allow: /
-Sitemap: https://hickory-dns.github.io/hickory-docs/sitemap.xml

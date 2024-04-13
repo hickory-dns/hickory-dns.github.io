@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en" id="oranda" class="hacker">
+  <head>
+    <title>Hickory DNS</title>
+    
+    
+      <link rel="icon" href="/favicon.ico" />
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hickory DNS" />
+    
+    
+    
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="stylesheet" href="/oranda-v0.6.1.css" />
+    
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-body">
+        
+          <div class="repo_banner">
+            <a href="https://github.com/hickory-dns/hickory-dns">
+              <div class="github-icon" aria-hidden="true"></div>
+              Check out our GitHub!
+            </a>
+          </div>
+        
+
+        <main>
+          <header>
+            
+              <img src="/logo.png" alt="Hickory DNS" class="logo" />
+            
+            <h1 class="title">Hickory DNS</h1>
+            
+  <nav class="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      
+
+      
+
+      
+        <li><a href="/book/">Docs</a></li>
+      
+
+      
+
+      
+        <li><a href="/changelog/">Changelog</a></li>
+      
+    </ul>
+  </nav>
+
+          </header>
+
+          
+  <div>
+    <h1>
+      Releases
+      
+        <a href="/changelog.rss" class="inline-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path d="M3.75 3a.75.75 0 00-.75.75v.5c0 .414.336.75.75.75H4c6.075 0 11 4.925 11 11v.25c0 .414.336.75.75.75h.5a.75.75 0 00.75-.75V16C17 8.82 11.18 3 4 3h-.25z" />
+  <path d="M3 8.75A.75.75 0 013.75 8H4a8 8 0 018 8v.25a.75.75 0 01-.75.75h-.5a.75.75 0 01-.75-.75V16a6 6 0 00-6-6h-.25A.75.75 0 013 9.25v-.5zM7 15a2 2 0 11-4 0 2 2 0 014 0z" />
+</svg></a>
+      
+    </h1>
+    <div class="releases-wrapper">
+      <nav class="releases-nav">
+        
+          <div class="prereleases-toggle">
+            <div class="flex h-6 items-center">
+              <input type="checkbox" id="show-prereleases" />
+            </div>
+            <div class="ml-3">
+              <label for="show-prereleases">Show prereleases</label>
+            </div>
+          </div>
+        
+
+        
+        <ul>
+          
+            <li class="">
+              <a href="v0.23.2/">v0.23.2</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.24.0/">v0.24.0</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.23.1/">v0.23.1</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.23.0/">v0.23.0</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.23.0-alpha.5/">v0.23.0-alpha.5</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.23.0-alpha.4/">v0.23.0-alpha.4</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.23.0-alpha.3/">v0.23.0-alpha.3</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.22.1/">v0.22.1</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.23.0-alpha.2/">v0.23.0-alpha.2</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.23.0-alpha.1/">v0.23.0-alpha.1</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.22.0/">v0.22.0</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.21.2/">v0.21.2</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.21.1/">v0.21.1</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.21.0/">v0.21.0</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.21.0-alpha.5/">v0.21.0-alpha.5</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.20.4/">v0.20.4</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.21.0-alpha.4/">v0.21.0-alpha.4</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.21.0-alpha.3/">v0.21.0-alpha.3</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.21.0-alpha.2/">v0.21.0-alpha.2</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.21.0-alpha.1/">v0.21.0-alpha.1</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.20.3/">v0.20.3</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.20.2/">v0.20.2</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.20.1/">v0.20.1</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.19.7/">v0.19.7</a>
+            </li>
+          
+            <li class="">
+              <a href="v0.20.0/">v0.20.0</a>
+            </li>
+          
+            <li class="">
+              <a href="0.19.6/">0.19.6</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.20.0-alpha.3/">v0.20.0-alpha.3</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.20.0-alpha.2/">v0.20.0-alpha.2</a>
+            </li>
+          
+            <li class="pre-release hidden">
+              <a href="v0.20.0-alpha.1/">v0.20.0-alpha.1</a>
+            </li>
+          
+            <li class="">
+              <a href="0.19.5/">0.19.5</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="releases-list">
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.23.2">
+    <a href="v0.23.2/">
+      
+        Update docs.rs and generated docs to reference Hickory
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Oct 23 2023 at 15:56 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.23.2</h2>
+<h3>Changed</h3>
+<ul>
+<li>(all) Added Hickory DNS notice to all library root docs</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.24.0">
+    <a href="v0.24.0/">
+      
+        v0.24 Announcing Hickory DNS
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.24.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Oct 14 2023 at 01:42 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.24.0</h2>
+<p><strong>NOTICE</strong> This project has been rebranded to Hickory DNS and has been moved to the <a href="https://github.com/hickory-dns/hickory-dns" rel="noopener noreferrer">https://github.com/hickory-dns/hickory-dns</a> organization and repo, from 0.24.0 onward. This <a href="https://bluejekyll.github.io/blog/posts/announcing-hickory-dns/" rel="noopener noreferrer">blog post</a> explains the reasoning behind this move.</p>
+<h3>Changed</h3>
+<ul>
+<li>(proto) Make DnsHandle::send &amp;self instead of &amp;mut self #2018 by ibigbug</li>
+<li>(all) Update dependencies (avoid vulnerability), optional TOML, remove unused dependencies #2028 by djc</li>
+<li>(server) Privatize the Lexer API #2040 by djc</li>
+<li>(server) Use consistent error type for read_system_conf() #2047 by djc</li>
+<li>(server) Optimized shutdown_gracefully() #2041 by caobug</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(server) add register with rustls server config #2004 by yaotthaha</li>
+<li>(all) Add webpki-roots and native-certs crate features #2005 by daxpedda</li>
+<li>(bin) add run-example target to justfile to simply start trust-dns for manual testing #2020 by bluejekyll</li>
+<li>(all) DoH3 support #1987 by daxpedda</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(bin) Add root certificates to the binary crate #2059 by daxpedda</li>
+<li>(proto) proto/rr: do not deserialize ClientSubnets with invalid prefixes #2057 by 00xc</li>
+<li>(resolver) Fix the resolver version warning in the workspace #2013 by bluejekyll</li>
+<li>(proto) Forward serde-config feature to the proto crate #2019 by cetanu</li>
+<li>(server) Prevent task reaping from blocking #2023 by lpraneis</li>
+<li>(proto) Dont panic on nsec without dnssec #2025 by bluejekyll</li>
+<li>(server) Spawn H2 Data frame processing into a separate task #2033 by yaroslavros</li>
+<li>(proto) DoQ default configuration #2036 by daxpedda</li>
+<li>(resolver) caching bug when CNAME leads to negative response #2053 by Clendenin</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(resolver) Remove Copy from ResolverOpts #2029 by daxpedda</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.23.1">
+    <a href="v0.23.1/">
+      
+        Rebranding of Trust-DNS to Hickory DNS notice
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Oct 13 2023 at 22:32 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.23.1</h2>
+<h3>Changed</h3>
+<ul>
+<li>(all) <strong>NOTICE</strong> This project has been rebranded to Hickory DNS and has been moved to the <a href="https://github.com/hickory-dns/hickory-dns" rel="noopener noreferrer">https://github.com/hickory-dns/hickory-dns</a> organization and repo, from 0.24.0 onward. This <a href="https://bluejekyll.github.io/blog/posts/announcing-hickory-dns/" rel="noopener noreferrer">blog post</a> explains the reasoning behind this move.</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.23.0">
+    <a href="v0.23.0/">
+      
+        v0.23.0
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Aug 22 2023 at 16:32 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.23.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(resolver) Malformed label: -- when parsing resolv.conf #1985 by Jake-Shadle</li>
+<li>(proto) Fix truncation for UDP #1975 by nmittler</li>
+<li>(proto) avoid panicking in parse_time() #1964 by djc</li>
+<li>(server) Merge up deny response in requests to server #1954 by djc</li>
+<li>(proto) remove duplicate is_soa function #1948 by mattsse</li>
+<li>(resolver) Fix minimal tokio version requirement #1931 by Gelbpunkt</li>
+<li>(all) Fix bench errors in rust-analyzer #1777 by jeff-hiner</li>
+<li>(all) Regenerate the test SSL certificates #1781 by ssinger</li>
+<li>(all) Fix some spelling errors #1783 by nhurley3</li>
+<li>(proto) proto: only allow ASCII characters in CAA key/value data #1796 by djc</li>
+<li>(proto) [rfc8659] CAA RR Change references to RFC 6844 to 8659 #1798 by darnuria</li>
+<li>(all) Fixed some clippy warning #1801 by darnuria</li>
+<li>(all) Fix links to client documentation #1808 by clint-white</li>
+<li>(all) fix cleanliness for 1.65 #1821 by bluejekyll</li>
+<li>(proto) Fix stuck of dns over tls with clear text SNI #1826 by mokeyish</li>
+<li>(all) Fix enabling only dns-over-* feature #1833 by NobodyXu</li>
+<li>(proto) OpenSSL 3.0 compliant #1841 by HLFH</li>
+<li>(server) FIX WIP: Zone Parser panics when hostname entry has a leading whitespace. #1842 by wuerges</li>
+<li>(server) Fix $TTL not taken into account with wildcard from zonefile. #1850 by darnuria</li>
+<li>(all) Some cargo clippy fix #1851 by darnuria</li>
+<li>(all) Fix #1835 RUSTSEC-2021-0145 Update clap to 4.0.29. #1853 by darnuria</li>
+<li>(docs) fix DNSSEC typo #1858 by HLFH</li>
+<li>(all) clippy updates for Rust 1.66 #1862 by bluejekyll</li>
+<li>(tests) ignore truncation for fuzz comparison #1872 by bluejekyll</li>
+<li>(tests) fix fuzz build failure #1875 by manunio</li>
+<li>(proto) docs: fix truncated rustdoc TODO on LowerName. #1897 by cpu</li>
+<li>(tests) Fix: invalid benchmark #1900 by XOR-op</li>
+<li>(proto) Fix panics in ClientSubnet conversions #1909 by djc</li>
+<li>(tests) Fix fuzz build #1911 by manunio</li>
+<li>(proto) Fix PTR.to_string() stack overflow #1912 by mokeyish</li>
+<li>(proto) Fix audit upgrade openssl #1914 by mokeyish</li>
+<li>(proto) Fix panic of unexpected close of UDP socket #1915 by mokeyish</li>
+<li>(proto) Lazily reap finished connections in TokioHandle on spawn_bg #1917 by jeff-hiner</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) fix(resolver): correct ttl from lru cache #1984 by iberryful</li>
+<li>(ci) Use dtolnay/rust-toolchain #1993 by waywardmonkeys</li>
+<li>(all) update the minimum required openssl version #1979 by bluejekyll</li>
+<li>(bin) Print offending bind error in panic message #1971 by wprzytula</li>
+<li>(resolver) Provider API Redesign #1938 by XOR-op</li>
+<li>(all) create default rules for justfile (changed from cargo-make to justfiles) #1951 by bluejekyll</li>
+<li>(all) Bump log to v0.4.18 #1949 by daxpedda</li>
+<li>(proto) Make RData::read() API public #1945 by djc</li>
+<li>(all) Replace lazy_static with once_cell #1944 by daxpedda</li>
+<li>(resolver) Return Self from AsyncResolver::new() #1942 by daxpedda</li>
+<li>(all) Use default-features = false for quinn #1941 by daxpedda</li>
+<li>(all) remove the direct dependency to quinn-udp #1935 by zh-jq</li>
+<li>(resolver) Order name servers by SRTT #1784 by nhurley3</li>
+<li>(resolver) resolver: use errors' Display impl #1785 by hdhoang</li>
+<li>(proto) NameIter use a u8 for start/end. #1787 by darnuria</li>
+<li>(proto) name.rs use DomainNameTooLong in place of Message. #1788 by darnuria</li>
+<li>(proto) Explicit test for label max len and use ProtoErrorKind. #1789 by darnuria</li>
+<li>(cli) Port to clap4 #1791 by darnuria</li>
+<li>(proto) Improve CAA rdata display #1794 by wuerges</li>
+<li>(all) fix #1767 Update tracing-subscriber to 0.3.16 #1797 by darnuria</li>
+<li>(proto) Simplify interface between BinEncoder and MaximalBuf #1802 by djc</li>
+<li>(proto) proto: allow unrestricted length character length in SVCB param values #1806 by djc</li>
+<li>(all) bump MSRV to 1.60 #1813 by bluejekyll</li>
+<li>(all) Lazily reap finished tasks from inner_join_set #1818 by jeff-hiner</li>
+<li>(proto) proto: upgrade to Quinn 0.9 #1822 by djc</li>
+<li>(resolve) Preserve intermediates for TXT records #1828 by schultetwin1</li>
+<li>(all) Feature gate tokio features on mdns crate #1831 by jxs</li>
+<li>(test) python3-ply rather than python-ply #1846 by HLFH</li>
+<li>(docs) Replace http: links with https: #1848 by msrd0</li>
+<li>(docs) Make homepage link simpler for end users #1857 by HLFH</li>
+<li>(resolver) Don't retry authoritative NOERROR with an empty set, from trusted resolvers #1861 by jeff-hiner</li>
+<li>(server) authority: parse with default record class IN. #1874 by cpu</li>
+<li>(resolver) API-breaking change: Deprecate ConnectionProvider with new RuntimeProvider #1876 by XOR-op</li>
+<li>(proto) deps: upgrade Tokio 1.21.0 -&gt; 1.24.1 #1877 by cpu</li>
+<li>(proto) Move client code used by server code down into proto #1879 by djc</li>
+<li>(proto) proto: clean up error logging #1881 by hawkw</li>
+<li>(resolver) Make dns_hostname optional to disable verify #1907 by mokeyish</li>
+<li>(all) Introduce central crate version management #1908 by mokeyish</li>
+<li>(resolver) remove use of time in recursor and client #1918 by zh-jq</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(server) remove named binary #1859 by HLFH</li>
+<li>(docs) project: remove refs. to removed 'named' binary #1873 by cpu</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(server) Graceful Shutdown of Server #1869 by theduke</li>
+<li>(resolver) Add Google DoT and DoH to ResolverConfig #1989 by daxpedda</li>
+<li>(server) Adding graceful shutdown to server #1977 by nmittler</li>
+<li>(all) add an html coverage report for local review of coverage data #1959 by bluejekyll</li>
+<li>(resolver) Add the possibility to shuffle NameServers #1920 by Edu4rdSHL</li>
+<li>(resolver) add test for connecting DoH with pure IP Address #1936 by mokeyish</li>
+<li>(resolver) add NameServerConfigGroup::from_ips_quic #1929 by zh-jq</li>
+<li>(resolve) Add --reverse, --file and --interval to util/resolve #1807 by cunha</li>
+<li>(client) TSIG documenting client tsig code + update rfc link #1810 by darnuria</li>
+<li>(client) Create dedicated Errors types for Tsig error case #1811 by darnuria</li>
+<li>(all) Also declare MSRV in Cargo.toml #1820 by glts</li>
+<li>(proto) Add wireformat buffer to DnsResponse #1855 by mattias-p #1885 by cpu</li>
+<li>(client) client: rm zone parse optional class arg.</li>
+<li>(proto) Implement EDNS Client Subnet ECS reading and writing #1906 by mokeyish</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.23.0-alpha.5">
+    <a href="v0.23.0-alpha.5/">
+      
+        v0.23.0-alpha.5
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0-alpha.5
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Aug  2 2023 at 20:03 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.23.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Fix truncation for UDP #1975 by nmittler</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) fix(resolver): correct ttl from lru cache #1984 by iberryful</li>
+<li>(ci) Use dtolnay/rust-toolchain #1993 by waywardmonkeys</li>
+<li>(all) update the minimum required openssl version #1979 by bluejekyll</li>
+<li>(bin) Print offending bind error in panic message #1971 by wprzytula</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolver) Add Google DoT and DoH to ResolverConfig #1989 by daxpedda</li>
+<li>(server) Adding graceful shutdown to server #1977 by nmittler</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.23.0-alpha.4">
+    <a href="v0.23.0-alpha.4/">
+      
+        v0.23.0-alpha.4
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0-alpha.4
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Jun 11 2023 at 16:20 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h3>Fixed</h3>
+<ul>
+<li>(proto) avoid panicking in parse_time() #1964 by djc</li>
+<li>(server) Merge up deny response in requests to server #1954 by djc</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) Provider API Redesign #1938 by XOR-op</li>
+<li>(all) create default rules for justfile (changed from cargo-make to justfiles) #1951 by bluejekyll</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(all) add an html coverage report for local review of coverage data #1959 by bluejekyll</li>
+<li>(resolver) Add the possibility to shuffle NameServers #1920 by Edu4rdSHL</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.23.0-alpha.3">
+    <a href="v0.23.0-alpha.3/">
+      
+        v0.23.0-alpha.2
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0-alpha.3
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Jun  3 2023 at 05:13 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h3>Fixed</h3>
+<ul>
+<li>(server) Merge up deny response in requests to server #1954</li>
+<li>(proto) remove duplicate is_soa function #1948 by mattsse</li>
+<li>(resolver) Fix minimal tokio version requirement #1931 by Gelbpunkt</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(all) Bump log to v0.4.18 #1949 by daxpedda</li>
+<li>(proto) Make RData::read() API public #1945 by djc</li>
+<li>(all) Replace lazy_static with once_cell #1944 by daxpedda</li>
+<li>(resolver) Return Self from AsyncResolver::new() #1942 by daxpedda</li>
+<li>(all) Use default-features = false for quinn #1941 by daxpedda</li>
+<li>(all) remove the direct dependency to quinn-udp #1935 by zh-jq</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolver) add test for connecting DoH with pure IP Address #1936 by mokeyish</li>
+<li>(resolver) add NameServerConfigGroup::from_ips_quic #1929 by zh-jq</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.22.1">
+    <a href="v0.22.1/">
+      
+        v0.22.1 - Deny response requests on the server
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.22.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Jun  1 2023 at 17:15 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.22.1</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(server) drop response messages #1952 by @djc</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.23.0-alpha.2">
+    <a href="v0.23.0-alpha.2/">
+      
+        v0.23.0-alpha.2
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0-alpha.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        May 12 2023 at 18:32 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <p>Bumped alpha.2 to fix git publish</p>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.23.0-alpha.1">
+    <a href="v0.23.0-alpha.1/">
+      
+        v0.23.0-alpha.1
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.23.0-alpha.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        May 11 2023 at 02:37 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <p>Initial Alpha release of 0.23.0</p>
+<h2>0.23.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(all) Fix bench errors in rust-analyzer #1777 by jeff-hiner</li>
+<li>(all) Regenerate the test SSL certificates #1781 by ssinger</li>
+<li>(all) Fix some spelling errors #1783 by nhurley3</li>
+<li>(proto) proto: only allow ASCII characters in CAA key/value data #1796 by djc</li>
+<li>(proto) [rfc8659] CAA RR Change references to RFC 6844 to 8659 #1798 by darnuria</li>
+<li>(all) Fixed some clippy warning #1801 by darnuria</li>
+<li>(all) Fix links to client documentation #1808 by clint-white</li>
+<li>(all) fix cleanliness for 1.65 #1821 by bluejekyll</li>
+<li>(proto) Fix stuck of dns over tls with clear text SNI #1826 by mokeyish</li>
+<li>(all) Fix enabling only dns-over-* feature #1833 by NobodyXu</li>
+<li>(proto) OpenSSL 3.0 compliant #1841 by HLFH</li>
+<li>(server) FIX WIP: Zone Parser panics when hostname entry has a leading whitespace. #1842 by wuerges</li>
+<li>(server) Fix $TTL not taken into account with wildcard from zonefile. #1850 by darnuria</li>
+<li>(all) Some cargo clippy fix #1851 by darnuria</li>
+<li>(all) Fix #1835 RUSTSEC-2021-0145 Update clap to 4.0.29. #1853 by darnuria</li>
+<li>(docs) fix DNSSEC typo #1858 by HLFH</li>
+<li>(all) clippy updates for Rust 1.66 #1862 by bluejekyll</li>
+<li>(tests) ignore truncation for fuzz comparison #1872 by bluejekyll</li>
+<li>(tests) fix fuzz build failure #1875 by manunio</li>
+<li>(proto) docs: fix truncated rustdoc TODO on LowerName. #1897 by cpu</li>
+<li>(tests) Fix: invalid benchmark #1900 by XOR-op</li>
+<li>(proto) Fix panics in ClientSubnet conversions #1909 by djc</li>
+<li>(tests) Fix fuzz build #1911 by manunio</li>
+<li>(proto) Fix PTR.to_string() stack overflow #1912 by mokeyish</li>
+<li>(proto) Fix audit upgrade openssl #1914 by mokeyish</li>
+<li>(proto) Fix panic of unexpected close of UDP socket #1915 by mokeyish</li>
+<li>(proto) Lazily reap finished connections in TokioHandle on spawn_bg #1917 by jeff-hiner</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) Order name servers by SRTT #1784 by nhurley3</li>
+<li>(resolver) resolver: use errors' Display impl #1785 by hdhoang</li>
+<li>(proto) NameIter use a u8 for start/end. #1787 by darnuria</li>
+<li>(proto) name.rs use DomainNameTooLong in place of Message. #1788 by darnuria</li>
+<li>(proto) Explicit test for label max len and use ProtoErrorKind. #1789 by darnuria</li>
+<li>(cli) Port to clap4 #1791 by darnuria</li>
+<li>(proto) Improve CAA rdata display #1794 by wuerges</li>
+<li>(all) fix #1767 Update tracing-subscriber to 0.3.16 #1797 by darnuria</li>
+<li>(proto) Simplify interface between BinEncoder and MaximalBuf #1802 by djc</li>
+<li>(proto) proto: allow unrestricted length character length in SVCB param values #1806 by djc</li>
+<li>(all) bump MSRV to 1.60 #1813 by bluejekyll</li>
+<li>(all) Lazily reap finished tasks from inner_join_set #1818 by jeff-hiner</li>
+<li>(proto) proto: upgrade to Quinn 0.9 #1822 by djc</li>
+<li>(resolve) Preserve intermediates for TXT records #1828 by schultetwin1</li>
+<li>(all) Feature gate tokio features on mdns crate #1831 by jxs</li>
+<li>(test) python3-ply rather than python-ply #1846 by HLFH</li>
+<li>(docs) Replace http: links with https: #1848 by msrd0</li>
+<li>(docs) Make homepage link simpler for end users #1857 by HLFH</li>
+<li>(resolver) Don't retry authoritative NOERROR with an empty set, from trusted resolvers #1861 by jeff-hiner</li>
+<li>(server) authority: parse with default record class IN. #1874 by cpu</li>
+<li>(resolver) API-breaking change: Deprecate ConnectionProvider with new RuntimeProvider #1876 by XOR-op</li>
+<li>(proto) deps: upgrade Tokio 1.21.0 -&gt; 1.24.1 #1877 by cpu</li>
+<li>(proto) Move client code used by server code down into proto #1879 by djc</li>
+<li>(proto) proto: clean up error logging #1881 by hawkw</li>
+<li>(resolver) Make dns_hostname optional to disable verify #1907 by mokeyish</li>
+<li>(all) Introduce central crate version management #1908 by mokeyish</li>
+<li>(resolver) remove use of time in recursor and client #1918 by zh-jq</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(server) remove named binary #1859 by HLFH</li>
+<li>(docs) project: remove refs. to removed 'named' binary #1873 by cpu</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolve) Add --reverse, --file and --interval to util/resolve #1807 by cunha</li>
+<li>(client) TSIG documenting client tsig code + update rfc link #1810 by darnuria</li>
+<li>(client) Create dedicated Errors types for Tsig error case #1811 by darnuria</li>
+<li>(all) Also declare MSRV in Cargo.toml #1820 by glts</li>
+<li>(proto) Add wireformat buffer to DnsResponse #1855 by mattias-p #1885 by cpu</li>
+<li>(client) client: rm zone parse optional class arg.</li>
+<li>(proto) Implement EDNS Client Subnet ECS reading and writing #1906 by mokeyish</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.22.0">
+    <a href="v0.22.0/">
+      
+        v0.22.0 -- Experimental Recursor and the Dns CLI
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.22.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Sep  2 2022 at 14:40 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.22.0</h2>
+<h3>Removed</h3>
+<ul>
+<li>(deps) don't pull in env_logger if we aren't actually a binary #1701 by @Noah-Kennedy</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolver) Add option to use a provided name server order #1766 by @nhurley3</li>
+<li>(proto) Add invalid utf8 output test for TXT::fmt. #1755 by @darnuria</li>
+<li>(proto) Support 0-RTT in DNS over QUIC #1716 by @msoxzw</li>
+<li>(recursor) <em>new</em> A Trust DNS based Recursor!!! #1710 by @bluejekyll</li>
+<li>(resolver) Allow customizing the static hosts configuration #1705 by @fantix</li>
+<li>(proto/server) Support loading pkcs#1 private key as well #1704 by @lisongmin</li>
+<li>(util) Trust <code>dns</code> client cli (like <code>dig</code>) #1680 by @bluejekyll</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Only retry UDP socket bind if it returned EADDRINUSE #1761 by @peterthejohnston</li>
+<li>(all) Add necessary conditional compilation cfgs #1752 by @trevor-crypto</li>
+<li>(server) Populate name_pointers correctly via MessageResponseBuilder request #1744 by @jeff-hiner</li>
+<li>(resolver) Do not fail parse_resolv_conf on invalid hostname #1740 by @schultetwin1</li>
+<li>(all) doc: Fix warnings reported by cargo doc #1737 by @wiktor-k</li>
+<li>(proto) Use <code>u16::*_be_bytes</code> represent length field (fixes DoQ) #1715 by @msoxzw</li>
+<li>(proto) Prevent invalid 0-length labels via from_raw_bytes #1700 by @jonasbb</li>
+<li>(proto/server) Drop UDP packets on send failure #1696 by @jeff-hiner</li>
+<li>(all) removed <code>.max(0)</code>, unnecessary with <code>u32</code>'s #1691 by @bluejekyll</li>
+<li>(server) sanitize all addresses received by the server before attempting any r… #1690 by @bluejekyll</li>
+<li>(server) Remove forced (unecessary) Mutex from handler #1679 by @jeff-hiner</li>
+<li>(proto) Fix <code>SvcParamKey::Unknown</code> parsing #1678 by @jeff-hiner</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(all) Minimum Rust Version now 1.59 #1771 by @bluejekyll</li>
+<li>(client) Parser panic to result #1758 by @darnuria</li>
+<li>(client) Avoid 3 unwrap() call inc Parser::flush_record. #1757 by @darnuria</li>
+<li>(client) Cleanup lex #1756 by @darnuria</li>
+<li>(resovler) Make maximum request depth configurable #1749 by @wiktor-k</li>
+<li>(server) Clean up ForwardAuthority api #1748 by @chotchki</li>
+<li>(resolver) Relax mut requirements for resolver.clear_cache() and add cache flushing example #1747 by @dns2utf8</li>
+<li>(resolver) Lookup access Records list directly #1746 by @izissise</li>
+<li>(proto) Pass DnsRequestOptions to DNSSEC validating routines #1742 by @wiktor-k</li>
+<li>(proto) Increase the maximum request depth to 26 #1736 by @wiktor-k</li>
+<li>(server) Mark ForwardLookup as public #1729 by @chotchki</li>
+<li>(all) upgrade windows openssl version to 1_1_1p #1728 by @bluejekyll</li>
+<li>(all) Converted to <code>tracing</code> from <code>log</code> #1706 by @erikh and @bluejekyll</li>
+<li>(server) Move logger setup code into binary #1703 by @djc</li>
+<li>(proto) ignore errors when disconnected #1695 by @edevil</li>
+<li>(server) RequestInfo derives Clone trait. #1693 by @humb1t</li>
+<li>(proto/server) make doq transport settings more consistent with RFC #1682 by @bluejekyll</li>
+<li>(all) Included githubactions in the dependabot config #1681 by @naveensrinivasan</li>
+<li>(proto) deprecated <code>edns</code> methods on request and replaced with <code>extensions</code> and better scemantics #1675 by @leshow</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.21.2">
+    <a href="v0.21.2/">
+      
+        v0.21.2 -- Mostly correctness fixes to 0.21
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Mar 30 2022 at 17:55 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.2</h2>
+<h3>Added</h3>
+<ul>
+<li>(proto) add PartialEq+Hash derives, #1661 by @leshow</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(server) fix panic when tcp connect goes away before handling, #1668</li>
+<li>(server) crates/server, InMemoryStore: Use a RwLock instead of a Mutex to manage inner storage, #1665 by @erikh</li>
+<li>(all) fix audit regex failure, #1658</li>
+<li>(resolver) Stop searching for additional records when encountering a name already seen, #1657 by @Mossop</li>
+<li>(proto) fix time txt parsing in SOA records, #1656</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) remove old crates (the ones moved into proto, tag v0.21.1 can get if needed for crates.io), #1655</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) keep any address records included in the response to an NS query, #1672 by @db48x</li>
+<li>(resolver) force forwarder to preserve_intermediates, #1660 by @vlmutolo</li>
+<li>(resolver) make constructors for AsyncResolver with custom providers public, #1654 by @Noah-Kennedy</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.21.1">
+    <a href="v0.21.1/">
+      
+        v0.21.1
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Feb 28 2022 at 04:00 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.1</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(util) fixed feature build issue in <code>resolve</code> #1649</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.21.0">
+    <a href="v0.21.0/">
+      
+        v0.21.0
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Feb 26 2022 at 15:33 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0</h2>
+<h3>Added</h3>
+<ul>
+<li>(client) Parse DS records (@kmkaplan) #1635</li>
+<li>(fuzz) Added fuzzing configuration (@saethlin) #1626</li>
+<li>(resolver) Add <code>resolver.clear_cache()</code> sync and async (dns2utf8) #1611</li>
+<li>(proto) Add CDS/CDNSKEY records from RFC7344 (frelon) #1595</li>
+<li>(resolver) Configuration of outbound bind address for resolver (@surban) #1586</li>
+<li>(proto) Add <code>CSYNC</code> record from RFC7477 (@frelon) #1583</li>
+<li>(proto) trust_dns_proto::rr::Record now serializable (@mvforell) #1536</li>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(util) openssl is no longer default enabled in trust-dns-utils, bins marked as required as necessary #1644</li>
+<li>(proto) deprecate outdated dnssec algorithms #1640</li>
+<li>(server) pass RequestInfo into Authority on search #1620</li>
+<li>(proto) SSHFP: Ed448 is assigned algorithm 6 in RFC 8709 #1604</li>
+<li>(resolver) Do not retry the same name server on a negative response (@peterthejohnston) #1589</li>
+<li>(all) <code>with-backtrace</code> feature renamed to <code>backtrace</code> (@pinkisemils) #1577</li>
+<li>(resolver) TCP for truncated message responses, but not for other failures on responses (switch for old behavior <code>try_tcp_on_error</code>) ( @peterthejohnston) #1562</li>
+<li>(server) Multiple queries in a message will always result in a FormError now #1554</li>
+<li>(server) <code>ServerFuture</code> and other <code>Catalog</code> related API changes #1554</li>
+<li>(server) By default, the server will now only log a single log line based for a given request (debug will be needed for more details) #1554</li>
+<li>(server) <code>ResponseHandler</code> now must return a <code>ResponseInfo</code> to allow for more consistent logging #1554</li>
+<li>(resolver) Correct behavior around trust_nx_responses (@peterthejohnston) #1556</li>
+<li>(server) <code>ResponseHandler</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(server) <code>Authority</code> impls required to be internally modifiable and <code>Send + Sync</code> #1550</li>
+<li>(server) Most <code>Authority</code> methods changes to <code>async fn</code> rather than returning custom <code>Future</code> impls #1550</li>
+<li>(server) <code>Authority</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(proto) Header now stores ResponseCode instead of just u8 #1537</li>
+<li>(client) improved async client example documentation (@ErwanDL) #1539</li>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) removed <code>structopt</code> dependency #1644</li>
+<li>(all) removed <code>chrono</code> dependency #1569</li>
+<li>(client) Remove AsyncClientConnect and AsyncSecureClientConnect (future impls) in favor of async constructors (@ErwanDL) #1541</li>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) fix CAA .to_string() crash and format (@hartshorne) #1631</li>
+<li>(proto) fix DoubleEndedIterator impl for Name #1639</li>
+<li>(client) Fix AsyncClient::clone always setting use_edns (@ecton) #1598</li>
+<li>(resolver) Use stream connections if datagram connections are not available (@pinkisemils) #1592</li>
+<li>(server) Release resources when a server future is dropped (@pinkisemils) #1587</li>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.21.0-alpha.5">
+    <a href="v0.21.0-alpha.5/">
+      
+        v0.21.0-alpha.5, fix truncated response usage
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0-alpha.5
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Feb  8 2022 at 15:33 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0 (unreleased)</h2>
+<h3>Added</h3>
+<ul>
+<li>(fuzz) Added fuzzing configuration (@saethlin) #1626</li>
+<li>(resolver) Add <code>resolver.clear_cache()</code> sync and async (dns2utf8) #1611</li>
+<li>(proto) Add CDS/CDNSKEY records from RFC7344 (frelon) #1595</li>
+<li>(resolver) Configuration of outbound bind address for resolver (@surban) #1586</li>
+<li>(proto) Add <code>CSYNC</code> record from RFC7477 (@frelon) #1583</li>
+<li>(proto) trust_dns_proto::rr::Record now serializable (@mvforell) #1536</li>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(server) pass RequestInfo into Authority on search #1620</li>
+<li>(proto) SSHFP: Ed448 is assigned algorithm 6 in RFC 8709 #1604</li>
+<li>(resolver) Do not retry the same name server on a negative response (@peterthejohnston) #1589</li>
+<li>(all) <code>with-backtrace</code> feature renamed to <code>backtrace</code> (@pinkisemils) #1577</li>
+<li>(resolver) TCP for truncated message responses, but not for other failures on responses (switch for old behavior <code>try_tcp_on_error</code>) ( @peterthejohnston) #1562</li>
+<li>(server) Multiple queries in a message will always result in a FormError now #1554</li>
+<li>(server) <code>ServerFuture</code> and other <code>Catalog</code> related API changes #1554</li>
+<li>(server) By default, the server will now only log a single log line based for a given request (debug will be needed for more details) #1554</li>
+<li>(server) <code>ResponseHandler</code> now must return a <code>ResponseInfo</code> to allow for more consistent logging #1554</li>
+<li>(resolver) Correct behavior around trust_nx_responses (@peterthejohnston) #1556</li>
+<li>(server) <code>ResponseHandler</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(server) <code>Authority</code> impls required to be internally modifiable and <code>Send + Sync</code> #1550</li>
+<li>(server) Most <code>Authority</code> methods changes to <code>async fn</code> rather than returning custom <code>Future</code> impls #1550</li>
+<li>(server) <code>Authority</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(proto) Header now stores ResponseCode instead of just u8 #1537</li>
+<li>(client) improved async client example documentation (@ErwanDL) #1539</li>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) removed <code>chrono</code> dependency #1569</li>
+<li>(client) Remove AsyncClientConnect and AsyncSecureClientConnect (future impls) in favor of async constructors (@ErwanDL) #1541</li>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(clien) Fix AsyncClient::clone always setting use_edns (ecton) #1598</li>
+<li>(resolver) Use stream connections if datagram connections are not available (@pinkisemils) #1592</li>
+<li>(server) Release resources when a server future is dropped (@pinkisemils) #1587</li>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.20.4">
+    <a href="v0.20.4/">
+      
+        v0.20.4, update tokio and remove audit failures
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.4
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Feb  2 2022 at 05:14 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.4</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(all) updated tokio dependencies to 1.16 #1623</li>
+<li>(all) removed audit chrono due to rustsec audit failure (backport) #1623</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(all) Increased MSRV to 1.51</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.21.0-alpha.4">
+    <a href="v0.21.0-alpha.4/">
+      
+        v0.21.0-alpha.4
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0-alpha.4
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Oct 13 2021 at 23:26 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0 (unreleased)</h2>
+<h3>Added</h3>
+<ul>
+<li>(proto) trust_dns_proto::rr::Record now serializable (@mvforell) #1536</li>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) TCP for truncated message responses, but not for other failures on responses (switch for old behavior <code>try_tcp_on_error</code>) ( @peterthejohnston) #1562</li>
+<li>(server) Multiple queries in a message will always result in a FormError now #1554</li>
+<li>(server) <code>ServerFuture</code> and other <code>Catalog</code> related API changes #1554</li>
+<li>(server) By default, the server will now only log a single log line based for a given request (debug will be needed for more details) #1554</li>
+<li>(server) <code>ResponseHandler</code> now must return a <code>ResponseInfo</code> to allow for more consistent logging #1554</li>
+<li>(resolver) Correct behavior around trust_nx_responses (@peterthejohnston) #1556</li>
+<li>(server) <code>ResponseHandler</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(server) <code>Authority</code> impls required to be internally modifiable and <code>Send + Sync</code> #1550</li>
+<li>(server) Most <code>Authority</code> methods changes to <code>async fn</code> rather than returning custom <code>Future</code> impls #1550</li>
+<li>(server) <code>Authority</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(proto) Header now stores ResponseCode instead of just u8 #1537</li>
+<li>(client) improved async client example documentation (@ErwanDL) #1539</li>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(client) Remove AsyncClientConnect and AsyncSecureClientConnect (future impls) in favor of async constructors (@ErwanDL) #1541</li>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.21.0-alpha.3">
+    <a href="v0.21.0-alpha.3/">
+      
+        v0.21.0-alpha.3
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0-alpha.3
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Sep 28 2021 at 15:50 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0 (unreleased)</h2>
+<h3>Added</h3>
+<ul>
+<li>(proto) trust_dns_proto::rr::Record now serializable (@mvforell) #1536</li>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) Correct behavior around trust_nx_responses (@peterthejohnston) #1556</li>
+<li>(server) <code>ResponseHandler</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(server) <code>Authority</code> impls required to be internally modifiable and <code>Send + Sync</code> #1550</li>
+<li>(server) Most <code>Authority</code> methods changes to <code>async fn</code> rather than returning custom <code>Future</code> impls #1550</li>
+<li>(server) <code>Authority</code> trait is now <code>async_trait</code>, requires all impls to be annotated with <code>#[async_trait]</code> #1550</li>
+<li>(proto) Header now stores ResponseCode instead of just u8 #1537</li>
+<li>(client) improved async client example documentation (@ErwanDL) #1539</li>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(client) Remove AsyncClientConnect and AsyncSecureClientConnect (future impls) in favor of async constructors (@ErwanDL) #1541</li>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.21.0-alpha.2">
+    <a href="v0.21.0-alpha.2/">
+      
+        v0.21.0-alpha.2
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0-alpha.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Aug 30 2021 at 00:23 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0 (unreleased)</h2>
+<h3>Added</h3>
+<ul>
+<li>(proto) trust_dns_proto::rr::Record now serializable (@mvforell) #1536</li>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(proto) Header now stores ResponseCode instead of just u8 #1537</li>
+<li>(client) improved async client example documentation (@ErwanDL) #1539</li>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(client) Remove AsyncClientConnect and AsyncSecureClientConnect (future impls) in favor of async constructors (@ErwanDL) #1541</li>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.21.0-alpha.1">
+    <a href="v0.21.0-alpha.1/">
+      
+        v0.21.0-alpha.1
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.21.0-alpha.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Aug 10 2021 at 00:52 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.21.0 (unreleased)</h2>
+<h3>Added</h3>
+<ul>
+<li>(client) new <code>zone_transfer</code> method for <code>AXFR</code> and <code>IXFR</code> use cases, client only (@trinity-1686a) #1478</li>
+<li>(client) Flag for <code>use_edns</code> configuration on <code>AsyncClient</code> (@astro) #1492</li>
+<li>(client) support for <code>TSIG</code> authentication (@trinity-1686a) #1459</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) on <code>REFUSED</code> (and other negative) response(s), fall back to other nameservers (@peterthejohnston) #1513 #1526</li>
+<li>(client) the feature <code>dnssec</code> is no longer enabled by default, use <code>dnssec-ring</code> or <code>dnssec-openssl</code> #1506</li>
+<li>(server) dnssec functions of <code>Authority</code> moved into <code>DnsSecAuthority</code> #1506</li>
+<li>(all) Most public enum types are now marked <code>#[non_exaustive]</code> #1426</li>
+<li>(resolver) DnsRequestOptions and ResolverOpts now <code>#[non_exaustive]</code> #1426</li>
+<li>(proto) all I/O Streams now use <code>BufDnsStreamHandle</code> rather than generic <code>DnsStreamHandle</code> #1433</li>
+<li>(proto) <code>DnsResponse</code> response now contains only a single Response #1433</li>
+<li>(proto) <code>Name::append_name</code> and <code>Name::append_domain</code> now properly fallible when name is too long #1448</li>
+<li>(resolver) special handling of the <code>onion.</code> TLD added to static resolution with negative responses (@trinity-1686a) #1479</li>
+<li>(proto) internal Futures converted to Streams to support multiple responses, e.g. <code>AXFR</code> (@trinity-1686a) #1478</li>
+<li>(proto) renamed <code>Signer</code> to <code>SigSigner</code> to differentiate from <code>TSigner</code> #1498</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(proto) removed <code>RecordType::DNSSEC</code> and moved all variants of <code>DNSSECRecordType</code> into <code>RecordType</code> #1506</li>
+<li>(proto) removed <code>BufStreamHandle</code> and <code>StreamHandle</code> #1433</li>
+<li>(response) disabled <code>mdns</code> to work on a new solution #1433</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Panic when name exceeds maximal domain name length during display #1447</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.20.3">
+    <a href="v0.20.3/">
+      
+        v0.20.3 with fix for Windows build
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.3
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        May 15 2021 at 21:07 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.3</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(resolver) Fix Windows build without system-config feature (@stephank) #1481</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.20.2">
+    <a href="v0.20.2/">
+      
+        Fix panic in SVCB
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Apr 20 2021 at 20:21 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h1>0.20.2</h1>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Panic on bad length in SVCB for record length #1465</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.20.1">
+    <a href="v0.20.1/">
+      
+        Name parsing improvements
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Mar 16 2021 at 02:11 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.1</h2>
+<h3>Added</h3>
+<ul>
+<li>(proto) HINFO record type support (@vlad20012) #1361</li>
+<li>(proto) proto: add into_parts methods (@leshow) #1397</li>
+<li>(proto) new HTTPS and SVCB record types #1402</li>
+<li>(resolver) predefined Quad9 HTTPS resolver configuration (@zonyitoo) #1413</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Don't kill a DnsExchangeBackground if a receiver is gone (see #1276) (@djc) #1356</li>
+<li>(proto) Take the current header truncated bit into account (@ilaidlaw) #1384</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(async-std-resolver) Re-export AsyncStdConnection(Provider) (@romanb) #1354</li>
+<li>(proto) Mutate edns &amp; remove edns options (@leshow) #1363</li>
+<li>(proto) Change Edns set_* to -&gt; &amp;mut Self (@leshow) #1369</li>
+<li>(resolver) Enable RuntimeProvider in DoT implementations (@chengyuhui) #1373</li>
+<li>(proto) Optimize name parsing (@saethlin) #1388</li>
+<li>(proto) Remove a lot of bounds checks in BinDecoder by tracking position with a second slice (@saethlin) #1399</li>
+<li>(proto) Make errors/error reporting more lightweight (@saethlin) #1409</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.19.7">
+    <a href="v0.19.7/">
+      
+        Make backtrace optional (back port from 0.20)
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.19.7
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Mar 10 2021 at 01:57 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.19.7</h2>
+<h3>Changed</h3>
+<ul>
+<li>make <code>backtrace</code> an optional dependency, backported from 0.20 (@jmagnuson) #1387</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-v0.20.0">
+    <a href="v0.20.0/">
+      
+        v0.20.0 with Tokio 1.0 support
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Dec 29 2020 at 21:37 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.0</h2>
+<h3>Changed</h3>
+<ul>
+<li>(all) upgraded to Tokio 1.0 (@messense) #1330 (0.3 updates in #1262)</li>
+<li>(proto) Add serde support for the RecordType in the proto crate (@LEXUGE) #1319</li>
+<li>(https) dns_hostname args all are <code>Arc&lt;str&gt;</code> rather than <code>Arc&lt;String&gt;</code>, use <code>Arc::from</code></li>
+<li>(proto) Set TCP_NODELAY when building a TCP connection (@djc) #1249</li>
+<li>(all) <em>BREAKING</em> The <code>UdpSocket</code> trait has grown an associated <code>Time</code> type.</li>
+<li>(all) <em>BREAKING</em> The <code>Connect</code> trait has lost its
+<code>Transport</code> associated type, instead relying on the <code>Self</code> type.</li>
+<li>(all) <em>BREAKING</em> Introduced a new <code>DnsTcpStream</code> trait, which is now a
+bound for implementing the <code>Connect</code> trait.</li>
+<li>(resolver) <em>BREAKING</em> Move <code>CachingClient</code> from <code>lookup_state</code> to <code>caching_client</code> module</li>
+<li>(resolver) <em>BREAKING</em> Move <code>ResolverOpts::distrust_nx_responses</code> to <code>NameServerConfig::trust_nx_responses</code> (@djc) #1212</li>
+<li>(proto) <code>data-encoding</code> is now a required dependency #1208</li>
+<li>(all) minimum rustc version now <code>1.45</code></li>
+<li>(resolver) For all NxDomain and NoError/NoData responses, <code>ResolveErrorKind::NoRecordsFound</code> will be returned #1197</li>
+<li>(server) Support for lowercase DNSClass and RecordType fields in zonefiles (@zhanif3) #1186</li>
+<li>(resolver) Make EDNS optional for resolvers (@CtrlZvi) #1173</li>
+<li>(all) Fully support <em>ring</em> for all DNSSEC operations. #1145</li>
+<li>(all) No more <code>master</code> (branch, moved to <code>main</code>) slave, in honor of Juneteenth #1141</li>
+<li>(all) Minimize <code>futures</code> dependencies (@JohnTitor) #1109</li>
+<li>(proto) increases the UDP buffer size from 2048 to 4096 to allow larger payloads (@DevQps) #1096</li>
+<li>(resolver) use IntoName trait on synchronous resolver interface (@krisztian-kovacs) #1095</li>
+<li>(resolver) <em>BREAKING</em> removed async for <code>AsyncResolver::new</code> (@balboah) #1077 #1056</li>
+<li>(server) <em>BREAKING</em> removed <code>Runtime</code> from <code>ServerFuture::register_socket</code> (@LucioFranco) #1088 #1087</li>
+<li>(proto) <em>Breaking</em> Adjust the return value from <code>ResponseCode::high</code> from u16 to u8 #1202</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(client) Support reading the root hints file (@mattias-p) #1261</li>
+<li>(resolver) Fix Glue records resolving (@wavenator) #1188</li>
+<li>(resolver) Only fall back on TCP if cons are available (@lukaspustina) #1181</li>
+<li>(proto) fix empty option at end of edns (@jonasbb) #1143, #744</li>
+<li>(resolver) Return <code>REFUSED</code> instead of <code>NXDOMAIN</code> when server is not an authority (@AnIrishDuck) #1137</li>
+<li>(resolver) forwarder: return NXDomain on <code>e.is_nx_domain()</code> (@balboah) #1123</li>
+<li>(resolver) Regards NXDomain and NoError empty responses as errors (continues searching for records), #1086 #933</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(util) <em>new</em> Add resolve.rs as CLI for trust-dns-resolver #1208</li>
+<li>(proto) Added proper zone display to all RData as an impl of Display #1208</li>
+<li>(proto) <code>xfer::dns_response::NegativeType</code> and <code>DnsResponse::negative_type</code> to classify negative response type #1197</li>
+<li>(proto) <code>DnsResponse::contains_answer</code> to determine if a response message has data related to the query #1197</li>
+<li>(proto) <code>RecordType::is_soa</code> and <code>RecordType::is_ns</code> to easily check for these types #1197</li>
+<li>(proto) <code>Message::all_sections</code> to allow iteration over all <code>Records</code> in all sections in a Message #1197</li>
+<li>(proto) <code>Message::take_queries</code> to remove from a Message without requiring clone #1197</li>
+<li>(proto) <code>DnsHandle::Error</code> associated type to support generic errors across trust-dns libraries #1197</li>
+<li>(resolver) Add support for tlsa RRs in trust_dns_resolver (@smutt) #1189</li>
+<li>(resolver) Support pointer ending label compression (@jacoblin1994) #1182</li>
+<li>(proto) Keep OS error information on <code>io::Error</code> (@brunowonka) #1163</li>
+<li>(proto) Support mDNS cache-flush bit (@fluxxu) #1144</li>
+<li>(proto) Allow creating TXT Rdata with binary data (@bltavares) #1125</li>
+<li>(proto) Add mutable access to Message fields (@leshow) #1118</li>
+<li>(proto) Add Name.parse_ptr_name, to IP address (@Mygod) #1107</li>
+<li>(resolver) Allow HTTPS to be generic over Runtime (@balboah) #1077 #1074</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-0.19.6">
+    <a href="0.19.6/">
+      
+        0.19.6: Update resolv-conf to 0.7
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      0.19.6
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Nov 13 2020 at 18:53 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.19.6</h2>
+<h3>Fixed</h3>
+<ul>
+<li>bump resolv-conf from 0.6.0 to 0.7.0, fixes system resolv.conf parse issue (@wg) #1285</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.20.0-alpha.3">
+    <a href="v0.20.0-alpha.3/">
+      
+        0.20.0-alpha.3 (see previous alphas for full changelog)
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.0-alpha.3
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Oct 25 2020 at 03:09 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h3>Changed</h3>
+<ul>
+<li>(proto) Set TCP_NODELAY when building a TCP connection (@djc) #1249</li>
+<li>(all) <em>BREAKING</em> The <code>UdpSocket</code> trait has grown an associated <code>Time</code> type.</li>
+<li>(all) <em>BREAKING</em> The <code>Connect</code> trait has lost its
+<code>Transport</code> associated type, instead relying on the <code>Self</code> type.</li>
+<li>(all) <em>BREAKING</em> Introduced a new <code>DnsTcpStream</code> trait, which is now a
+bound for implementing the <code>Connect</code> trait.</li>
+<li>(resolver) <em>BREAKING</em> Move <code>CachingClient</code> from <code>lookup_state</code> to <code>caching_client</code> module</li>
+<li>(resolver) <em>BREAKING</em> Move <code>ResolverOpts::distrust_nx_responses</code> to <code>NameServerConfig::trust_nx_responses</code> (@djc) #1212</li>
+<li>(proto) <code>data-encoding</code> is now a required dependency #1208</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(client) Support reading the root hints file (@mattias-p) #1261</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(util) <em>new</em> Add resolve.rs as CLI for trust-dns-resolver #1208</li>
+<li>(proto) Added proper zone display to all RData as an impl of Display #1208</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.20.0-alpha.2">
+    <a href="v0.20.0-alpha.2/">
+      
+        v0.20.0-alpha.2
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.0-alpha.2
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Sep 16 2020 at 23:18 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.0 (unreleased) <em>see previous release notes for all 0.20.0 changes</em></h2>
+<h3>Changed</h3>
+<ul>
+<li>(all) minimum rustc version now <code>1.42</code></li>
+<li>(resolver) For all NxDomain and NoError/NoData responses, <code>ResolveErrorKind::NoRecordsFound</code> will be returned #1197</li>
+<li>(proto) <em>Breaking</em> Adjust the return value from <code>ResponseCode::high</code> from u16 to u8 #1202</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(proto) <code>xfer::dns_response::NegativeType</code> and <code>DnsResponse::negative_type</code> to classify negative response type #1197</li>
+<li>(proto) <code>DnsResponse::contains_answer</code> to determine if a response message has data related to the query #1197</li>
+<li>(proto) <code>RecordType::is_soa</code> and <code>RecordType::is_ns</code> to easily check for these types #1197</li>
+<li>(proto) <code>Message::all_sections</code> to allow iteration over all <code>Records</code> in all sections in a Message #1197</li>
+<li>(proto) <code>Message::take_queries</code> to remove from a Message without requiring clone #1197</li>
+<li>(proto) <code>DnsHandle::Error</code> associated type to support generic errors across trust-dns libraries #1197</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release pre-release hidden">
+  <h2 id="tag-v0.20.0-alpha.1">
+    <a href="v0.20.0-alpha.1/">
+      
+        0.20.0-alpha.1
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.20.0-alpha.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Aug 17 2020 at 01:00 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.20.0 (unreleased)</h2>
+<h3>Changed</h3>
+<ul>
+<li>(server) Support for lowercase DNSClass and RecordType fields in zonefiles (@zhanif3) #1186</li>
+<li>(resolver) Make EDNS optional for resolvers (@CtrlZvi) #1173</li>
+<li>(all) Fully support <em>ring</em> for all DNSSEC operations. #1145</li>
+<li>(all) No more <code>master</code> (branch, moved to <code>main</code>) slave, in honor of Juneteenth #1141</li>
+<li>(all) Minimize <code>futures</code> dependencies (@JohnTitor) #1109</li>
+<li>(proto) increases the UDP buffer size from 2048 to 4096 to allow larger payloads (@DevQps) #1096</li>
+<li>(resolver) use IntoName trait on synchronous resolver interface (@krisztian-kovacs) #1095</li>
+<li>(resolver) <em>BREAKING</em> removed async for <code>AsyncResolver::new</code> (@balboah) #1077 #1056</li>
+<li>(server) <em>BREAKING</em> removed <code>Runtime</code> from <code>ServerFuture::register_socket</code> (@LucioFranco) #1088 #1087</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(resolver) Fix Glue records resolving (@wavenator) #1188</li>
+<li>(resolver) Only fall back on TCP if cons are available (@lukaspustina) #1181</li>
+<li>(proto) fix empty option at end of edns (@jonasbb) #1143, #744</li>
+<li>(resolver) Return <code>REFUSED</code> instead of <code>NXDOMAIN</code> when server is not an authority (@AnIrishDuck) #1137</li>
+<li>(resolver) forwarder: return NXDomain on <code>e.is_nx_domain()</code> (@balboah) #1123</li>
+<li>(resolver) Regards NXDomain and NoError empty responses as errors (continues searching for records), #1086 #933</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolver) Add support for tlsa RRs in trust_dns_resolver (@smutt) #1189</li>
+<li>(resolver) Support pointer ending label compression (@jacoblin1994) #1182</li>
+<li>(proto) Keep OS error information on <code>io::Error</code> (@brunowonka) #1163</li>
+<li>(proto) Support mDNS cache-flush bit (@fluxxu) #1144</li>
+<li>(proto) Allow creating TXT Rdata with binary data (@bltavares) #1125</li>
+<li>(proto) Add mutable access to Message fields (@leshow) #1118</li>
+<li>(proto) Add Name.parse_ptr_name, to IP address (@Mygod) #1107</li>
+<li>(resolver) Allow HTTPS to be generic over Runtime (@balboah) #1077 #1074</li>
+</ul>
+
+  </div>
+</section>
+        
+          
+          <section class="release ">
+  <h2 id="tag-0.19.5">
+    <a href="0.19.5/">
+      
+        Update rusqlite
+      
+    </a>
+  </h2>
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      0.19.5
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Apr 28 2020 at 15:01 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.19.5</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(server) updated rusqlite to 0.23.1 #1082</li>
+</ul>
+
+  </div>
+</section>
+        
+      </div>
+    </div>
+  </div>
+
+        </main>
+      </div>
+
+      <footer>
+        
+          <a href="https://github.com/hickory-dns/hickory-dns"><div class="github-icon" aria-hidden="true"></div></a>
+        
+        <span>
+          Hickory DNS, MIT OR Apache-2.0
+        </span>
+      </footer>
+    </div>
+
+    
+    
+
+    
+  <script src="/artifacts.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" id="oranda" class="hacker">
+  <head>
+    <title>Hickory DNS</title>
+    
+    
+      <link rel="icon" href="/favicon.ico" />
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hickory DNS" />
+    
+    
+    
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="stylesheet" href="/oranda-v0.6.1.css" />
+    
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-body">
+        
+          <div class="repo_banner">
+            <a href="https://github.com/hickory-dns/hickory-dns">
+              <div class="github-icon" aria-hidden="true"></div>
+              Check out our GitHub!
+            </a>
+          </div>
+        
+
+        <main>
+          <header>
+            
+              <img src="/logo.png" alt="Hickory DNS" class="logo" />
+            
+            <h1 class="title">Hickory DNS</h1>
+            
+  <nav class="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      
+
+      
+
+      
+        <li><a href="/book/">Docs</a></li>
+      
+
+      
+
+      
+        <li><a href="/changelog/">Changelog</a></li>
+      
+    </ul>
+  </nav>
+
+          </header>
+
+          
+  <div>
+    <h1>v0.22.0 -- Experimental Recursor and the Dns CLI</h1>
+    <div class="releases-body">
+      
+      
+      <section class="release ">
+  
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.22.0
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Sep  2 2022 at 14:40 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.22.0</h2>
+<h3>Removed</h3>
+<ul>
+<li>(deps) don't pull in env_logger if we aren't actually a binary #1701 by @Noah-Kennedy</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(resolver) Add option to use a provided name server order #1766 by @nhurley3</li>
+<li>(proto) Add invalid utf8 output test for TXT::fmt. #1755 by @darnuria</li>
+<li>(proto) Support 0-RTT in DNS over QUIC #1716 by @msoxzw</li>
+<li>(recursor) <em>new</em> A Trust DNS based Recursor!!! #1710 by @bluejekyll</li>
+<li>(resolver) Allow customizing the static hosts configuration #1705 by @fantix</li>
+<li>(proto/server) Support loading pkcs#1 private key as well #1704 by @lisongmin</li>
+<li>(util) Trust <code>dns</code> client cli (like <code>dig</code>) #1680 by @bluejekyll</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Only retry UDP socket bind if it returned EADDRINUSE #1761 by @peterthejohnston</li>
+<li>(all) Add necessary conditional compilation cfgs #1752 by @trevor-crypto</li>
+<li>(server) Populate name_pointers correctly via MessageResponseBuilder request #1744 by @jeff-hiner</li>
+<li>(resolver) Do not fail parse_resolv_conf on invalid hostname #1740 by @schultetwin1</li>
+<li>(all) doc: Fix warnings reported by cargo doc #1737 by @wiktor-k</li>
+<li>(proto) Use <code>u16::*_be_bytes</code> represent length field (fixes DoQ) #1715 by @msoxzw</li>
+<li>(proto) Prevent invalid 0-length labels via from_raw_bytes #1700 by @jonasbb</li>
+<li>(proto/server) Drop UDP packets on send failure #1696 by @jeff-hiner</li>
+<li>(all) removed <code>.max(0)</code>, unnecessary with <code>u32</code>'s #1691 by @bluejekyll</li>
+<li>(server) sanitize all addresses received by the server before attempting any r… #1690 by @bluejekyll</li>
+<li>(server) Remove forced (unecessary) Mutex from handler #1679 by @jeff-hiner</li>
+<li>(proto) Fix <code>SvcParamKey::Unknown</code> parsing #1678 by @jeff-hiner</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(all) Minimum Rust Version now 1.59 #1771 by @bluejekyll</li>
+<li>(client) Parser panic to result #1758 by @darnuria</li>
+<li>(client) Avoid 3 unwrap() call inc Parser::flush_record. #1757 by @darnuria</li>
+<li>(client) Cleanup lex #1756 by @darnuria</li>
+<li>(resovler) Make maximum request depth configurable #1749 by @wiktor-k</li>
+<li>(server) Clean up ForwardAuthority api #1748 by @chotchki</li>
+<li>(resolver) Relax mut requirements for resolver.clear_cache() and add cache flushing example #1747 by @dns2utf8</li>
+<li>(resolver) Lookup access Records list directly #1746 by @izissise</li>
+<li>(proto) Pass DnsRequestOptions to DNSSEC validating routines #1742 by @wiktor-k</li>
+<li>(proto) Increase the maximum request depth to 26 #1736 by @wiktor-k</li>
+<li>(server) Mark ForwardLookup as public #1729 by @chotchki</li>
+<li>(all) upgrade windows openssl version to 1_1_1p #1728 by @bluejekyll</li>
+<li>(all) Converted to <code>tracing</code> from <code>log</code> #1706 by @erikh and @bluejekyll</li>
+<li>(server) Move logger setup code into binary #1703 by @djc</li>
+<li>(proto) ignore errors when disconnected #1695 by @edevil</li>
+<li>(server) RequestInfo derives Clone trait. #1693 by @humb1t</li>
+<li>(proto/server) make doq transport settings more consistent with RFC #1682 by @bluejekyll</li>
+<li>(all) Included githubactions in the dependabot config #1681 by @naveensrinivasan</li>
+<li>(proto) deprecated <code>edns</code> methods on request and replaced with <code>extensions</code> and better scemantics #1675 by @leshow</li>
+</ul>
+
+  </div>
+</section>
+    </div>
+  </div>
+
+        </main>
+      </div>
+
+      <footer>
+        
+          <a href="https://github.com/hickory-dns/hickory-dns"><div class="github-icon" aria-hidden="true"></div></a>
+        
+        <span>
+          Hickory DNS, MIT OR Apache-2.0
+        </span>
+      </footer>
+    </div>
+
+    
+    
+
+    
+  </body>
+</html>
