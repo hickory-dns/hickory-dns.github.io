@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://hickory-dns.org/</loc>
+        <loc>https://hickory-dns.github.io/hickory-docs/</loc>
     </url>
     <url>
-        <loc>https://hickory-dns.org/about/</loc>
+        <loc>https://hickory-dns.github.io/hickory-docs/about/</loc>
     </url>
     <url>
-        <loc>https://hickory-dns.org/manual/</loc>
+        <loc>https://hickory-dns.github.io/hickory-docs/manual/</loc>
     </url>
 </urlset>
