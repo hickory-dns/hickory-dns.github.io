@@ -1,0 +1,3 @@
+[submodule "hickory-dns"]
+	path = hickory-dns
+	url = git@github.com:hickory-dns/hickory-dns.git

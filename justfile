@@ -1,5 +1,4 @@
 export MDBOOK_BIN := "mdbook"
-export ZOLA_BIN := "zola"
 export CURRENT_BRANCH := `git branch --show-current`
 export TMP_GH_PAGES_SITE := "/tmp/publishing-site"
 
@@ -9,6 +8,7 @@ init:
     brew --version
     # zola --version || brew install zola
     mdbook --version || cargo install -f mdbook
+    mdbook-mermaid --version || cargo install -f mdbook-mermaid
     oranda --version || cargo install -f oranda --locked --profile=dist
     @echo current git branch: ${CURRENT_BRANCH}
 
@@ -16,16 +16,11 @@ clean:
     @echo "====> cleaning build directories"
     rm -rf public
 
-book: init
-    @echo "====> building the book"
-    ${MDBOOK_BIN} build
+oranda: clean
+    @echo "====> building oranda site"
+    oranda build
 
-zola: init
-    @echo "====> building the zola site"
-    ${ZOLA_BIN} build
-    cp .nojekyll public/.nojekyll
-
-build: book
+build: oranda
 
 gh-pages:
     @echo "====> checking for gh-pages branch"
@@ -40,7 +35,7 @@ clean_worktree:
     rm -rf ${TMP_GH_PAGES_SITE}
     git worktree prune
 
-deploy: gh-pages clean build
+deploy: gh-pages clean oranda
     @echo "====> deploying to github"
     @git --version
     git worktree add ${TMP_GH_PAGES_SITE} gh-pages

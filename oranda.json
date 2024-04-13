@@ -1,0 +1,13 @@
+{
+    "styles": {
+      "theme": "hacker",
+      "favicon": "static/favicon.ico",
+          "logo": "static/logo.png"
+    },
+    "project": {
+      "name": "Hickory DNS",
+      "readme_path": "hickory-dns/README.md",
+      "repository": "https://github.com/hickory-dns/hickory-dns",
+      "license": "MIT OR Apache-2.0"
+    }
+  }
