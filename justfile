@@ -22,6 +22,7 @@ book: init
 zola: init
     @echo "====> building the zola site"
     ${ZOLA_BIN} build
+    cp .nojekyll public/.nojekyll
 
 build: zola book
 
@@ -43,7 +44,7 @@ deploy: gh-pages clean build
     @git --version
     git worktree add ${TMP_GH_PAGES_SITE} gh-pages
     rm -rf ${TMP_GH_PAGES_SITE}/*
-    cp -rp book/* ${TMP_GH_PAGES_SITE}/
+    cp -rp public/* ${TMP_GH_PAGES_SITE}/
     cd ${TMP_GH_PAGES_SITE} && \
         git add -A && \
         git diff --staged --quiet || \

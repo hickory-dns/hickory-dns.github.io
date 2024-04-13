@@ -17,12 +17,9 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 juice_logo_name = "Hickory DNS"
-juice_logo_path = "juice.svg"
+juice_logo_path = "logo.png"
 juice_extra_menu = [
-    { title = "Github", link = "https://github.com/hickory-dns/hickory-dns"}
+    { title = "Github", link = "https://github.com/hickory-dns/hickory-dns" },
 ]
-juice_exclude_menu = [
-    "exclude_from_nav"
-]
+juice_exclude_menu = ["exclude_from_nav"]
 repository_url = "https://github.com/hickory-dns/hickory-docs"
-
