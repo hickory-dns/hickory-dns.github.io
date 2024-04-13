@@ -7,8 +7,9 @@ init:
     @echo "====> initializing and checking dependencies"
     rustup --version
     brew --version
-    zola --version || brew install zola
+    # zola --version || brew install zola
     mdbook --version || cargo install -f mdbook
+    oranda --version || cargo install -f oranda --locked --profile=dist
     @echo current git branch: ${CURRENT_BRANCH}
 
 clean:
@@ -24,7 +25,7 @@ zola: init
     ${ZOLA_BIN} build
     cp .nojekyll public/.nojekyll
 
-build: zola book
+build: book
 
 gh-pages:
     @echo "====> checking for gh-pages branch"
