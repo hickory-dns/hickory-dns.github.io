@@ -12,7 +12,7 @@ init:
     oranda --version || cargo install -f oranda --locked --profile=dist
     @echo current git branch: ${CURRENT_BRANCH}
 
-clean:
+clean: clean_worktree
     @echo "====> cleaning build directories"
     rm -rf public
 
