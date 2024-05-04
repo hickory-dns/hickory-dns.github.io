@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hickory DNS Changelog</title><link>http://127.0.0.1:7979/changelog</link><description>Changelog information for Hickory DNS</description><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><atom:link href="http://127.0.0.1:7979/changelog.rss" rel="self"/><item><title>Update docs.rs and generated docs to reference Hickory</title><link>http://127.0.0.1:7979/changelog/v0.23.2</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.23.2</guid><content:encoded><![CDATA[<h2>0.23.2</h2>
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hickory DNS Changelog</title><link>http://127.0.0.1:7979/changelog</link><description>Changelog information for Hickory DNS</description><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><atom:link href="http://127.0.0.1:7979/changelog.rss" rel="self"/><item><title></title><link>http://127.0.0.1:7979/changelog/v0.24.1</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.24.1</guid><content:encoded><![CDATA[<h1>0.24.1</h1>
+<h2>Fixed</h2>
+<p>Break when socket is unexpectedly shut down #2171 by dlon</p>
+]]></content:encoded></item><item><title>Update docs.rs and generated docs to reference Hickory</title><link>http://127.0.0.1:7979/changelog/v0.23.2</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.23.2</guid><content:encoded><![CDATA[<h2>0.23.2</h2>
 <h3>Changed</h3>
 <ul>
 <li>(all) Added Hickory DNS notice to all library root docs</li>
@@ -809,10 +812,5 @@ bound for implementing the <code>Connect</code> trait.</li>
 <li>(proto) Add mutable access to Message fields (@leshow) #1118</li>
 <li>(proto) Add Name.parse_ptr_name, to IP address (@Mygod) #1107</li>
 <li>(resolver) Allow HTTPS to be generic over Runtime (@balboah) #1077 #1074</li>
-</ul>
-]]></content:encoded></item><item><title>Update rusqlite</title><link>http://127.0.0.1:7979/changelog/0.19.5</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/0.19.5</guid><content:encoded><![CDATA[<h2>0.19.5</h2>
-<h3>Fixed</h3>
-<ul>
-<li>(server) updated rusqlite to 0.23.1 #1082</li>
 </ul>
 ]]></content:encoded></item></channel></rss>
