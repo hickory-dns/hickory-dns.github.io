@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Utilities</li><li class="chapter-item expanded "><a href="util/dns.html"><strong aria-hidden="true">1.</strong> dns</a></li><li class="chapter-item expanded "><a href="util/resolve.html"><strong aria-hidden="true">2.</strong> resolve</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -151,6 +151,90 @@
 <p>In some cases the best source of information about how to use the project is in the source repository, <a href="https://github.com/hickory-dns/hickory-dns">Hickory DNS</a>.</p>
 <p>Contributions to this book will always be welcome, <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book">Hickory Docs</a>.</p>
 <p>Thank you to the <a href="https://www.rust-lang.org">Rust</a> community for making this project possible.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dns"><a class="header" href="#dns">dns</a></h1>
+<p><code>dns</code> is a command line interface for performing low level DNS operations directly against a specific nameserver. It can be used for performing queries, notifications, and dynamic updates of records (create, append, delete, etc). It returns results in a similar manner to <code>dig</code>, using the RFC defined presentation format for the output. This is not intended to be compatible with <code>dig</code>, but is intended to be a simpler tool for performing any DNS operation needed.</p>
+<p>The <code>dns</code> tool exposes the library functionality of Hickory DNS. It is meant generally to help with debugging zone or nameserver configurations. All of the commands supported are available with <code>dns -h</code>, here is a list:</p>
+<pre><code class="language-text">Commands:
+  query          Query a name server for the record of the given type
+  notify         Notify a nameserver that a record has been updated
+  create         Create a new record in the target zone
+  append         Append record data to a record set
+  delete-record  Delete a single record from a zone, the data must match the record
+  help           Print this message or the help of the given subcommand(s)
+</code></pre>
+<p>Since the CLI is a direct implementation of Hickory DNS, it has support for all of the protocols that Hickory does, specifically: udp, tcp, tls, https, quic, h3. For the TLS based protocols, tls, https, quic, and h3, the <code>tls-dns-name</code> option is required for the TLS protocol. This is generally available in public documentation for various DNS services.</p>
+<h2 id="querying"><a class="header" href="#querying">querying</a></h2>
+<p>Here is a query example to Google's nameservers for the <code>google.com</code> <code>SOA</code> record:</p>
+<pre><code class="language-shell">&gt; dns -n 8.8.8.8:53 query google.com SOA
+; using udp:8.8.8.8:53
+; sending query: google.com IN SOA
+; received response
+; header 21285:RESPONSE:RD,RA:NoError:QUERY:1/0/1
+; edns version: 0 dnssec_ok: false max_payload: 512 opts: 0
+; query
+;; google.com. IN SOA
+; answers 1
+google.com. 60 IN SOA ns1.google.com. dns-admin.google.com. 667287868 900 900 1800 60
+; nameservers 0
+; additionals 1
+</code></pre>
+<p>The output is hopefully self-explanatory, but here is a line by line explanation:</p>
+<ul>
+<li><code>; using udp:8.8.8.8:53</code> - tells us which DNS server is being queried</li>
+<li><code>; sending query: google.com IN SOA</code> - shows us the query that was sent.</li>
+<li><code>; received response</code> - tells us that we got a DNS response packet (as opposed to something else that would be unexpected)</li>
+<li><code>; header 21285:RESPONSE:RD,RA:NoError:QUERY:1/0/1</code> - this is the DNS header in the response, respectively, the message id, message type, request flags, response code, operation code, and number of records in each section (answers/nameservers/additionals)</li>
+<li><code>; edns version: 0 dnssec_ok: false max_payload: 512 opts: 0</code> - optionally, if the server supports extended DNS, these are the edns parameters</li>
+<li><code>; query</code> - header for the query section</li>
+<li><code>;; google.com. IN SOA</code> - exact query that was sent</li>
+<li><code>; answers 1</code> - count of answers recieved</li>
+<li><code>google.com. 60 IN SOA ns1.google.com. dns-admin.google.com. 667287868 900 900 1800 60</code> - the SOA record for <code>google.com.</code></li>
+<li><code>; nameservers 0</code> - count of the nameservers (or authorities) in the response</li>
+<li><code>; additionals 1</code> - the additional section count (this is 1 for the EDNS record which has no presentation format but was expanded above)</li>
+</ul>
+<p>As a counter example of an unsuccessful query for a <code>TXT</code> record named <code>doesnotexist.google.com</code>:</p>
+<pre><code class="language-shell">&gt; dns -n 8.8.8.8:53 query doesnotexist.google.com TXT
+; using udp:8.8.8.8:53
+; sending query: doesnotexist.google.com IN TXT
+; received response
+; header 53338:RESPONSE:RD,RA:NXDomain:QUERY:0/1/1
+; edns version: 0 dnssec_ok: false max_payload: 512 opts: 0
+; query
+;; doesnotexist.google.com. IN TXT
+; answers 0
+; nameservers 1
+google.com. 60 IN SOA ns1.google.com. dns-admin.google.com. 667090956 900 900 1800 60
+; additionals 1
+</code></pre>
+<p>Notice the <code>NXDomain</code> in the header saying tha the record does not exist, nor does any of another type. Additionally there is a single nameserver in the response that tells us the SOA.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p><code>dns</code> is a low level command for interacting with name servers. Consider the <code>resolve</code> command for a simple to use stub resolver.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resolve"><a class="header" href="#resolve">resolve</a></h1>
+<p><code>resolve</code> is a command line utility that exposes the functionality of the Hickory DNS stub-resolver library, <code>hickory-resolver</code>. The  <code>resolve</code> command is similar in function to <code>host</code>. It can be useful for getting the IP addresses of particular domain names, or seeing the <code>CNAME</code> chain of a record. It will return the results in the record's presentation format. Like the <code>hickory-resolver</code> library, <code>CNAME</code> chains and other lookups that require a small amount of recursion can be performed.</p>
+<p>A stub-resolver does not perform recursive resolutions. It expects the upstream resolver used to perform all necessary recursive looks to traverse the DNS zone registry for necessary information. In other words, the stub-resolver will only every contact the configured nameserver for results.</p>
+<p>The <code>resolve</code> command currently only supports the udp and tcp protocols, though the Hickory Resolver supports others. Please file a feature request for additional protocol support if desired (such as tls, https, h3, or quic).</p>
+<h2 id="example-get-aaaa-record"><a class="header" href="#example-get-aaaa-record">Example, get AAAA record</a></h2>
+<p>This will get the final AAAA record and all <code>CNAME</code> intermediates for <code>www.un.org</code>, which can sometimes be an easy way of discovering hosting providers:</p>
+<pre><code class="language-shell">Querying for www.un.org AAAA from udp:8.8.8.8:53, tcp:8.8.8.8:53, udp:8.8.4.4:53, tcp:8.8.4.4:53, udp:[2001:4860:4860::8888]:53, tcp:[2001:4860:4860::8888]:53, udp:[2001:4860:4860::8844]:53, tcp:[2001:4860:4860::8844]:53
+Success for query www.un.org IN AAAA
+        www.un.org. 1646 IN CNAME d1z8tokz9k79tw.cloudfront.net.
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:2a00:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:b200:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:f000:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:fc00:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:2000:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:b400:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:ac00:14:176d:6100:93a1
+        d1z8tokz9k79tw.cloudfront.net. 60 IN AAAA 2600:9000:25ef:2800:14:176d:6100:93a1
+</code></pre>
+<p>Line by line explanation of output:</p>
+<ul>
+<li><code>Querying for www.un.org AAAA from ...</code> - tells us the exact query being sent to the upstream resolvers, and is followed by the list of resolvers to try</li>
+<li><code>Success for query www.un.org IN AAAA</code> - tells us the query the server responded with (this should match the original), and that it was successful</li>
+<li>Then the records returned from the query are returned, this starts with any intermediates in order, and then the final record requested</li>
+</ul>
+<h2 id="conclusion-1"><a class="header" href="#conclusion-1">Conclusion</a></h2>
+<p>The <code>resolve</code> command is good for understanding how the Hickory Resolver performs lookups. It can be useful as a CLI to easily verify how the <code>hickory-resolver</code> library will work when that is embedded in a program and hard to change behavior of.</p>
 
                     </main>
 

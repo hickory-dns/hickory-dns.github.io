@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hickory DNS Changelog</title><link>http://127.0.0.1:7979/changelog</link><description>Changelog information for Hickory DNS</description><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><atom:link href="http://127.0.0.1:7979/changelog.rss" rel="self"/><item><title></title><link>http://127.0.0.1:7979/changelog/v0.24.1</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.24.1</guid><content:encoded><![CDATA[<h1>0.24.1</h1>
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hickory DNS Changelog</title><link>http://127.0.0.1:7979/changelog</link><description>Changelog information for Hickory DNS</description><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><atom:link href="http://127.0.0.1:7979/changelog.rss" rel="self"/><item><title>v0.25.0-alpha.2</title><link>http://127.0.0.1:7979/changelog/v0.25.0-alpha.2</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.25.0-alpha.2</guid><content:encoded><![CDATA[<h2>0.25.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(build) Suppress implicit features from optional dependencies #2337 by djc</li>
+<li>(recursor) Fix SOA referrals #2331 by marcus0x62</li>
+<li>(all) Update OpenSSL to fix security issue #2316 by justahero</li>
+<li>(recursor) fix DNSSEC validation of NS somedomain.com. #2300 by japaric</li>
+<li>(recursor) DnssecDnsHandle: do not recurse infinitely when query DS . fails #2271 by japaric</li>
+<li>(recursor) answer with SERVFAIL when DNSSEC validation fails #2286 by japaric</li>
+<li>(tests) Assert status for every NSEC3 test #2254 by pvdrz</li>
+<li>(tests) dns-test: make unit tests use the checked out version of this repo #2268 by japaric</li>
+<li>(tests) just: warn when the index is dirty and DNS_TEST_SUBJECT=hickory #2267 by japaric</li>
+<li>(recursor) strip dnssec records on cache hit #2245 by japaric</li>
+<li>(build) make just to compile bind #2248 by sabify</li>
+<li>(recursor) send DS queries to the parent zone #2203 by japaric</li>
+<li>(docs) add RFC2931 SIG(0) as supported #2216 by bluejekyll</li>
+<li>(recursor) respect DO bit in incoming queries #2196 by japaric</li>
+<li>(docs) doc: fix misc typos in md files #2198 by divagant-martian</li>
+<li>(test) update ip of example.com #2187 by situ2001</li>
+<li>(all) Update mio to 0.8.11 to fix RUSTSEC-2024-0019 #2166 by marcus0x62</li>
+<li>(proto) Fix formatting issue in crates/proto/src/op/message.rs #2165 by marcus0x62</li>
+<li>(proto) fix internal representation of OPT #2151 by esensar</li>
+<li>(proto) ECH service parameter key corrected from  "echconfig" to "ech" #2183 by cpu</li>
+<li>(proto) SVCB/HTTPS record parsing fixes (quoted values, arbitrary numeric keys, lists containing delim) #2183 by cpu</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(resolver) only retry I/O errors over TCP #2336 by lrouquette</li>
+<li>(proto) Simplify TBS construction API #2335 by djc</li>
+<li>(recursor) take is_subzone() arguments as &amp;Name #2334 by djc</li>
+<li>(proto) Use SerialNumber type for signature timestamps #2318 by justahero</li>
+<li>(recursor) Improve recursor logic by eliminating redundant NS requests and adding recursor support for NS referrals. #2325 by marcus0x62</li>
+<li>(resolver) Return error when no nameservers in resolv.conf #2327 by dav1do</li>
+<li>(resolver) Make QuicSocketBinder as public as RuntimeProvider #2328 by mokeyish</li>
+<li>(resolver) Make sure Lookup futures are Sync #2326 by djc</li>
+<li>(server) leave query/opt in truncated msg #2307 by leshow</li>
+<li>(tests) justfile: use --locked to stick with Cargo.lock dependencies #2323 by djc</li>
+<li>(proto) Allow to modify a RRSIG record before signing #2315 by justahero</li>
+<li>(all) Bump MSRV to 1.70 #2322 by djc</li>
+<li>(recursor) Adjust TTL of RRSIG + RR during validation #2311 by justahero</li>
+<li>(resolver) avoid moving self in read_hosts_conf（reading from multiple files）#2314 by mokeyish</li>
+<li>(tests) dns-test: cache target directory across docker build invocations #2305 by japaric</li>
+<li>(server) empty the answer section when DNSSEC validation fails #2304 by japaric</li>
+<li>(tests) Adjust timestamps to pass unbound validation result #2303 by justahero</li>
+<li>(recursor) validating recursor: return answer from cache #2297 by japaric</li>
+<li>(proto) DnssecDnsHandle: also update the RRSIG's proof #2293 by japaric</li>
+<li>(recursor) put tokio::test behind cfg attribute #2291 by japaric</li>
+<li>(resolver) Refactor start method in Resolver #2281 by justahero</li>
+<li>(server) improved server binary, added config validation and control over protocols #2247 by sabify</li>
+<li>(tests) dns-test: use non-deprecated algorithm (RSASHA256) #2258 by japaric</li>
+<li>(recursor) Recursor::resolve: reject queries with relative domain names #2246</li>
+<li>(tests) CI: also run hickory unit tests when only /conformance changes #2269 by japaric</li>
+<li>(all) Upgrade to rustls 0.23, quinn 0.11, etc #2217 by djc</li>
+<li>(proto) DnssecDnsHandle: check RRSIG validity as per RFC4035 #2213 by japaric</li>
+<li>(proto) NextRandomUdpSocket: fall back to port 0 if no port was found #2260 by Luap99</li>
+<li>(tests) dns-test: do not run docker network create in parallel #2265 by japaric</li>
+<li>(resolver) DnsLru: cache RRSIG records together with the record they cover #2239 by japaric</li>
+<li>(proto) dns-test: make NameServer's FQDN more stable #2235 by japaric</li>
+<li>(proto) refactor the Resource data structure #2231 by japaric</li>
+<li>(tests) Add just recipes to clean leftover containers and networks #2232 by pvdrz</li>
+<li>(tests) ci: pin nightly version #2224 by japaric</li>
+<li>(server) cargo: Enable LTO on release build #2141 by jpds</li>
+<li>(resolver) Retry tcp on udp io errors #2215 by bluejekyll</li>
+<li>(recursor) tweaks for security awareness #2208 by djc</li>
+<li>(all) address new clippy lint assigning-clones #2205 by divagant-martian</li>
+<li>(proto) error: wrap io::Error in Arc for clone #2181 by cpu</li>
+<li>(resolver) err for dns-over-rustls w/o roots #2179 by cpu</li>
+<li>(resolver) Forward hickory-dns's root cert features to hickory-resolver #2153 by hch12907</li>
+<li>(proto) Better DNSSEC proofs #2084 by bluejekyll</li>
+<li>(proto) update version for http/h2/h3 #2138 by zh-jq</li>
+<li>(server) Use cargo environment variables for path to executable #2130 by sjbronner</li>
+<li>(proto) Only DNSKEY zone keys are allowed to match DS RR #2131 by justahero</li>
+<li>(docs) Fix a typo in crate description #2132 by wiktor-k</li>
+<li>(all) Gate tests on required features #2114 by alexanderkjall</li>
+<li>(resolver) Fixup lookup docs #2123 by bluejekyll</li>
+<li>(proto) when comparing IP addresses for UDP, only check IP and Port #2124 by bluejekyll</li>
+<li>(recursor) Recursor: make nameserver and record cache sizes configurable #2117 by marcus0x62</li>
+<li>(proto) Validate response query section #2118 by marcus0x62</li>
+<li>(proto) Increase source port entropy in UDP client #2116 by marcus0x62</li>
+<li>(all) get(0) to first() and zerocopy package updates to fix clippy and cargo audit errors #2121 by marcus0x62</li>
+<li>(resolver) Add getters for resolver config and options #2093 by hoxxep</li>
+<li>(client) updated h2_client_connection and web-pki-roots config #2088 by marcbrevoort-cyberhive</li>
+<li>(proto) EchConfig renamed to EchConfigList to match content #2183 by cpu</li>
+<li>(proto) EchConfigList updated to wrap TLS presentation language encoding of content #2183 by cpu</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(tests) Add information on cargo ws plugin #2319 by justahero</li>
+<li>(recursor) Add support for PTR query #2308 by mokeyish</li>
+<li>(tests) add regression test for #2306, #2309 by japaric</li>
+<li>(tests) Add method to capture expected number of packets #2278 by justahero</li>
+<li>(tests) test that answer section is empty on failed DNSSEC validation #2302 by japaric</li>
+<li>(tests) Test invalid signature timestamps in DNSSEC validation #2298 by justahero</li>
+<li>(tests) test caching of chain of trust link #2289 by japaric</li>
+<li>(tests) test that DO=1 does not change the outcome of DNSSEC validation #2287 by japaric</li>
+<li>(tests) Add test to check cache hit with DO bit #2280 by justahero</li>
+<li>(tests) test caching of DNSSEC validation and of DNSSEC records #2244 by japaric</li>
+<li>(recursor) add DNSSEC validation to the recursive resolver #2253</li>
+<li>(proto) add a trust anchor file parser #2257 by japaric</li>
+<li>(tests) just: document conformance-* tasks #2266 by japaric</li>
+<li>(tests) Add conformance tests for NSEC3 #2238 by pvdrz</li>
+<li>(tests) import DNSSEC conformance test suite repository #2222 by japaric</li>
+<li>(client) Adds deref call in assertion for hickory-client README example #2173 by akappel</li>
+<li>(proto) Make hickory_proto::h3::H3ClientStream Clonable #2182 by 0xffffharry</li>
+<li>(proto) Make hickory_proto::quic::QuicClientStream Clonable #2176 by 0xffffharry</li>
+<li>(proto) feat: add setter methods for Message struct to improve configurability #2147 by situ2001</li>
+<li>(proto) add getter/setter methods to ClientSubnet #2146 by leshow</li>
+<li>(server) Add option to specify a restricted set of networks capable of accessing the Hickory DNS server #2126 by bluejekyll</li>
+<li>(recursor) Bailiwick checking for the recursor #2119 by marcus0x62</li>
+<li>(proto) Support getting and setting the EDNS Z flags #2111 by mattias-p</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) Remove broken mtls code to fix CI #2218 by djc</li>
+<li>(proto) Remove generic Error from DnsHandle #2094 by bluejekyll</li>
+</ul>
+<h2>0.24.1</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(proto) Break when socket is unexpectedly shut down #2171 by dlon</li>
+</ul>
+]]></content:encoded></item><item><title>v0.25.0-alpha.1</title><link>http://127.0.0.1:7979/changelog/v0.25.0-alpha.1</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.25.0-alpha.1</guid><content:encoded><![CDATA[<h2>0.25.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(recursor) send DS queries to the parent zone #2203 by japaric</li>
+<li>(docs) add RFC2931 SIG(0) as supported #2216 by bluejekyll</li>
+<li>(recursor) respect DO bit in incoming queries #2196 by japaric</li>
+<li>(docs) doc: fix misc typos in md files #2198 by divagant-martian</li>
+<li>(test) update ip of example.com #2187 by situ2001</li>
+<li>(all) Update mio to 0.8.11 to fix RUSTSEC-2024-0019 #2166 by marcus0x62</li>
+<li>(proto) Fix formatting issue in crates/proto/src/op/message.rs #2165 by marcus0x62</li>
+<li>(proto) fix internal representation of OPT #2151 by esensar</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(proto) dns-test: make NameServer's FQDN more stable #2235 by japaric</li>
+<li>(proto) refactor the Resource data structure #2231 by japaric</li>
+<li>(tests) Add just recipes to clean leftover containers and networks #2232 by pvdrz</li>
+<li>(tests) ci: pin nightly version #2224 by japaric</li>
+<li>(server) cargo: Enable LTO on release build #2141 by jpds</li>
+<li>(resolver) Retry tcp on udp io errors #2215 by bluejekyll</li>
+<li>(recursor) tweaks for security awareness #2208 by djc</li>
+<li>(all) address new clippy lint assigning-clones #2205 by divagant-martian</li>
+<li>(proto) error: wrap io::Error in Arc for clone #2181 by cpu</li>
+<li>(resolver) err for dns-over-rustls w/o roots #2179 by cpu</li>
+<li>(resolver) Forward hickory-dns's root cert features to hickory-resolver #2153 by hch12907</li>
+<li>(proto) Better DNSSEC proofs #2084 by bluejekyll</li>
+<li>(proto) update version for http/h2/h3 #2138 by zh-jq</li>
+<li>(server) Use cargo environment variables for path to executable #2130 by sjbronner</li>
+<li>(proto) Only DNSKEY zone keys are allowed to match DS RR #2131 by justahero</li>
+<li>(docs) Fix a typo in crate description #2132 by wiktor-k</li>
+<li>(all) Gate tests on required features #2114 by alexanderkjall</li>
+<li>(resolver) Fixup lookup docs #2123 by bluejekyll</li>
+<li>(proto) when comparing IP addresses for UDP, only check IP and Port #2124 by bluejekyll</li>
+<li>(recursor) Recursor: make nameserver and record cache sizes configurable #2117 by marcus0x62</li>
+<li>(proto) Validate response query section #2118 by marcus0x62</li>
+<li>(proto) Increase source port entropy in UDP client #2116 by marcus0x62</li>
+<li>(all) get(0) to first() and zerocopy package updates to fix clippy and cargo audit errors #2121 by marcus0x62</li>
+<li>(resolver) Add getters for resolver config and options #2093 by hoxxep</li>
+<li>(client) updated h2_client_connection and web-pki-roots config #2088 by marcbrevoort-cyberhive</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(tests) import DNSSEC conformance test suite repository #2222 by japaric</li>
+<li>(client) Adds deref call in assertion for hickory-client README example #2173 by akappel</li>
+<li>(proto) Make hickory_proto::h3::H3ClientStream Clonable #2182 by 0xffffharry</li>
+<li>(proto) Make hickory_proto::quic::QuicClientStream Clonable #2176 by 0xffffharry</li>
+<li>(proto) feat: add setter methods for Message struct to improve configurability #2147 by situ2001</li>
+<li>(proto) add getter/setter methods to ClientSubnet #2146 by leshow</li>
+<li>(server) Add option to specify a restricted set of networks capable of accessing the Hickory DNS server #2126 by bluejekyll</li>
+<li>(recursor) Bailiwick checking for the recursor #2119 by marcus0x62</li>
+<li>(proto) Support getting and setting the EDNS Z flags #2111 by mattias-p</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) Remove broken mtls code to fix CI #2218 by djc</li>
+<li>(proto) Remove generic Error from DnsHandle #2094 by bluejekyll</li>
+</ul>
+]]></content:encoded></item><item><title></title><link>http://127.0.0.1:7979/changelog/v0.24.1</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.24.1</guid><content:encoded><![CDATA[<h1>0.24.1</h1>
 <h2>Fixed</h2>
 <p>Break when socket is unexpectedly shut down #2171 by dlon</p>
 ]]></content:encoded></item><item><title>Update docs.rs and generated docs to reference Hickory</title><link>http://127.0.0.1:7979/changelog/v0.23.2</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.23.2</guid><content:encoded><![CDATA[<h2>0.23.2</h2>
@@ -763,54 +941,5 @@ bound for implementing the <code>Connect</code> trait.</li>
 <ul>
 <li>(util) <em>new</em> Add resolve.rs as CLI for trust-dns-resolver #1208</li>
 <li>(proto) Added proper zone display to all RData as an impl of Display #1208</li>
-</ul>
-]]></content:encoded></item><item><title>v0.20.0-alpha.2</title><link>http://127.0.0.1:7979/changelog/v0.20.0-alpha.2</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.20.0-alpha.2</guid><content:encoded><![CDATA[<h2>0.20.0 (unreleased) <em>see previous release notes for all 0.20.0 changes</em></h2>
-<h3>Changed</h3>
-<ul>
-<li>(all) minimum rustc version now <code>1.42</code></li>
-<li>(resolver) For all NxDomain and NoError/NoData responses, <code>ResolveErrorKind::NoRecordsFound</code> will be returned #1197</li>
-<li>(proto) <em>Breaking</em> Adjust the return value from <code>ResponseCode::high</code> from u16 to u8 #1202</li>
-</ul>
-<h3>Added</h3>
-<ul>
-<li>(proto) <code>xfer::dns_response::NegativeType</code> and <code>DnsResponse::negative_type</code> to classify negative response type #1197</li>
-<li>(proto) <code>DnsResponse::contains_answer</code> to determine if a response message has data related to the query #1197</li>
-<li>(proto) <code>RecordType::is_soa</code> and <code>RecordType::is_ns</code> to easily check for these types #1197</li>
-<li>(proto) <code>Message::all_sections</code> to allow iteration over all <code>Records</code> in all sections in a Message #1197</li>
-<li>(proto) <code>Message::take_queries</code> to remove from a Message without requiring clone #1197</li>
-<li>(proto) <code>DnsHandle::Error</code> associated type to support generic errors across trust-dns libraries #1197</li>
-</ul>
-]]></content:encoded></item><item><title>0.20.0-alpha.1</title><link>http://127.0.0.1:7979/changelog/v0.20.0-alpha.1</link><category domain="https://github.com/hickory-dns/hickory-dns">Hickory DNS Changelog</category><guid>http://127.0.0.1:7979/changelog/v0.20.0-alpha.1</guid><content:encoded><![CDATA[<h2>0.20.0 (unreleased)</h2>
-<h3>Changed</h3>
-<ul>
-<li>(server) Support for lowercase DNSClass and RecordType fields in zonefiles (@zhanif3) #1186</li>
-<li>(resolver) Make EDNS optional for resolvers (@CtrlZvi) #1173</li>
-<li>(all) Fully support <em>ring</em> for all DNSSEC operations. #1145</li>
-<li>(all) No more <code>master</code> (branch, moved to <code>main</code>) slave, in honor of Juneteenth #1141</li>
-<li>(all) Minimize <code>futures</code> dependencies (@JohnTitor) #1109</li>
-<li>(proto) increases the UDP buffer size from 2048 to 4096 to allow larger payloads (@DevQps) #1096</li>
-<li>(resolver) use IntoName trait on synchronous resolver interface (@krisztian-kovacs) #1095</li>
-<li>(resolver) <em>BREAKING</em> removed async for <code>AsyncResolver::new</code> (@balboah) #1077 #1056</li>
-<li>(server) <em>BREAKING</em> removed <code>Runtime</code> from <code>ServerFuture::register_socket</code> (@LucioFranco) #1088 #1087</li>
-</ul>
-<h3>Fixed</h3>
-<ul>
-<li>(resolver) Fix Glue records resolving (@wavenator) #1188</li>
-<li>(resolver) Only fall back on TCP if cons are available (@lukaspustina) #1181</li>
-<li>(proto) fix empty option at end of edns (@jonasbb) #1143, #744</li>
-<li>(resolver) Return <code>REFUSED</code> instead of <code>NXDOMAIN</code> when server is not an authority (@AnIrishDuck) #1137</li>
-<li>(resolver) forwarder: return NXDomain on <code>e.is_nx_domain()</code> (@balboah) #1123</li>
-<li>(resolver) Regards NXDomain and NoError empty responses as errors (continues searching for records), #1086 #933</li>
-</ul>
-<h3>Added</h3>
-<ul>
-<li>(resolver) Add support for tlsa RRs in trust_dns_resolver (@smutt) #1189</li>
-<li>(resolver) Support pointer ending label compression (@jacoblin1994) #1182</li>
-<li>(proto) Keep OS error information on <code>io::Error</code> (@brunowonka) #1163</li>
-<li>(proto) Support mDNS cache-flush bit (@fluxxu) #1144</li>
-<li>(proto) Allow creating TXT Rdata with binary data (@bltavares) #1125</li>
-<li>(proto) Add mutable access to Message fields (@leshow) #1118</li>
-<li>(proto) Add Name.parse_ptr_name, to IP address (@Mygod) #1107</li>
-<li>(resolver) Allow HTTPS to be generic over Runtime (@balboah) #1077 #1074</li>
 </ul>
 ]]></content:encoded></item></channel></rss>

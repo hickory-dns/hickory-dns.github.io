@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" id="oranda" class="hacker">
+  <head>
+    <title>Hickory DNS</title>
+    
+    
+      <link rel="icon" href="/favicon.ico" />
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hickory DNS" />
+    
+    
+    
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="stylesheet" href="/oranda-v0.6.1.css" />
+    
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-body">
+        
+          <div class="repo_banner">
+            <a href="https://github.com/hickory-dns/hickory-dns">
+              <div class="github-icon" aria-hidden="true"></div>
+              Check out our GitHub!
+            </a>
+          </div>
+        
+
+        <main>
+          <header>
+            
+              <img src="/logo.png" alt="Hickory DNS" class="logo" />
+            
+            <h1 class="title">Hickory DNS</h1>
+            
+  <nav class="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+
+      
+
+      
+
+      
+        <li><a href="/book/">Docs</a></li>
+      
+
+      
+
+      
+        <li><a href="/changelog/">Changelog</a></li>
+      
+    </ul>
+  </nav>
+
+          </header>
+
+          
+  <div>
+    <h1>v0.25.0-alpha.1</h1>
+    <div class="releases-body">
+      
+      
+      <section class="release pre-release ">
+  
+  <div class="release-info">
+    <span class="flex items-center gap-2">
+      <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'>
+    <path stroke-linecap='round' stroke-linejoin='round' d='M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z' />
+    <path stroke-linecap='round' stroke-linejoin='round' d='M6 6h.008v.008H6V6z' /></svg>
+      v0.25.0-alpha.1
+    </span>
+    <span class="flex items-center gap-2">
+      
+        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' /></svg>
+        Jun 16 2024 at 15:31 UTC
+      
+    </span>
+  </div>
+  <div class="release-body">
+    <h2>0.25.0</h2>
+<h3>Fixed</h3>
+<ul>
+<li>(recursor) send DS queries to the parent zone #2203 by japaric</li>
+<li>(docs) add RFC2931 SIG(0) as supported #2216 by bluejekyll</li>
+<li>(recursor) respect DO bit in incoming queries #2196 by japaric</li>
+<li>(docs) doc: fix misc typos in md files #2198 by divagant-martian</li>
+<li>(test) update ip of example.com #2187 by situ2001</li>
+<li>(all) Update mio to 0.8.11 to fix RUSTSEC-2024-0019 #2166 by marcus0x62</li>
+<li>(proto) Fix formatting issue in crates/proto/src/op/message.rs #2165 by marcus0x62</li>
+<li>(proto) fix internal representation of OPT #2151 by esensar</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>(proto) dns-test: make NameServer's FQDN more stable #2235 by japaric</li>
+<li>(proto) refactor the Resource data structure #2231 by japaric</li>
+<li>(tests) Add just recipes to clean leftover containers and networks #2232 by pvdrz</li>
+<li>(tests) ci: pin nightly version #2224 by japaric</li>
+<li>(server) cargo: Enable LTO on release build #2141 by jpds</li>
+<li>(resolver) Retry tcp on udp io errors #2215 by bluejekyll</li>
+<li>(recursor) tweaks for security awareness #2208 by djc</li>
+<li>(all) address new clippy lint assigning-clones #2205 by divagant-martian</li>
+<li>(proto) error: wrap io::Error in Arc for clone #2181 by cpu</li>
+<li>(resolver) err for dns-over-rustls w/o roots #2179 by cpu</li>
+<li>(resolver) Forward hickory-dns's root cert features to hickory-resolver #2153 by hch12907</li>
+<li>(proto) Better DNSSEC proofs #2084 by bluejekyll</li>
+<li>(proto) update version for http/h2/h3 #2138 by zh-jq</li>
+<li>(server) Use cargo environment variables for path to executable #2130 by sjbronner</li>
+<li>(proto) Only DNSKEY zone keys are allowed to match DS RR #2131 by justahero</li>
+<li>(docs) Fix a typo in crate description #2132 by wiktor-k</li>
+<li>(all) Gate tests on required features #2114 by alexanderkjall</li>
+<li>(resolver) Fixup lookup docs #2123 by bluejekyll</li>
+<li>(proto) when comparing IP addresses for UDP, only check IP and Port #2124 by bluejekyll</li>
+<li>(recursor) Recursor: make nameserver and record cache sizes configurable #2117 by marcus0x62</li>
+<li>(proto) Validate response query section #2118 by marcus0x62</li>
+<li>(proto) Increase source port entropy in UDP client #2116 by marcus0x62</li>
+<li>(all) get(0) to first() and zerocopy package updates to fix clippy and cargo audit errors #2121 by marcus0x62</li>
+<li>(resolver) Add getters for resolver config and options #2093 by hoxxep</li>
+<li>(client) updated h2_client_connection and web-pki-roots config #2088 by marcbrevoort-cyberhive</li>
+</ul>
+<h3>Added</h3>
+<ul>
+<li>(tests) import DNSSEC conformance test suite repository #2222 by japaric</li>
+<li>(client) Adds deref call in assertion for hickory-client README example #2173 by akappel</li>
+<li>(proto) Make hickory_proto::h3::H3ClientStream Clonable #2182 by 0xffffharry</li>
+<li>(proto) Make hickory_proto::quic::QuicClientStream Clonable #2176 by 0xffffharry</li>
+<li>(proto) feat: add setter methods for Message struct to improve configurability #2147 by situ2001</li>
+<li>(proto) add getter/setter methods to ClientSubnet #2146 by leshow</li>
+<li>(server) Add option to specify a restricted set of networks capable of accessing the Hickory DNS server #2126 by bluejekyll</li>
+<li>(recursor) Bailiwick checking for the recursor #2119 by marcus0x62</li>
+<li>(proto) Support getting and setting the EDNS Z flags #2111 by mattias-p</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>(all) Remove broken mtls code to fix CI #2218 by djc</li>
+<li>(proto) Remove generic Error from DnsHandle #2094 by bluejekyll</li>
+</ul>
+
+  </div>
+</section>
+    </div>
+  </div>
+
+        </main>
+      </div>
+
+      <footer>
+        
+          <a href="https://github.com/hickory-dns/hickory-dns"><div class="github-icon" aria-hidden="true"></div></a>
+        
+        <span>
+          Hickory DNS, MIT OR Apache-2.0
+        </span>
+      </footer>
+    </div>
+
+    
+    
+
+    
+  </body>
+</html>
