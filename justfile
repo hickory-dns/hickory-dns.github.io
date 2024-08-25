@@ -22,6 +22,10 @@ oranda: clean
 
 build: oranda
 
+serve: build
+    @echo "====> serving oranda site"
+    oranda serve
+
 gh-pages:
     @echo "====> checking for gh-pages branch"
     git show-ref --quiet refs/heads/gh-pages || \
