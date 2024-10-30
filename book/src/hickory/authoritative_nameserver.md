@@ -40,8 +40,7 @@ openssl genpkey -quiet -algorithm RSA -out zsk.key
 
 This generates a new key using the `RSASHA256` algorithm and stores the private key in `zsk.key`.
 
-> [!NOTE]
-> Other tools to generate keys exist, but not all key formats are currently supported by Hickory.
+> **Note:** Other tools to generate keys exist, but not all key formats are currently supported by Hickory.
 
 
 ### `config.toml`
@@ -77,8 +76,7 @@ This configuration consists of the following fields:
   * `algorithm` - The cryptographic algorithm the key was generated with.
   * `is_zone_signing_key` - When `true` marks the key as zone signing key.
 
-> [!IMPORTANT]
-> The flag  `enable_dnssec` in this context does not mean DNSSEC validation is active, it's used to generate all relevant DNSSEC records during startup.
+> **Important:** The flag  `enable_dnssec` in this context does not mean DNSSEC validation is active, it's used to generate all relevant DNSSEC records during startup.
 
 Multiple zones can be specified by repeated `[[zones]]` blocks that point to separate zone files.
 
@@ -135,8 +133,7 @@ primary0.example.com. 86400 IN	A	127.0.0.1
 ;; MSG SIZE  rcvd: 117
 ```
 
-> [!NOTE]
-> The authoritative name server is configured to not send queries to other servers, therefore the `+norecurse` option is passed in.
+> **Note:** The authoritative name server is configured to not send queries to other servers, therefore the `+norecurse` option is passed in.
 
 The following lines provide a bit more information on the response.
 

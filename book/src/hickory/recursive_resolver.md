@@ -67,8 +67,7 @@ The configuration consists of the following fields:
     * `ValidateWithStaticKey.path` - The file path to the trusted key used for DNSSEC validation.
 
 
-> [!NOTE]
-> Both path fields, `root` and `ValidateWithStaticKey.path`, need to be absolute paths.
+> **Note:** Both path fields, `root` and `ValidateWithStaticKey.path`, need to be absolute paths.
 
 
 ## Run Hickory
