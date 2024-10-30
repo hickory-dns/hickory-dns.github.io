@@ -1,24 +1,7 @@
 # Authoritative Name server
 
-Hickory DNS can be configured as an [authoritative name server](https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server).
+One of the roles Hickory supports is as an [authoritative name server](https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server).
 This type of name server has authoritty over its own zones and can answer queries for which it is responsible.
-
-## Setup
-
-Either install `hickory-dns` via `cargo` using
-
-```shell
-cargo install hickory-dns --features=dnssec-openssl
-```
-
-or build it from source
-
-```shell
-cargo build --package hickory-dns --features=dnssec-openssl
-```
-
-Hickory uses [Cargo features](https://doc.rust-lang.org/cargo/reference/features.html) to enable or disable certain functionalities. Alternatively use feature `dnssec-ring` to use the cryptographic library `ring` instead of OpenSSL.
-
 
 ## Configuration
 
@@ -26,12 +9,12 @@ To configure Hickory as an authoritative name server the setup requires a few st
 
 * set up one or more zone files to have authority over
 * generate a zone signing key (ZSK)
-* configure Hickory to define zones, use the key, to sign all zones and generate additional records
+* configure Hickory to define zones and key
 
 
 ### Zone File(s)
 
-First at least one zone file has to be created to be authority over. An example of a zone file looks as follows:
+First at least one zone file has to be created, Hickory has the authority over. An example of a zone file (e.g. `root.zone`) looks as follows:
 
 ```txt
 .	86400	IN	SOA	primary0.example.com. admin0.example.com. 2024010101 1800 900 604800 86400
@@ -41,15 +24,15 @@ primary0.example.com.	86400	IN	A	127.0.0.1
 
 This file defines a `SOA` record (Start of Authority), a `NS` record (Namespace) and an `A` record (IPv4 Address).
 
-A list of zone files can be found in the [`test_configs/default`](https://github.com/hickory-dns/hickory-dns/tree/main/tests/test-data/test_configs/default) folder as part of the test suite.
+A list of zone file examples can be found in the [`test_configs/default`](https://github.com/hickory-dns/hickory-dns/tree/main/tests/test-data/test_configs/default) folder as part of Hickory's test suite.
 
 
 ### Zone Signing Key
 
-The second step is to generate a zone signing key (ZSK) Hickory uses to sign all zones with. During startup of Hickory
-this key to sign all zone files with. Additionally a key signing key is generated as well internally.
+The second step is to generate a zone signing key (ZSK). Hickory will use this key to sign all zones with during startup.
+Additionally a key signing key is generated as well internally.
 
-To generate a compatible ZSK use `openssl` command line tool:
+To generate a compatible ZSK we use the `openssl` command line tool:
 
 ```shell
 openssl genpkey -quiet -algorithm RSA -out zsk.key
@@ -57,10 +40,13 @@ openssl genpkey -quiet -algorithm RSA -out zsk.key
 
 This generates a new key using the `RSASHA256` algorithm and stores the private key in `zsk.key`.
 
+> [!NOTE]
+> Other tools to generate keys exist, but not all key formats are currently supported by Hickory.
+
 
 ### `config.toml`
 
-Last step is to create a `config.toml` file for Hickory.
+The last step is to create a `config.toml` file for Hickory.
 
 ```toml
 # config.toml
@@ -91,13 +77,15 @@ This configuration consists of the following fields:
   * `algorithm` - The cryptographic algorithm the key was generated with.
   * `is_zone_signing_key` - When `true` marks the key as zone signing key.
 
-Please note that `enable_dnssec` in this context does not mean DNSSEC validation is active, it's used to generate all relevant
-DNSSEC records during startup. Multiple zones can be specified by `[[zones]]` blocks with different zone files.
+> [!IMPORTANT]
+> The flag  `enable_dnssec` in this context does not mean DNSSEC validation is active, it's used to generate all relevant DNSSEC records during startup.
+
+Multiple zones can be specified by repeated `[[zones]]` blocks that point to separate zone files.
 
 
 ## Run Hickory
 
-Let's start `hickory-dns` now, we assume zone files and ZSK are in the same folder.
+Let's start `hickory-dns` now, we assume zone file(s), ZSK and `config.toml` are all in the same folder.
 
 ```shell
 hickory-dns --port 2345 --debug --config=./config.toml --zone-dir=.
@@ -106,14 +94,14 @@ hickory-dns --port 2345 --debug --config=./config.toml --zone-dir=.
 This starts `hickory-dns` on port `2345` with debug log level. Feel free to pick a different port, typically port `53` is already
 taken by the DNS service of the operating system. The `--config` option specifies the location of the `config.toml`
 otherwise it checks the default file path at `/etc/named.toml`. The `--zone-dir` option specifies the path to check zone
-files in, e.g. `root.zone`, the default directoy is `/var/named`.
+files in, e.g. to find `root.zone`, the default directoy is `/var/named`.
 
 The debug log of Hickory should contain output that loads a `ZoneConfig`, the authority loads zone records and signs the
-zone `.` using the generated zone signing key. The `hickory-dns` server should now run and accept DNS queries,
+zone `"."` using the generated zone signing key. The `hickory-dns` server should now run and accept DNS queries,
 for example via `dig` or `delv`.
 
 
-### `dig`
+## Querying Records
 
 To fetch the `A` record for domain `primary0.example.com.` use the `dig` command:
 
@@ -147,8 +135,10 @@ primary0.example.com. 86400 IN	A	127.0.0.1
 ;; MSG SIZE  rcvd: 117
 ```
 
-Please note the authoritative name server is configured to not send queries to other servers, therefore the `+norecurse`
-option is passed in. The following lines provide a bit more information on the response.
+> [!NOTE]
+> The authoritative name server is configured to not send queries to other servers, therefore the `+norecurse` option is passed in.
+
+The following lines provide a bit more information on the response.
 
 ```txt
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39369
@@ -156,13 +146,13 @@ option is passed in. The following lines provide a bit more information on the r
 ```
 
 The DNS server responded with status `NOERROR`, indicating a valid response. The `flags` field is a bitset with
-different flags, displayed as `qr aa rd`.
+different flags, displayed as `qr aa`.
 
 * `qr` - means it's a query response
 * `aa` - means it's an authoritative answer
-* `rd` - means recursion desired, the name server is allowed to forward the query to other upstream name servers
+* `rd` - (when given) means recursion desired, the name server is allowed to forward the query to other upstream name servers
 
-The `dig` CLI sets the `+recurse` flag as default, which explains why the `rd` flag is set in the response.
+The `dig` CLI sets the `+recurse` flag as default, therefore the `rd` flag will appear in the response if not deactivated.
 
 In order to check that the DNS server created the associated `RRSIG` record to the `A` record, use `dig`'s `+dnssec`
 option to return both records.
@@ -171,7 +161,7 @@ option to return both records.
 dig @127.0.0.1 -p 2345 primary0.example.com. +dnssec +multiline
 ```
 
-The `+multiline` option will wrap the text to a reasonable width, otherwise the output gets unwieldy.
+The `+multiline` option will wrap the text to a reasonable width.
 This will return the associated `RRSIG` record in the `ANSWERS` section as well.
 
 ```txt
