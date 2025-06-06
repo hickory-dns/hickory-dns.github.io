@@ -1,1 +1,12 @@
 @use "simple.css";
+
+img.header-logo {
+    object-fit: contain;
+    max-height: 3rem;
+    max-width: unset;
+    border-radius: 0%;
+    //display: inherit;
+    float: left;
+    margin: 0.5rem 0.5rem 0.5rem;
+    //position: relative;
+}
