@@ -1,21 +1,37 @@
+{% set root = get_section(path="_index.md") %}
+
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>{{ section.title }}</title>
+        <title>Hickory</title>
 
-        <link rel="stylesheet" href="uikit-3/css/uikit.min.css" />
-        <link rel="stylesheet" href="hickory-dns.css" />
+        <link rel="stylesheet" href="/hickory-dns.css" />
 
-        <script src="uikit-3/js/uikit.min.js"></script>
-        <script src="uikit-3/js/uikit-icons.min.js"></script>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
     <body>
-        <section class="section">
-            <div class="container">
-                {% block content %} {% endblock content %}
-            </div>
-        </section>
+        <!-- NavBar -->
+        <header>
+            <nav>
+                <a href="/">Home</a>
+                {% for page in root.pages %}
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+                {% endfor %}
+            </nav>
+        </header>
+
+        <!-- Section -->
+        {% block content %} {% endblock content %}
+
+        <!-- Page footer -->
+        <footer>
+            <p>Hickory Project, since 2015</p>
+            <a href="https://github.com/hickory-dns/hickory-dns">Hickory DNS</a>
+            <a href="#!">Discord</a>
+            <a href="#!">Docs.rs</a>
+        </footer>
     </body>
 </html>
