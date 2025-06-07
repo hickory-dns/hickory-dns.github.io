@@ -17,10 +17,30 @@ img.readme-logo {
     float: none;
 }
 
+footer {
+    grid-column: 1 / -1;
+}
+
 .readme {
     margin-top: 1rem;
 }
 
 .oranda-hide {
     display: none;
+}
+
+.mdbook {
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.mdbook-container {
+    height: 100vh;
+    width: 99vw;
+    grid-column: 1 / -1;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

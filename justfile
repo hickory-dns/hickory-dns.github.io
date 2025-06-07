@@ -25,7 +25,12 @@ zola: clean get_readme
     @echo "====> building zola site"
     zola build
 
-build: zola
+mdbook:
+    @echo "====> building mdbook"
+    mdbook build docs
+
+build: zola mdbook
+    mv docs/book public/book
 
 serve: build
     @echo "====> serving zola site"
