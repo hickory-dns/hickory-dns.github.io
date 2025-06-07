@@ -1,0 +1,45 @@
+@use "fonts.css";
+//@use "scheme.css";
+
+:root {
+    /* Set sans-serif & mono fonts */
+    --sans-font:
+        "RecSansLnr", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+        "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+        "Helvetica Neue", sans-serif;
+    --mono-font:
+        "RecMonoCsl", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
+        monospace;
+
+    --heading: #288967;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --heading: #1cbd83;
+    }
+}
+
+html {
+    font-family: "RecSansLnr", "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--heading);
+    font-family: "RecSansLnrBold";
+    font-variant-caps: small-caps;
+    font-weight: bold;
+}
+
+.content .header:link,
+.content .header:visited,
+.chapter li.part-title {
+    color: var(--heading);
+    font-family: "RecSansLnrBold";
+    font-weight: bold;
+}

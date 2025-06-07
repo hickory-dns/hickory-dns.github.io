@@ -1,50 +1,6 @@
 @use "simple.css";
-@use "fonts.scss";
-
-// Colors
-:root {
-    /* Set sans-serif & mono fonts */
-    --sans-font:
-        "RecSansLnr", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-        "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
-        "Helvetica Neue", sans-serif;
-    --mono-font:
-        "RecMonoCsl", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
-        monospace;
-
-    /* Default (light) theme */
-    --bg: #fff;
-    --accent-bg: #f5f7ff;
-    --text: #212121;
-    --text-light: #585858;
-    --border: #898ea4;
-    --accent: #0d47a1;
-    --accent-hover: #1266e2;
-    --accent-text: var(--bg);
-    --code: #d81b60;
-    --preformatted: #444;
-    --marked: #ffdd33;
-    --disabled: #efefef;
-    --heading: #288967;
-}
-
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-        --bg: #0b0e14;
-        --accent-bg: #14191f;
-        --text: #dcdcdc;
-        --text-light: #ababab;
-        --accent: #ffb300;
-        --accent-hover: #ffe099;
-        --accent-text: var(--bg);
-        --code: #feb454;
-        --preformatted: #ccc;
-        --disabled: #111;
-        --heading: #1cbd83;
-    }
-}
+@use "fonts.css";
+@use "scheme.css";
 
 // Styling for specific components
 //
@@ -57,7 +13,7 @@ h4,
 h5,
 h6 {
     color: var(--heading);
-    font-family: RecSansLnrBold;
+    font-family: "RecSansLnrBold";
     font-variant-caps: small-caps;
     font-weight: bold;
 }
@@ -79,7 +35,7 @@ img.header-logo {
 
 img.readme-logo {
     object-fit: contain;
-    max-height: unset;
+    max-height: 20rem;
     //max-width: unset;
     //display: ;
     float: none;

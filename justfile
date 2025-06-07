@@ -31,6 +31,7 @@ mdbook:
 
 build: zola mdbook
     mv docs/book public/book
+    rg 'public/mdbook.css' public/book --files-with-matches | xargs sed -i ''  's|public/mdbook.css|mdbook.css|g'
 
 serve: build
     @echo "====> serving zola site"
