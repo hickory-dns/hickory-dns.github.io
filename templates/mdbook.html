@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<!-- Block Content -->
+{% block content %}
+
+<div class="mdbook-container">
+    <iframe
+        class="mdbook"
+        src="{{ config.base_url | safe }}/book/index.html"
+        title="Hickory Documentation"
+        scrolling="yes"
+        allowfullscreen="true"
+    ></iframe>
+    <p><a href="{{ config.base_url | safe }}/book/index.html">no frame</a></p>
+</div>
+
+{% endblock content %}

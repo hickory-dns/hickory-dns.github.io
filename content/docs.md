@@ -1,9 +1,6 @@
 +++
 title = "Docs"
-template = "page.html"
-weight = 1
+template = "mdbook.html"
+weight = 2
 +++
-<div class="mdbook-container">
-  <iframe class="mdbook" src="/book/index.html" title="Hickory Documentation" scrolling="yes" allowfullscreen="true"></iframe>
-  <p><a href="/book/index.html">no frame</a></p>
-</div>
+<!-- This is just used for metadata, no content here will be rendered -->

@@ -49,12 +49,13 @@ clean_worktree:
     rm -rf ${TMP_GH_PAGES_SITE}
     git worktree prune
 
-deploy: gh-pages clean zola
+deploy: gh-pages clean build
     @echo "====> deploying to github"
     @git --version
     git worktree add ${TMP_GH_PAGES_SITE} gh-pages
     rm -rf ${TMP_GH_PAGES_SITE}/*
     cp -rp public/* ${TMP_GH_PAGES_SITE}/
+    ls -l ${TMP_GH_PAGES_SITE}/
     cd ${TMP_GH_PAGES_SITE} && \
         git add -A && \
         git diff --staged --quiet || \

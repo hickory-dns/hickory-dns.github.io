@@ -6,7 +6,11 @@
 false) %} {% if readme %}
 
 <div class="readme">
-    <img class="readme-logo" alt="Hickory Logo" src="/logo.png" />
+    <img
+        class="readme-logo"
+        alt="Hickory Logo"
+        src="{{ config.base_url | safe }}/logo.png"
+    />
     <h1 class="title">{{ section.title }}</h1>
     {{ readme | markdown(inline=true) | safe }}
 </div>

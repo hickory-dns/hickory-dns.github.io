@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://github.com/hickory-dns/hickory-dns"
+base_url = "https://bluejekyll.github.io/hickory-site-next"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -16,4 +16,4 @@ highlight_code = false
 
 [extra]
 # Put all your custom variables here
-author = "Vincent Prouillet"
+author = "Benjamin Fry"
