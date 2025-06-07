@@ -9,7 +9,7 @@ title = "Hickory DNS User Manual"
 create-missing = true
 
 [preprocessor.mermaid]
-command = "mdbook-mermaid"
+#command = "mdbook-mermaid"
 
 [output.html]
 #additional-js = ["theme/mermaid.min.js", "theme/mermaid-init.js"]
@@ -17,3 +17,4 @@ command = "mdbook-mermaid"
 #site-url = "/docs"
 default-theme = "dark"
 preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book"
