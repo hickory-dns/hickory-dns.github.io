@@ -15,3 +15,5 @@ command = "mdbook-mermaid"
 #additional-js = ["theme/mermaid.min.js", "theme/mermaid-init.js"]
 #additional-css = ["oranda-highlight.css"]
 #site-url = "/docs"
+default-theme = "dark"
+preferred-dark-theme = "ayu"
