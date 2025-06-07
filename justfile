@@ -1,6 +1,7 @@
 export MDBOOK_BIN := "mdbook"
 export CURRENT_BRANCH := `git branch --show-current`
 export TMP_GH_PAGES_SITE := "/tmp/publishing-site"
+export HICKORY_README := "https://raw.githubusercontent.com/hickory-dns/hickory-dns/refs/heads/main/README.md"
 
 init:
     @echo "====> initializing and checking dependencies"
@@ -16,7 +17,11 @@ clean: clean_worktree
     rm -rf public
     rm -rf target
 
-zola: clean
+get_readme:
+    @echo "====> Fetching README.md from ${HICKORY_README}"
+    curl --proto '=https' --tlsv1.2 -sSf ${HICKORY_README} -o static/README.md
+
+zola: clean get_readme
     @echo "====> building zola site"
     zola build
 

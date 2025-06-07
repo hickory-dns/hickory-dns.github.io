@@ -2,6 +2,21 @@
 
 <!-- Block Content -->
 
-{% block content %}
+{% block content %} {% set readme = load_data(path = "README.md", required =
+false) %} {% if readme %}
+
+<div class="readme">
+    <img class="readme-logo" alt="Hickory Logo" src="/logo.png" />
+    <h1 class="title">{{ section.title }}</h1>
+    {{ readme | markdown(inline=true) | safe }}
+</div>
+
+{% else %}
 <h1 class="title">{{ section.title }}</h1>
-{% endblock content %}
+
+<ul>
+    {% for page in root.pages %}
+    <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %} {% endblock content %}

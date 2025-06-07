@@ -5,8 +5,22 @@ img.header-logo {
     max-height: 3rem;
     max-width: unset;
     border-radius: 0%;
-    //display: inherit;
     float: left;
     margin: 0.5rem 0.5rem 0.5rem;
-    //position: relative;
+}
+
+img.readme-logo {
+    object-fit: contain;
+    max-height: unset;
+    //max-width: unset;
+    //display: ;
+    float: none;
+}
+
+.readme {
+    margin-top: 1rem;
+}
+
+.oranda-hide {
+    display: none;
 }
