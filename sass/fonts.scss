@@ -1,16 +1,16 @@
 /* Standard fonts */
 @font-face {
     font-family: "RecSansLnr";
-    font-weight: 300 1000;
+    font-weight: 300 600;
     font-display: swap;
     src: url("fonts/RecursiveSansLnrSt-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "RecSansLnrBold";
-    font-weight: 300 1000;
+    font-weight: 600 1000;
     font-display: swap;
-    src: url("fonts/RecursiveSansLnrSt-ExtraBold.woff2") format("woff2");
+    src: url("fonts/RecursiveSansLnrSt-Bold.woff2") format("woff2");
 }
 
 @font-face {
