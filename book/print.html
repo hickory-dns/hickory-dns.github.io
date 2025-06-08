@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js oranda-dark">
+<html lang="en" class="dark sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Hickory DNS User Manual</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -28,27 +28,29 @@
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
-        <link rel="stylesheet" href="oranda-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../mdbook.css">
 
-    </head>
-    <body>
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "dark";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('orandamdbook-theme');
+                var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
 
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
@@ -60,43 +62,51 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
             var theme;
-            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
-            html.classList.remove('oranda-dark')
+            const html = document.documentElement;
+            html.classList.remove('dark')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Utilities</li><li class="chapter-item expanded "><a href="util/dns.html"><strong aria-hidden="true">1.</strong> dns</a></li><li class="chapter-item expanded "><a href="util/resolve.html"><strong aria-hidden="true">2.</strong> resolve</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -106,8 +116,6 @@
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Hacker</button></li>
-
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -119,6 +127,9 @@
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
                     </div>
@@ -151,6 +162,335 @@
 <p>In some cases the best source of information about how to use the project is in the source repository, <a href="https://github.com/hickory-dns/hickory-dns">Hickory DNS</a>.</p>
 <p>Contributions to this book will always be welcome, <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book">Hickory Docs</a>.</p>
 <p>Thank you to the <a href="https://www.rust-lang.org">Rust</a> community for making this project possible.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>There are two options to install <code>hickory-dns</code>. Either install <code>hickory-dns</code> via <code>cargo</code> using</p>
+<pre><code class="language-shell">cargo install hickory-dns --features=recursor,dnssec-openssl
+</code></pre>
+<p>or build it from source</p>
+<pre><code class="language-shell">cargo build --package hickory-dns --features=recursor,dnssec-openssl
+</code></pre>
+<p>Hickory uses <a href="https://doc.rust-lang.org/cargo/reference/features.html">Cargo features</a> to enable or disable certain functionalities. Alternatively use feature <code>dnssec-ring</code> to use the cryptographic library <code>ring</code> instead of OpenSSL.</p>
+<p>The <code>recursor</code> feature allows Hickory to run as a recursive resolver, for example to activate DNSSEC validation.</p>
+<p>The list of features is explained in Hickory's <a href="https://github.com/hickory-dns/hickory-dns/?tab=readme-ov-file#using-as-a-dependency-and-custom-features">Readme</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="authoritative-name-server"><a class="header" href="#authoritative-name-server">Authoritative Name server</a></h1>
+<p>One of the roles Hickory supports is as an <a href="https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server">authoritative name server</a>.
+This type of name server has authoritty over its own zones and can answer queries for which it is responsible.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>To configure Hickory as an authoritative name server the setup requires a few steps.</p>
+<ul>
+<li>set up one or more zone files to have authority over</li>
+<li>generate a zone signing key (ZSK)</li>
+<li>configure Hickory to define zones and key</li>
+</ul>
+<h3 id="zone-files"><a class="header" href="#zone-files">Zone File(s)</a></h3>
+<p>First at least one zone file has to be created, Hickory has the authority over. An example of a zone file (e.g. <code>root.zone</code>) looks as follows:</p>
+<pre><code class="language-txt">.	86400	IN	SOA	primary0.example.com. admin0.example.com. 2024010101 1800 900 604800 86400
+.	86400	IN	NS	primary0.example.com.
+primary0.example.com.	86400	IN	A	127.0.0.1
+</code></pre>
+<p>This file defines a <code>SOA</code> record (Start of Authority), a <code>NS</code> record (Namespace) and an <code>A</code> record (IPv4 Address).</p>
+<p>A list of zone file examples can be found in the <a href="https://github.com/hickory-dns/hickory-dns/tree/main/tests/test-data/test_configs/default"><code>test_configs/default</code></a> folder as part of Hickory's test suite.</p>
+<h3 id="zone-signing-key"><a class="header" href="#zone-signing-key">Zone Signing Key</a></h3>
+<p>The second step is to generate a zone signing key (ZSK). Hickory will use this key to sign all zones with during startup.
+Additionally a key signing key is generated as well internally.</p>
+<p>To generate a compatible ZSK we use the <code>openssl</code> command line tool:</p>
+<pre><code class="language-shell">openssl genpkey -quiet -algorithm RSA -out zsk.key
+</code></pre>
+<p>This generates a new key using the <code>RSASHA256</code> algorithm and stores the private key in <code>zsk.key</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> Other tools to generate keys exist, but not all key formats are currently supported by Hickory.</p>
+</blockquote>
+<h3 id="configtoml"><a class="header" href="#configtoml"><code>config.toml</code></a></h3>
+<p>The last step is to create a <code>config.toml</code> file for Hickory.</p>
+<pre><code class="language-toml"># config.toml
+listen_addrs_ipv4 = ["0.0.0.0"]
+
+[[zones]]
+zone = "."
+zone_type = "Primary"
+file = "root.zone"
+enable_dnssec = true
+
+[[zones.keys]]
+key_path = "zsk.key"
+algorithm = "RSASHA256"
+is_zone_signing_key = true
+</code></pre>
+<p>This configuration consists of the following fields:</p>
+<ul>
+<li><code>listen_addrs_ipv4</code> - specifies the list of addresses the DNS server will accept connections on.</li>
+<li><code>[[zones]]</code> - A block to define a zone.
+<ul>
+<li><code>zone</code> - The zone to sign, in this case root <code>"."</code>.</li>
+<li><code>zone_type</code> - <code>Primary</code> indicates that hickory is the authority.</li>
+<li><code>file</code> - The name of the zone file that contains all DNS records.</li>
+<li><code>enable_dnssec</code> - When <code>true</code> Hickory generates additional DNSSEC records for all records in the zone file on startup.</li>
+</ul>
+</li>
+<li><code>[[zones.keys]]</code> - A block to define a zone key.
+<ul>
+<li><code>key_path</code> - The path to the signing key, e.g. <code>zsk.key</code></li>
+<li><code>algorithm</code> - The cryptographic algorithm the key was generated with.</li>
+<li><code>is_zone_signing_key</code> - When <code>true</code> marks the key as zone signing key.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Important:</strong> The flag  <code>enable_dnssec</code> in this context does not mean DNSSEC validation is active, it's used to generate all relevant DNSSEC records during startup.</p>
+</blockquote>
+<p>Multiple zones can be specified by repeated <code>[[zones]]</code> blocks that point to separate zone files.</p>
+<h2 id="run-hickory"><a class="header" href="#run-hickory">Run Hickory</a></h2>
+<p>Let's start <code>hickory-dns</code> now, we assume zone file(s), ZSK and <code>config.toml</code> are all in the same folder.</p>
+<pre><code class="language-shell">hickory-dns --port 2345 --debug --config=./config.toml --zone-dir=.
+</code></pre>
+<p>This starts <code>hickory-dns</code> on port <code>2345</code> with debug log level. Feel free to pick a different port, typically port <code>53</code> is already
+taken by the DNS service of the operating system. The <code>--config</code> option specifies the location of the <code>config.toml</code>
+otherwise it checks the default file path at <code>/etc/named.toml</code>. The <code>--zone-dir</code> option specifies the path to check zone
+files in, e.g. to find <code>root.zone</code>, the default directoy is <code>/var/named</code>.</p>
+<p>The debug log of Hickory should contain output that loads a <code>ZoneConfig</code>, the authority loads zone records and signs the
+zone <code>"."</code> using the generated zone signing key. The <code>hickory-dns</code> server should now run and accept DNS queries,
+for example via <code>dig</code> or <code>delv</code>.</p>
+<h2 id="querying-records"><a class="header" href="#querying-records">Querying Records</a></h2>
+<p>To fetch the <code>A</code> record for domain <code>primary0.example.com.</code> use the <code>dig</code> command:</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 primary0.example.com. +norecurse
+</code></pre>
+<p>which returns</p>
+<pre><code class="language-txt">; &lt;&lt;&gt;&gt; DiG 9.20.2 &lt;&lt;&gt;&gt; @127.0.0.1 -p 2345 primary0.example.com. +norecurse
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39369
+;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 1232
+; OPT=5: 08 0d 0e 0f ("....")
+; OPT=6: 08 0d 0e 0f ("....")
+;; QUESTION SECTION:
+;primary0.example.com.	IN	A
+
+;; ANSWER SECTION:
+primary0.example.com. 86400 IN	A	127.0.0.1
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#2345(127.0.0.1) (UDP)
+;; WHEN: Mon Oct 21 15:15:19 CEST 2024
+;; MSG SIZE  rcvd: 117
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The authoritative name server is configured to not send queries to other servers, therefore the <code>+norecurse</code> option is passed in.</p>
+</blockquote>
+<p>The following lines provide a bit more information on the response.</p>
+<pre><code class="language-txt">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 39369
+;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+</code></pre>
+<p>The DNS server responded with status <code>NOERROR</code>, indicating a valid response. The <code>flags</code> field is a bitset with
+different flags, displayed as <code>qr aa</code>.</p>
+<ul>
+<li><code>qr</code> - means it's a query response</li>
+<li><code>aa</code> - means it's an authoritative answer</li>
+<li><code>rd</code> - (when given) means recursion desired, the name server is allowed to forward the query to other upstream name servers</li>
+</ul>
+<p>The <code>dig</code> CLI sets the <code>+recurse</code> flag as default, therefore the <code>rd</code> flag will appear in the response if not deactivated.</p>
+<p>In order to check that the DNS server created the associated <code>RRSIG</code> record to the <code>A</code> record, use <code>dig</code>'s <code>+dnssec</code>
+option to return both records.</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 primary0.example.com. +dnssec +multiline
+</code></pre>
+<p>The <code>+multiline</code> option will wrap the text to a reasonable width.
+This will return the associated <code>RRSIG</code> record in the <code>ANSWERS</code> section as well.</p>
+<pre><code class="language-txt">;; ANSWER SECTION:
+primary0.example.com. 86400 IN A 127.0.0.1
+primary0.example.com. 86400 IN RRSIG A 8 3 86400 (
+				20251020134506 20241021134506 57797 .
+				FyZW3yHIdEfN0eakLvgsZQkzx5MhcLM24h8wNPiEcosX
+				3TTOr0NwvXAHqtbxYTJssfjR3DZhG3EgBdlZ18FpBKoY
+				+VA3Vg+NYtuKpGduXU7Dreh3La5L8GlKC6uFc1ay0hR6
+				qTq8M07JyzlMWE+U6r1n2R9bATKiWufhuDtnoINJbDMi
+				TwaJ/ZxE7lfttpQ1gUKoNoEcOGkZUP18JlnyXoKrNkVH
+				DdD0J/K8LTp/lnZ7AuAQ7ixJRNxroth6meeCHAQHNqyL
+				9H6zKAiSRw4RVi4swodhyzCzn+oXhXjGVDmZlHFz8+QO
+				S43iTumVhKaI8Fe/8/tgNMGZM+m7Z9N1GA== )
+</code></pre>
+<p>The DNS server has a single zone config for zone <code>"."</code>. To return the associated <code>DNSKEY</code> record(s) we can query them:</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 . DNSKEY +dnssec +multiline
+</code></pre>
+<p>The response contains two records in the <code>ANSWERS</code> section:</p>
+<pre><code class="language-txt">;; ANSWER SECTION:
+.			86400 IN DNSKEY	257 3 8 (
+				AwEAAZzIkGf9sTXfFFeHTSNjbw3gr4ESGA5CzPtLKTSW
+				8rbEpJw2G+goVFRrIS9ieHUna59TEfBkM/8WQ/MVkQQD
+				pTTP2Rqg/E0aHEBQ2xbQVIveYXcU9absPn+CPjM3+gq0
+				9bv9CDzxsa0yl9B7xbeAM9V8zXqtXfFaQ3plSUs9Wtqo
+				nu/mJwEOu8YMiu9K0eZ+Gju1amobaOBXkOwCro7o8wae
+				MIC0vFjC/ghfEmFAK1V3TFZw/jQXYWG4I6BdULiiMeLL
+				R6ESPCXMRjBcMiCIPy5WOzQ4iAjpSkLEHqrtc9EwnUCT
+				C0tmihZPZh3dyy7TgB3YTaHw8KEQhnDmdfjPZpc=
+				) ; KSK; alg = RSASHA256 ; key id = 57797
+.			86400 IN RRSIG DNSKEY 8 0 86400 (
+				20251020134506 20241021134506 57797 .
+				Q4CeL96V2NDBJI6jF3wjjLUYrW/jGjOgTuT3D8mRFwPy
+				0b6suHmIy+1XPSGgYMAu1bpyVUxcpvXSE7DMIO/eYB/E
+				nA5ArjcuOpKIzN+m75pLOZXb204dD5DptBhgjn04zTDB
+				ML1rzK5acjp2Lcbo3X5lFABCXpy4diQDZhfCupNVA5JV
+				mVD2nJ+eXHQXovB1cYyv5/w+1oK/ojZ1BZbMjUBIQjlH
+				hisc8b5Y+V8fDehau3hIOuSrosJb15ST9J7YNndkt5kT
+				1nSbAocX3AFWuZEVqwhbou45UAb2NfuvPlbZT5lHReWQ
+				5E+1JULfak+HDz/blHyBPzALYrOEn0s7MQ== )
+</code></pre>
+<p>One is the <code>DNSKEY</code> (KSK) and the other the associated <code>RRSIG</code> for that <code>DNSKEY</code> record. Nearly all signed records
+have an associated <code>RRSIG</code> record to describe their signature.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="recursive-resolver"><a class="header" href="#recursive-resolver">Recursive Resolver</a></h1>
+<p>Hickory supports the role of a <a href="https://en.wikipedia.org/wiki/Name_server#Recursive_Resolver">Recursive Resolver</a>.
+A recursive resolver is a DNS server that accepts recursive queries and is able to resolve these queries by
+fetching additional records from other known authoritative name servers or from its cache. A recursive resolver
+can validate the recursive query to answer the question if the chain of trust is valid.</p>
+<h2 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h2>
+<p>To run Hickory as a recursive resolver with DNSSEC validation the following steps are necessary:</p>
+<ul>
+<li>create a root hints file named <code>root.hints</code></li>
+<li>create a trust anchor file named <code>trusted-key.key</code></li>
+<li>configure Hickory via <code>config.toml</code></li>
+</ul>
+<h3 id="root-hints"><a class="header" href="#root-hints">Root Hints</a></h3>
+<p>The root hints file is used to define a set of authoritative name servers Hickory can query to fetch records for which
+it has no authority over. For example the Internet Assigned Numbers Authority (IANA)
+provides a set of files for their root name servers (see <a href="https://www.iana.org/domains/root/files">here</a>). IANA is the authority
+for the root zone <code>"."</code>, they are responsible for assigning operators for top level domains (e.g. <code>com</code>, <code>de</code>).</p>
+<p>For our example we will use the <code>root.hints</code> file provided by IANA and copy that to a local file.</p>
+<h3 id="trust-anchor"><a class="header" href="#trust-anchor">Trust Anchor</a></h3>
+<p>In order to validate the chain of records successfully Hickory needs the trust anchor for the root zone <code>"."</code>.
+The keys can be fetched via <code>dig</code>.</p>
+<pre><code class="language-shell">dig DNSKEY . +answer
+</code></pre>
+<p>The command returns two <code>DNSKEY</code> records (abbreviated) in the <code>ANSWERS</code> section of the response:</p>
+<pre><code class="language-txt">. 19347	IN  DNSKEY  256 3 8 AwEAAc0SunbHdS0KFEyZbYII/+tzsrNzIwurKxmJA+0fhAYlTPA/5LrM ...
+. 19347	IN  DNSKEY  257 3 8 AwEAAaz/tAm8yTn4Mfeh5eyI96WSVexTBAvkMgJzkKTOiW1vkIbzxeF3 ...
+</code></pre>
+<p>Create a new file named <code>trusted-key.key</code>, copy the content of the <code>ANSWERS</code> section into it. These keys are involved
+in the validation of the root zone.</p>
+<h3 id="configtoml-1"><a class="header" href="#configtoml-1"><code>config.toml</code></a></h3>
+<p>The last step is to configure Hickory as a recursive resolver.</p>
+<pre><code class="language-toml"># config.toml
+[[zones]]
+zone = "."
+zone_type = "Hint"
+stores = { type = "recursor", roots = "/absolute/path/root.hints", dnssec_policy.ValidateWithStaticKey.path = "/absolute/path/trusted-key.key" }
+</code></pre>
+<p>The configuration consists of the following fields:</p>
+<ul>
+<li><code>zone</code> - The zone to configure.</li>
+<li><code>zone_type</code> - The <code>Hint</code> value indicates a zone with recursive resolver abilities.</li>
+<li><code>stores</code> - A block that defines a store type.
+<ul>
+<li><code>type</code> - Indicates a <code>recursor</code> configuration</li>
+<li><code>roots</code> - The file path to the root hints file.</li>
+<li><code>dnssec_policy</code> - Configues the DNSSEC validation policy.
+<ul>
+<li><code>ValidateWithStaticKey.path</code> - The file path to the trusted key used for DNSSEC validation.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Both path fields, <code>root</code> and <code>ValidateWithStaticKey.path</code>, need to be absolute paths.</p>
+</blockquote>
+<h2 id="run-hickory-1"><a class="header" href="#run-hickory-1">Run Hickory</a></h2>
+<p>To start Hickory run:</p>
+<pre><code class="language-shell">hickory-dns --port 2345 --debug --config=./config.toml
+</code></pre>
+<p>This runs the DNS server on port <code>2345</code> with the resolver configuration. This time the DNS server
+can forward requests to the root name servers specified in the <code>root.hints</code> file.</p>
+<h2 id="dnssec-validation"><a class="header" href="#dnssec-validation">DNSSEC Validation</a></h2>
+<p>Hickory started as recursive resolver and will execute DNSSEC validation for a query.</p>
+<h3 id="using-dig"><a class="header" href="#using-dig">Using <code>dig</code></a></h3>
+<p>In order to answer a recursive query the client needs to send
+the <a href="https://datatracker.ietf.org/doc/html/rfc1035#section-4"><code>RD</code></a> (Recursion Desired) flag.
+Using <code>dig</code> we can see that for an existing domain no records will be returned if the flag is disabled.</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 example.com. +norecurse
+</code></pre>
+<p>This is because the recursive resolver cannot answer this query on its own.
+By setting the <code>RD</code> flag in <code>dig</code> (default) the query will return the <code>A</code> record for domain <code>example.com</code>.
+The command</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 example.com. +recurse
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">; &lt;&lt;&gt;&gt; DiG 9.20.2 &lt;&lt;&gt;&gt; @127.0.0.1 -p 2345 example.com. +recurse
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 30300
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 1232
+; OPT=5: 08 0d 0e 0f ("....")
+; OPT=6: 08 0d 0e 0f ("....")
+;; QUESTION SECTION:
+;example.com.			IN	A
+
+;; ANSWER SECTION:
+example.com.		3600	IN	A	93.184.215.14
+
+;; Query time: 851 msec
+;; SERVER: 127.0.0.1#2345(127.0.0.1) (UDP)
+;; WHEN: Tue Oct 22 11:09:47 CEST 2024
+;; MSG SIZE  rcvd: 83
+</code></pre>
+<p>Specifiying the <code>+dnssec</code> option in the <code>dig</code> command will additionally return the <code>RRSIG</code> record.
+Check the <code>hickory-dns</code> log to learn how the recursive query is processed, the DNSSEC validation, and what
+other name servers were involved.</p>
+<p>The recursive resolver performs DNSSEC validation for each client query to validate the chain of trust.
+This validates all records that are involved in the query resolution, and returns the appropriate response.
+The DNS server automatically sets the <a href="https://www.rfc-editor.org/rfc/rfc6840.html#section-5.7"><code>ad</code> flag</a>
+(Authentic Data) in its response to indicate successful validation.</p>
+<p>To return all records even when DNSSEC validation fails set the checking disabled
+flag <a href="https://www.rfc-editor.org/rfc/rfc4035#section-3.2.2"><code>CD</code></a> using <code>dig</code>'s <code>+cdflag</code> option.
+For example the following query uses <code>dig</code> to fetch the <code>A</code> record for a domain that fails DNSSEC validation:</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 www.dnssec-failed.org. +dnssec +cdflag
+</code></pre>
+<p>Without the <code>+cdflag</code> the query would not return any records. The <code>flags</code> field in the answer will not contain the
+authenticated data (AD) bit to indicate there was a problem with the DNSSEC validation.</p>
+<h3 id="using-delv"><a class="header" href="#using-delv">Using <code>delv</code></a></h3>
+<p>Another tool to query DNS servers is <code>delv</code>. It can be used to return more information on the
+DNSSEC validation process. Let's try the same query as above using <code>delv</code>:</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">; fully validated
+example.com.		3447	IN	A	93.184.215.14
+example.com.		3447	IN	RRSIG	A 13 2 3600 20241102170341 20241012065317 19367 example.com. XMyTWC8y9WecF5ST67DyRUK3Ptvfpy/+Oetha9r6ZU0RJ4aclvY32uKC ojUsjCUHaejma032va/7Z4Yd3Krq8Q==
+</code></pre>
+<p>The important line here is <code>; fully validated</code>, the remainig output is similar to <code>dig</code>, the returned records are the same.
+Let's query a record for a domain that does not exist.</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 doesnotexist.com. A
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">;; no valid RRSIG resolving 'doesnotexist.com/DS/IN': 127.0.0.1#2345
+;; broken trust chain resolving 'doesnotexist.com/A/IN': 127.0.0.1#2345
+;; resolution failed: broken trust chain
+</code></pre>
+<p>This is a good start, but it doesn't really provide the full picture of what's happening under the hood. To figure
+out more about the validation process either check the output of <code>hickory-dns</code> or alternatively display the
+intermediate steps using <code>delv</code> as well.</p>
+<p>To display a brief list of validation steps use the <code>+rtrace</code> option:</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A +rtrace
+</code></pre>
+<p>that ouputs</p>
+<pre><code class="language-txt">;; fetch: example.com/A
+;; fetch: example.com/DNSKEY
+;; fetch: example.com/DS
+;; fetch: com/DNSKEY
+;; fetch: com/DS
+;; fetch: ./DNSKEY
+; fully validated
+example.com.		2641	IN	A	93.184.215.14
+example.com.		2641	IN	RRSIG	A 13 2 3600 20241102170341 20241012065317 19367 example.com. ...
+</code></pre>
+<p>The query returns information on intermediate steps, with the chain of trust fully validated.
+To get the full picture including all intermediate DNS queries and responses use the <code>+mtrace</code> option</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A +mtrace
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dns"><a class="header" href="#dns">dns</a></h1>
 <p><code>dns</code> is a command line interface for performing low level DNS operations directly against a specific nameserver. It can be used for performing queries, notifications, and dynamic updates of records (create, append, delete, etc). It returns results in a similar manner to <code>dig</code>, using the RFC defined presentation format for the output. This is not intended to be compatible with <code>dig</code>, but is intended to be a simpler tool for performing any DNS operation needed.</p>
 <p>The <code>dns</code> tool exposes the library functionality of Hickory DNS. It is meant generally to help with debugging zone or nameserver configurations. All of the commands supported are available with <code>dns -h</code>, here is a list:</p>
@@ -270,8 +610,6 @@ Success for query www.un.org IN AAAA
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="book/theme/mermaid.min.js"></script>
-        <script src="book/theme/mermaid-init.js"></script>
 
         <script>
         window.addEventListener('load', function() {

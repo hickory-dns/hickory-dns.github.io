@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="en" class="dark sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Recursive Resolver - Hickory DNS User Manual</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../mdbook.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "dark";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Hickory DNS User Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="recursive-resolver"><a class="header" href="#recursive-resolver">Recursive Resolver</a></h1>
+<p>Hickory supports the role of a <a href="https://en.wikipedia.org/wiki/Name_server#Recursive_Resolver">Recursive Resolver</a>.
+A recursive resolver is a DNS server that accepts recursive queries and is able to resolve these queries by
+fetching additional records from other known authoritative name servers or from its cache. A recursive resolver
+can validate the recursive query to answer the question if the chain of trust is valid.</p>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>To run Hickory as a recursive resolver with DNSSEC validation the following steps are necessary:</p>
+<ul>
+<li>create a root hints file named <code>root.hints</code></li>
+<li>create a trust anchor file named <code>trusted-key.key</code></li>
+<li>configure Hickory via <code>config.toml</code></li>
+</ul>
+<h3 id="root-hints"><a class="header" href="#root-hints">Root Hints</a></h3>
+<p>The root hints file is used to define a set of authoritative name servers Hickory can query to fetch records for which
+it has no authority over. For example the Internet Assigned Numbers Authority (IANA)
+provides a set of files for their root name servers (see <a href="https://www.iana.org/domains/root/files">here</a>). IANA is the authority
+for the root zone <code>"."</code>, they are responsible for assigning operators for top level domains (e.g. <code>com</code>, <code>de</code>).</p>
+<p>For our example we will use the <code>root.hints</code> file provided by IANA and copy that to a local file.</p>
+<h3 id="trust-anchor"><a class="header" href="#trust-anchor">Trust Anchor</a></h3>
+<p>In order to validate the chain of records successfully Hickory needs the trust anchor for the root zone <code>"."</code>.
+The keys can be fetched via <code>dig</code>.</p>
+<pre><code class="language-shell">dig DNSKEY . +answer
+</code></pre>
+<p>The command returns two <code>DNSKEY</code> records (abbreviated) in the <code>ANSWERS</code> section of the response:</p>
+<pre><code class="language-txt">. 19347	IN  DNSKEY  256 3 8 AwEAAc0SunbHdS0KFEyZbYII/+tzsrNzIwurKxmJA+0fhAYlTPA/5LrM ...
+. 19347	IN  DNSKEY  257 3 8 AwEAAaz/tAm8yTn4Mfeh5eyI96WSVexTBAvkMgJzkKTOiW1vkIbzxeF3 ...
+</code></pre>
+<p>Create a new file named <code>trusted-key.key</code>, copy the content of the <code>ANSWERS</code> section into it. These keys are involved
+in the validation of the root zone.</p>
+<h3 id="configtoml"><a class="header" href="#configtoml"><code>config.toml</code></a></h3>
+<p>The last step is to configure Hickory as a recursive resolver.</p>
+<pre><code class="language-toml"># config.toml
+[[zones]]
+zone = "."
+zone_type = "Hint"
+stores = { type = "recursor", roots = "/absolute/path/root.hints", dnssec_policy.ValidateWithStaticKey.path = "/absolute/path/trusted-key.key" }
+</code></pre>
+<p>The configuration consists of the following fields:</p>
+<ul>
+<li><code>zone</code> - The zone to configure.</li>
+<li><code>zone_type</code> - The <code>Hint</code> value indicates a zone with recursive resolver abilities.</li>
+<li><code>stores</code> - A block that defines a store type.
+<ul>
+<li><code>type</code> - Indicates a <code>recursor</code> configuration</li>
+<li><code>roots</code> - The file path to the root hints file.</li>
+<li><code>dnssec_policy</code> - Configues the DNSSEC validation policy.
+<ul>
+<li><code>ValidateWithStaticKey.path</code> - The file path to the trusted key used for DNSSEC validation.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Both path fields, <code>root</code> and <code>ValidateWithStaticKey.path</code>, need to be absolute paths.</p>
+</blockquote>
+<h2 id="run-hickory"><a class="header" href="#run-hickory">Run Hickory</a></h2>
+<p>To start Hickory run:</p>
+<pre><code class="language-shell">hickory-dns --port 2345 --debug --config=./config.toml
+</code></pre>
+<p>This runs the DNS server on port <code>2345</code> with the resolver configuration. This time the DNS server
+can forward requests to the root name servers specified in the <code>root.hints</code> file.</p>
+<h2 id="dnssec-validation"><a class="header" href="#dnssec-validation">DNSSEC Validation</a></h2>
+<p>Hickory started as recursive resolver and will execute DNSSEC validation for a query.</p>
+<h3 id="using-dig"><a class="header" href="#using-dig">Using <code>dig</code></a></h3>
+<p>In order to answer a recursive query the client needs to send
+the <a href="https://datatracker.ietf.org/doc/html/rfc1035#section-4"><code>RD</code></a> (Recursion Desired) flag.
+Using <code>dig</code> we can see that for an existing domain no records will be returned if the flag is disabled.</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 example.com. +norecurse
+</code></pre>
+<p>This is because the recursive resolver cannot answer this query on its own.
+By setting the <code>RD</code> flag in <code>dig</code> (default) the query will return the <code>A</code> record for domain <code>example.com</code>.
+The command</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 example.com. +recurse
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">; &lt;&lt;&gt;&gt; DiG 9.20.2 &lt;&lt;&gt;&gt; @127.0.0.1 -p 2345 example.com. +recurse
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 30300
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 1232
+; OPT=5: 08 0d 0e 0f ("....")
+; OPT=6: 08 0d 0e 0f ("....")
+;; QUESTION SECTION:
+;example.com.			IN	A
+
+;; ANSWER SECTION:
+example.com.		3600	IN	A	93.184.215.14
+
+;; Query time: 851 msec
+;; SERVER: 127.0.0.1#2345(127.0.0.1) (UDP)
+;; WHEN: Tue Oct 22 11:09:47 CEST 2024
+;; MSG SIZE  rcvd: 83
+</code></pre>
+<p>Specifiying the <code>+dnssec</code> option in the <code>dig</code> command will additionally return the <code>RRSIG</code> record.
+Check the <code>hickory-dns</code> log to learn how the recursive query is processed, the DNSSEC validation, and what
+other name servers were involved.</p>
+<p>The recursive resolver performs DNSSEC validation for each client query to validate the chain of trust.
+This validates all records that are involved in the query resolution, and returns the appropriate response.
+The DNS server automatically sets the <a href="https://www.rfc-editor.org/rfc/rfc6840.html#section-5.7"><code>ad</code> flag</a>
+(Authentic Data) in its response to indicate successful validation.</p>
+<p>To return all records even when DNSSEC validation fails set the checking disabled
+flag <a href="https://www.rfc-editor.org/rfc/rfc4035#section-3.2.2"><code>CD</code></a> using <code>dig</code>'s <code>+cdflag</code> option.
+For example the following query uses <code>dig</code> to fetch the <code>A</code> record for a domain that fails DNSSEC validation:</p>
+<pre><code class="language-shell">dig @127.0.0.1 -p 2345 www.dnssec-failed.org. +dnssec +cdflag
+</code></pre>
+<p>Without the <code>+cdflag</code> the query would not return any records. The <code>flags</code> field in the answer will not contain the
+authenticated data (AD) bit to indicate there was a problem with the DNSSEC validation.</p>
+<h3 id="using-delv"><a class="header" href="#using-delv">Using <code>delv</code></a></h3>
+<p>Another tool to query DNS servers is <code>delv</code>. It can be used to return more information on the
+DNSSEC validation process. Let's try the same query as above using <code>delv</code>:</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">; fully validated
+example.com.		3447	IN	A	93.184.215.14
+example.com.		3447	IN	RRSIG	A 13 2 3600 20241102170341 20241012065317 19367 example.com. XMyTWC8y9WecF5ST67DyRUK3Ptvfpy/+Oetha9r6ZU0RJ4aclvY32uKC ojUsjCUHaejma032va/7Z4Yd3Krq8Q==
+</code></pre>
+<p>The important line here is <code>; fully validated</code>, the remainig output is similar to <code>dig</code>, the returned records are the same.
+Let's query a record for a domain that does not exist.</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 doesnotexist.com. A
+</code></pre>
+<p>returns</p>
+<pre><code class="language-txt">;; no valid RRSIG resolving 'doesnotexist.com/DS/IN': 127.0.0.1#2345
+;; broken trust chain resolving 'doesnotexist.com/A/IN': 127.0.0.1#2345
+;; resolution failed: broken trust chain
+</code></pre>
+<p>This is a good start, but it doesn't really provide the full picture of what's happening under the hood. To figure
+out more about the validation process either check the output of <code>hickory-dns</code> or alternatively display the
+intermediate steps using <code>delv</code> as well.</p>
+<p>To display a brief list of validation steps use the <code>+rtrace</code> option:</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A +rtrace
+</code></pre>
+<p>that ouputs</p>
+<pre><code class="language-txt">;; fetch: example.com/A
+;; fetch: example.com/DNSKEY
+;; fetch: example.com/DS
+;; fetch: com/DNSKEY
+;; fetch: com/DS
+;; fetch: ./DNSKEY
+; fully validated
+example.com.		2641	IN	A	93.184.215.14
+example.com.		2641	IN	RRSIG	A 13 2 3600 20241102170341 20241012065317 19367 example.com. ...
+</code></pre>
+<p>The query returns information on intermediate steps, with the chain of trust fully validated.
+To get the full picture including all intermediate DNS queries and responses use the <code>+mtrace</code> option</p>
+<pre><code class="language-shell">delv @127.0.0.1 -p 2345 example.com. A +mtrace
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../hickory/authoritative_nameserver.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../util/dns.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../hickory/authoritative_nameserver.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../util/dns.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
