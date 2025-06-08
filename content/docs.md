@@ -1,5 +1,5 @@
 +++
-title = "User Manual"
+title = "Docs"
 template = "mdbook.html"
 weight = 2
 
