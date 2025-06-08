@@ -19,7 +19,7 @@ clean: clean_worktree
 
 get_readme:
     @echo "====> Fetching README.md from ${HICKORY_README}"
-    curl --proto '=https' --tlsv1.2 -sSf ${HICKORY_README} -o static/README.md
+    curl --proto '=https' --tlsv1.2 -sSf ${HICKORY_README} -o static/hickory-dns-README.md
 
 zola: clean get_readme
     @echo "====> building zola site"
