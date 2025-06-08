@@ -6,9 +6,14 @@
         <meta charset="utf-8" />
         <title>Hickory</title>
 
+        <link rel="icon" href="{{ config.base_url | safe }}/favicon.ico" />
         <link
             rel="stylesheet"
             href="{{ config.base_url | safe }}/hickory-dns.css"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ config.base_url | safe }}/fontawesome/css/all.min.css"
         />
 
         <!--Let browser know website is optimized for mobile-->
@@ -26,10 +31,20 @@
             /></a>
 
             <nav>
-                <a href="{{ config.base_url | safe }}/">Home</a>
+                <a href="{{ config.base_url | safe }}/" alt="Home"
+                    ><i class="fa-regular fa-leaf fa-xs"></i> Home</a
+                >
                 {% for page in root.pages %}
-                <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                <a href="{{ page.permalink | safe }}" alt="{{ page.title }}"
+                    >{% if page.extra.icon %}<i
+                        class="{{ page.extra.icon }} fa-xs"
+                    ></i>
+                    {{ page.title }}{% endif %}</a
+                >
                 {% endfor %}
+                <a href="https://github.com/hickory-dns/hickory-dns"
+                    ><i class="fa-brands fa-github"></i> Github</a
+                >
             </nav>
         </header>
 
@@ -38,9 +53,24 @@
 
         <!-- Page footer -->
         <footer>
-            <p>Hickory Project, since 2015</p>
-            <a href="https://github.com/hickory-dns/hickory-dns">Github</a>
-            <a href="https://discord.gg/89nxE4n">Discord</a>
+            <div>
+                <p>Hickory Project, since 2015</p>
+                <p>
+                    <a href="https://github.com/hickory-dns/hickory-dns"
+                        ><i class="fa-brands fa-github"></i> Github</a
+                    >
+                    <a href="https://discord.gg/89nxE4n"
+                        ><i class="fa-brands fa-discord"></i> Discord</a
+                    >
+                </p>
+                <p>
+                    Help Contribute to this documentation at Github
+                    <a
+                        href="https://github.com/hickory-dns/hickory-dns.github.io"
+                        >hickory-dns.github.io</a
+                    >
+                </p>
+            </div>
         </footer>
     </body>
 </html>

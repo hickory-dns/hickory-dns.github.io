@@ -2,6 +2,9 @@
 title = "About"
 template = "page.html"
 weight = 1
+
+[extra]
+icon = "fa fa-info-circle"
 +++
 
 # About Hickory
