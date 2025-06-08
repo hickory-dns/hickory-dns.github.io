@@ -32,14 +32,17 @@
 
             <nav>
                 <a href="{{ config.base_url | safe }}/" alt="Home"
-                    ><i class="fa-regular fa-leaf fa-xs"></i> Home</a
+                    >{% if section.extra.icon %}<i
+                        class="{{ section.extra.icon }} fa-xs"
+                    ></i
+                    >{% endif %} Home</a
                 >
                 {% for page in root.pages %}
                 <a href="{{ page.permalink | safe }}" alt="{{ page.title }}"
                     >{% if page.extra.icon %}<i
                         class="{{ page.extra.icon }} fa-xs"
-                    ></i>
-                    {{ page.title }}{% endif %}</a
+                    ></i
+                    >{% endif %} {{ page.title }}</a
                 >
                 {% endfor %}
                 <a href="https://github.com/hickory-dns/hickory-dns"
