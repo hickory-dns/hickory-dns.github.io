@@ -59,7 +59,7 @@ deploy: gh-pages clean build
     ls -l ${TMP_GH_PAGES_SITE}/
     cd ${TMP_GH_PAGES_SITE} && \
         git add -A && \
-        git diff --staged --quiet || \
+        git diff --staged || \
           (git commit -m "deployed on $(shell date) by ${USER}" && \
            git push origin gh-pages)
     @just clean_worktree
