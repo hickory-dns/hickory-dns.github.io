@@ -65,13 +65,195 @@
         src="https://hickory-dns.org/logo.png"
     />
     <h1 class="title">Hickory DNS</h1>
-    <h1 id="hickory-dns">Hickory DNS</h1>
-<p><strong>Hickory DNS</strong> is a DNS framework and server written in Rust.</p>
-<p>This repo contains the documentation for the project, please feel free to contribute examples for others to benefit from.</p>
-<h2 id="contributing-to-this-project">Contributing to this project</h2>
-<p>Generally, people should add content to the <code>mdbook</code> for Hickory in <code>docs/src</code>. Add or update content there.</p>
-<p>Once updated, the book can be tested with the local just command, <code>just serve</code>, this will build and launch the site locally to verify the content.</p>
-<p>After that, submit a PR.
+    <a href="https://www.whatrustisit.com"><img src="https://img.shields.io/badge/minimum%20rustc-1.70-green?logo=rust" alt="minimum rustc: 1.70" /></a>
+<a href="https://github.com/hickory-dns/hickory-dns/actions?query=workflow%3Atest"><img src="https://github.com/hickory-dns/hickory-dns/workflows/test/badge.svg?branch=main" alt="Build Status" /></a>
+<a href="https://codecov.io/gh/hickory-dns/hickory-dns"><img src="https://codecov.io/gh/hickory-dns/hickory-dns/branch/main/graph/badge.svg" alt="codecov" /></a>
+<a href="LICENSE-MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" /></a>
+<a href="LICENSE-APACHE"><img src="https://img.shields.io/badge/license-Apache_2.0-blue.svg" alt="License: Apache 2.0" /></a>
+<a href="https://discord.gg/89nxE4n"><img src="https://img.shields.io/discord/590067103822774272.svg" alt="Discord" /></a></p>
+<div class="oranda-hide">
+<p><img src="logo.png" alt="Hickory DNS" /></p>
+<h1 id="hickory-dns">Hickory DNS</h1>
+</div>
+<p>A Rust based DNS client, server, and resolver, built to be safe and secure from the
+ground up.</p>
+<p>This repo consists of multiple crates:</p>
+<table><thead><tr><th>Library</th><th>Description</th></tr></thead><tbody>
+<tr><td><a href="bin/"><strong>Hickory DNS</strong></a></td><td><a href="https://crates.io/crates/hickory-dns"><img src="https://img.shields.io/crates/v/hickory-dns.svg" alt="" /></a> Provides the <code>hickory-dns</code> binary for running a DNS server.</td></tr>
+<tr><td><a href="crates/proto/"><strong>Proto</strong></a></td><td><a href="https://crates.io/crates/hickory-proto"><img src="https://img.shields.io/crates/v/hickory-proto.svg" alt="" /></a> <a href="https://docs.rs/hickory-proto"><img src="https://docs.rs/hickory-proto/badge.svg" alt="hickory-proto" /></a> Low-level DNS library, including message encoding/decoding and DNS transports.</td></tr>
+<tr><td><a href="crates/client/"><strong>Client</strong></a></td><td><a href="https://crates.io/crates/hickory-client"><img src="https://img.shields.io/crates/v/hickory-client.svg" alt="" /></a> <a href="https://docs.rs/hickory-client"><img src="https://docs.rs/hickory-client/badge.svg" alt="hickory-client" /></a> Used for sending <code>query</code>, <code>update</code>, and <code>notify</code> messages directly to a DNS server.</td></tr>
+<tr><td><a href="crates/server/"><strong>Server</strong></a></td><td><a href="https://crates.io/crates/hickory-server"><img src="https://img.shields.io/crates/v/hickory-server.svg" alt="" /></a> <a href="https://docs.rs/hickory-server"><img src="https://docs.rs/hickory-server/badge.svg" alt="hickory-server" /></a> Used to build DNS servers. The <code>hickory-dns</code> binary makes use of this library.</td></tr>
+<tr><td><a href="crates/resolver/"><strong>Resolver</strong></a></td><td><a href="https://crates.io/crates/hickory-resolver"><img src="https://img.shields.io/crates/v/hickory-resolver.svg" alt="" /></a> <a href="https://docs.rs/hickory-resolver"><img src="https://docs.rs/hickory-resolver/badge.svg" alt="hickory-resolver" /></a> Utilizes the client library to perform DNS resolution. Can be used in place of the standard OS resolution facilities.</td></tr>
+<tr><td><a href="crates/recursor/"><strong>Recursor</strong></a></td><td><a href="https://crates.io/crates/hickory-recursor"><img src="https://img.shields.io/crates/v/hickory-recursor.svg" alt="" /></a> <a href="https://docs.rs/hickory-recursor"><img src="https://docs.rs/hickory-recursor/badge.svg" alt="hickory-recursor" /></a> Performs recursive DNS resolution, looking up records from their authoritative name servers.</td></tr>
+</tbody></table>
+<p><strong>NOTICE</strong> This project was rebranded from Trust-DNS to Hickory DNS and has been moved to the https://github.com/hickory-dns/hickory-dns organization and repo.</p>
+<h1 id="goals">Goals</h1>
+<ul>
+<li>Build a safe and secure DNS server and client with modern features.</li>
+<li>No panics, all code is guarded</li>
+<li>Use only safe Rust, and avoid all panics with proper Error handling</li>
+<li>Use only stable Rust</li>
+<li>Protect against DDOS attacks (to a degree)</li>
+<li>Support options for Global Load Balancing functions</li>
+<li>Make it dead simple to operate</li>
+</ul>
+<h1 id="status">Status</h1>
+<h2 id="dnssec-status">DNSSEC status</h2>
+<p>The current root key is bundled into the system, and used by default. This gives
+validation of DNSKEY and DS records back to the root. NSEC and NSEC3 are
+implemented.</p>
+<p>Zones will be automatically resigned on any record updates via dynamic DNS. To enable DNSSEC, enable the <code>dnssec-ring</code> feature.</p>
+<h2 id="rfcs-implemented">RFCs implemented</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc8499">RFC 8499</a>: No more master/slave, in honor of <a href="https://en.wikipedia.org/wiki/Juneteenth">Juneteenth</a></li>
+</ul>
+<h3 id="basic-operations">Basic operations</h3>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc1035">RFC 1035</a>: Base DNS spec (see the Resolver for caching)</li>
+<li><a href="https://tools.ietf.org/html/rfc2308">RFC 2308</a>: Negative Caching of DNS Queries (see the Resolver)</li>
+<li><a href="https://tools.ietf.org/html/rfc2782">RFC 2782</a>: Service location</li>
+<li><a href="https://tools.ietf.org/html/rfc3596">RFC 3596</a>: IPv6</li>
+<li><a href="https://tools.ietf.org/html/rfc6891">RFC 6891</a>: Extension Mechanisms for DNS</li>
+<li><a href="https://tools.ietf.org/html/rfc6761">RFC 6761</a>: Special-Use Domain Names (resolver)</li>
+<li><a href="https://tools.ietf.org/html/rfc6762">RFC 6762</a>: mDNS Multicast DNS (experimental feature: <code>mdns</code>)</li>
+<li><a href="https://tools.ietf.org/html/rfc6763">RFC 6763</a>: DNS-SD Service Discovery (experimental feature: <code>mdns</code>)</li>
+<li><a href="https://tools.ietf.org/html/draft-ietf-dnsop-aname-04">draft-ietf-dnsop-aname</a>: Address-specific DNS aliases (<code>ANAME</code>)</li>
+</ul>
+<h3 id="update-operations">Update operations</h3>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc2136">RFC 2136</a>: Dynamic Update</li>
+<li><a href="https://tools.ietf.org/html/rfc7477">RFC 7477</a>: Child-to-Parent Synchronization in DNS</li>
+</ul>
+<h3 id="secure-dns-operations">Secure DNS operations</h3>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc2931">RFC 2931</a>: SIG(0)</li>
+<li><a href="https://tools.ietf.org/html/rfc3007">RFC 3007</a>: Secure Dynamic Update</li>
+<li><a href="https://tools.ietf.org/html/rfc4034">RFC 4034</a>: DNSSEC Resource Records</li>
+<li><a href="https://tools.ietf.org/html/rfc4035">RFC 4035</a>: Protocol Modifications for DNSSEC</li>
+<li><a href="https://tools.ietf.org/html/rfc4509">RFC 4509</a>: SHA-256 in DNSSEC Delegation Signer</li>
+<li><a href="https://tools.ietf.org/html/rfc5155">RFC 5155</a>: DNSSEC Hashed Authenticated Denial of Existence</li>
+<li><a href="https://tools.ietf.org/html/rfc5702">RFC 5702</a>: SHA-2 Algorithms with RSA in DNSKEY and RRSIG for DNSSEC</li>
+<li><a href="https://tools.ietf.org/html/rfc6844">RFC 6844</a>: DNS Certification Authority Authorization (CAA) Resource Record</li>
+<li><a href="https://tools.ietf.org/html/rfc6698">RFC 6698</a>: The DNS-Based Authentication of Named Entities (DANE) Transport Layer Security (TLS) Protocol: TLSA</li>
+<li><a href="https://tools.ietf.org/html/rfc6840">RFC 6840</a>: Clarifications and Implementation Notes for DNSSEC</li>
+<li><a href="https://tools.ietf.org/html/rfc6844">RFC 6844</a>: DNS Certification Authority Authorization Resource Record</li>
+<li><a href="https://tools.ietf.org/html/rfc6944">RFC 6944</a>: DNSKEY Algorithm Implementation Status</li>
+<li><a href="https://tools.ietf.org/html/rfc6975">RFC 6975</a>: Signaling Cryptographic Algorithm Understanding</li>
+<li><a href="https://tools.ietf.org/html/rfc7858">RFC 7858</a>: DNS over TLS (feature: <code>dns-over-rustls</code>, <code>dns-over-native-tls</code>, or <code>dns-over-openssl</code>)</li>
+<li><a href="https://tools.ietf.org/html/rfc8484">RFC 8484</a>: DNS over HTTPS, DoH (feature: <code>dns-over-https-rustls</code>)</li>
+</ul>
+<h2 id="rfcs-in-progress-or-not-yet-implemented">RFCs in progress or not yet implemented</h2>
+<h3 id="basic-operations-1">Basic operations</h3>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>: Classless IN-ADDR.ARPA delegation</li>
+</ul>
+<h3 id="update-operations-1">Update operations</h3>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc1995">RFC 1995</a>: Incremental Zone Transfer</li>
+<li><a href="https://tools.ietf.org/html/rfc1996">RFC 1996</a>: Notify secondaries of update</li>
+<li><a href="https://tools.ietf.org/html/draft-sekar-dns-ul-01">Update Leases</a>: Dynamic DNS Update Leases</li>
+<li><a href="https://tools.ietf.org/html/rfc8764">RFC 8764</a>: Notify with bells</li>
+</ul>
+<h3 id="secure-dns-operations-1">Secure DNS operations</h3>
+<ul>
+<li><a href="https://dnscrypt.org">DNSCrypt</a>: Trusted DNS queries</li>
+<li><a href="https://tools.ietf.org/html/rfc8162">RFC 8162</a>: Domain Names For S/MIME</li>
+</ul>
+<h2 id="minimum-rust-version">Minimum Rust Version</h2>
+<ul>
+<li>The current minimum rustc version for this project is <code>1.70</code></li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>Hickory DNS uses <code>just</code> for build workflow management. While running <code>cargo test</code> at the project root will work, this is not exhaustive. Install <code>just</code> with <code>cargo install just</code>. A few of the <code>just</code> recipes require <a href="https://github.com/pksunkara/cargo-workspaces"><code>cargo-workspaces</code></a> to be installed, a plugin to optimize the workflow around cargo workspaces. Install the plugin with <code>cargo install cargo-workspaces</code>.</p>
+<ul>
+<li>
+<p>Default tests</p>
+<p>These are good for running on local systems. They will create sockets for
+local tests, but will not attempt to access remote systems. Tests can also
+be run from the crate directory, i.e. <code>client</code> or <code>server</code> and <code>cargo test</code></p>
+</li>
+</ul>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">just default
+</code></pre>
+<ul>
+<li>
+<p>Default feature tests</p>
+<p>Hickory DNS has many features, to quickly test with them or without, there are three targets supported, <code>default</code>, <code>no-default-features</code>, <code>all-features</code>:</p>
+</li>
+</ul>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">just all-features
+</code></pre>
+<ul>
+<li>
+<p>Individual feature tests</p>
+<p>Hickory DNS has many features, each individual feature can be tested
+independently. See individual crates for all their features, here is a not
+necessarily up to date list: <code>dns-over-rustls</code>, <code>dns-over-https-rustls</code>,
+<code>dns-over-native-tls</code>, <code>dns-over-openssl</code>, <code>dns-dnssec-openssl</code>,
+<code>dns-dnssec-openssl</code>, <code>dns-dnssec-ring</code>, <code>mdns</code>. Each feature can be tested
+with itself as the task target for <code>just</code>:</p>
+</li>
+</ul>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">just dns-over-https-rustls
+</code></pre>
+<ul>
+<li>
+<p>Benchmarks</p>
+<p>Waiting on benchmarks to stabilize in mainline Rust.</p>
+</li>
+</ul>
+<h2 id="building">Building</h2>
+<ul>
+<li>Production build, from the <code>hickory-dns</code> base dir, to get all features, just pass the <code>--all-features</code> flag.</li>
+</ul>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">cargo build --release -p hickory-dns
+</code></pre>
+<h2 id="using-the-hickory-resolver-cli">Using the hickory-resolver CLI</h2>
+<p>Available in <code>0.20</code></p>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">cargo install --bin resolve hickory-util
+</code></pre>
+<p>Or from source, in the hickory-dns directory</p>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">cargo install --bin resolve --path util
+</code></pre>
+<p>example:</p>
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">$ resolve www.example.com.
+Querying for www.example.com. A from udp:8.8.8.8:53, tcp:8.8.8.8:53, udp:8.8.4.4:53, tcp:8.8.4.4:53, udp:[2001:4860:4860::8888]:53, tcp:[2001:4860:4860::8888]:53, udp:[2001:4860:4860::8844]:53, tcp:[2001:4860:4860::8844]:53
+Success for query name: www.example.com. type: A class: IN
+        www.example.com. 21063 IN A 93.184.215.14
+</code></pre>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>
+<p>Why are you building another DNS server?</p>
+<pre><code>Because of all the security advisories out there for BIND.
+</code></pre>
+<p>Using Rust semantics it should be possible to develop a high performance and
+safe DNS Server that is more resilient to attacks.</p>
+</li>
+<li>
+<p>What is the MSRV (minimum stable Rust version) policy?</p>
+<pre><code>Hickory DNS will work to support backward compatibility with three Rust versions.
+</code></pre>
+<p>For example, if <code>1.50</code> is the current release, then the MSRV will be <code>1.47</code>. The
+version is only increased as necessary, so it's possible that the MSRV is older
+than this policy states. Additionally, the MSRV is only supported for the <code>no-default-features</code>
+build due to it being an intractable issue of trying to enforce this policy on dependencies.</p>
+</li>
+</ul>
+<h2 id="community">Community</h2>
+<p>For live discussions beyond this repository, please see this <a href="https://discord.gg/89nxE4n">Discord</a>.</p>
+<h2 id="license">License</h2>
+<p>Licensed under either of</p>
+<ul>
+<li>Apache License, Version 2.0, (<a href="LICENSE-APACHE">LICENSE-APACHE</a> or <a href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a>)</li>
+<li>MIT license (<a href="LICENSE-MIT">LICENSE-MIT</a> or <a href="https://opensource.org/licenses/MIT">https://opensource.org/licenses/MIT</a>)</li>
+</ul>
+<p>at your option.</p>
+<h3 id="contribution">Contribution</h3>
+<p>Unless you explicitly state otherwise, any contribution intentionally
+submitted for inclusion in the work by you, as defined in the Apache-2.0
+license, shall be dual licensed as above, without any additional terms or
+conditions.
 </div>
 
  
