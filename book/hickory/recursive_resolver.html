@@ -127,7 +127,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book" title="Git repository" aria-label="Git repository">
+                        <a target="_parent" href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/docs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -157,7 +157,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="recursive-resolver"><a class="header" href="#recursive-resolver">Recursive Resolver</a></h1>
-<p>Hickory supports the role of a <a href="https://en.wikipedia.org/wiki/Name_server#Recursive_Resolver">Recursive Resolver</a>.
+<p>Hickory supports the role of a <a target="_parent" href="https://en.wikipedia.org/wiki/Name_server#Recursive_Resolver">Recursive Resolver</a>.
 A recursive resolver is a DNS server that accepts recursive queries and is able to resolve these queries by
 fetching additional records from other known authoritative name servers or from its cache. A recursive resolver
 can validate the recursive query to answer the question if the chain of trust is valid.</p>
@@ -171,7 +171,7 @@ can validate the recursive query to answer the question if the chain of trust is
 <h3 id="root-hints"><a class="header" href="#root-hints">Root Hints</a></h3>
 <p>The root hints file is used to define a set of authoritative name servers Hickory can query to fetch records for which
 it has no authority over. For example the Internet Assigned Numbers Authority (IANA)
-provides a set of files for their root name servers (see <a href="https://www.iana.org/domains/root/files">here</a>). IANA is the authority
+provides a set of files for their root name servers (see <a target="_parent" href="https://www.iana.org/domains/root/files">here</a>). IANA is the authority
 for the root zone <code>"."</code>, they are responsible for assigning operators for top level domains (e.g. <code>com</code>, <code>de</code>).</p>
 <p>For our example we will use the <code>root.hints</code> file provided by IANA and copy that to a local file.</p>
 <h3 id="trust-anchor"><a class="header" href="#trust-anchor">Trust Anchor</a></h3>
@@ -222,7 +222,7 @@ can forward requests to the root name servers specified in the <code>root.hints<
 <p>Hickory started as recursive resolver and will execute DNSSEC validation for a query.</p>
 <h3 id="using-dig"><a class="header" href="#using-dig">Using <code>dig</code></a></h3>
 <p>In order to answer a recursive query the client needs to send
-the <a href="https://datatracker.ietf.org/doc/html/rfc1035#section-4"><code>RD</code></a> (Recursion Desired) flag.
+the <a target="_parent" href="https://datatracker.ietf.org/doc/html/rfc1035#section-4"><code>RD</code></a> (Recursion Desired) flag.
 Using <code>dig</code> we can see that for an existing domain no records will be returned if the flag is disabled.</p>
 <pre><code class="language-shell">dig @127.0.0.1 -p 2345 example.com. +norecurse
 </code></pre>
@@ -259,10 +259,10 @@ Check the <code>hickory-dns</code> log to learn how the recursive query is proce
 other name servers were involved.</p>
 <p>The recursive resolver performs DNSSEC validation for each client query to validate the chain of trust.
 This validates all records that are involved in the query resolution, and returns the appropriate response.
-The DNS server automatically sets the <a href="https://www.rfc-editor.org/rfc/rfc6840.html#section-5.7"><code>ad</code> flag</a>
+The DNS server automatically sets the <a target="_parent" href="https://www.rfc-editor.org/rfc/rfc6840.html#section-5.7"><code>ad</code> flag</a>
 (Authentic Data) in its response to indicate successful validation.</p>
 <p>To return all records even when DNSSEC validation fails set the checking disabled
-flag <a href="https://www.rfc-editor.org/rfc/rfc4035#section-3.2.2"><code>CD</code></a> using <code>dig</code>'s <code>+cdflag</code> option.
+flag <a target="_parent" href="https://www.rfc-editor.org/rfc/rfc4035#section-3.2.2"><code>CD</code></a> using <code>dig</code>'s <code>+cdflag</code> option.
 For example the following query uses <code>dig</code> to fetch the <code>A</code> record for a domain that fails DNSSEC validation:</p>
 <pre><code class="language-shell">dig @127.0.0.1 -p 2345 www.dnssec-failed.org. +dnssec +cdflag
 </code></pre>

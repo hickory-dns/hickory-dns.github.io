@@ -127,7 +127,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book" title="Git repository" aria-label="Git repository">
+                        <a target="_parent" href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/docs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -163,9 +163,9 @@
 <p>or build it from source</p>
 <pre><code class="language-shell">cargo build --package hickory-dns --features=recursor,dnssec-openssl
 </code></pre>
-<p>Hickory uses <a href="https://doc.rust-lang.org/cargo/reference/features.html">Cargo features</a> to enable or disable certain functionalities. Alternatively use feature <code>dnssec-ring</code> to use the cryptographic library <code>ring</code> instead of OpenSSL.</p>
+<p>Hickory uses <a target="_parent" href="https://doc.rust-lang.org/cargo/reference/features.html">Cargo features</a> to enable or disable certain functionalities. Alternatively use feature <code>dnssec-ring</code> to use the cryptographic library <code>ring</code> instead of OpenSSL.</p>
 <p>The <code>recursor</code> feature allows Hickory to run as a recursive resolver, for example to activate DNSSEC validation.</p>
-<p>The list of features is explained in Hickory's <a href="https://github.com/hickory-dns/hickory-dns/?tab=readme-ov-file#using-as-a-dependency-and-custom-features">Readme</a>.</p>
+<p>The list of features is explained in Hickory's <a target="_parent" href="https://github.com/hickory-dns/hickory-dns/?tab=readme-ov-file#using-as-a-dependency-and-custom-features">Readme</a>.</p>
 
                     </main>
 

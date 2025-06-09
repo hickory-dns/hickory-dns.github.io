@@ -127,7 +127,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book" title="Git repository" aria-label="Git repository">
+                        <a target="_parent" href="https://github.com/hickory-dns/hickory-dns.github.io/tree/main/docs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
 
@@ -157,7 +157,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="authoritative-name-server"><a class="header" href="#authoritative-name-server">Authoritative Name server</a></h1>
-<p>One of the roles Hickory supports is as an <a href="https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server">authoritative name server</a>.
+<p>One of the roles Hickory supports is as an <a target="_parent" href="https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server">authoritative name server</a>.
 This type of name server has authoritty over its own zones and can answer queries for which it is responsible.</p>
 <h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
 <p>To configure Hickory as an authoritative name server the setup requires a few steps.</p>
@@ -173,7 +173,7 @@ This type of name server has authoritty over its own zones and can answer querie
 primary0.example.com.	86400	IN	A	127.0.0.1
 </code></pre>
 <p>This file defines a <code>SOA</code> record (Start of Authority), a <code>NS</code> record (Namespace) and an <code>A</code> record (IPv4 Address).</p>
-<p>A list of zone file examples can be found in the <a href="https://github.com/hickory-dns/hickory-dns/tree/main/tests/test-data/test_configs/default"><code>test_configs/default</code></a> folder as part of Hickory's test suite.</p>
+<p>A list of zone file examples can be found in the <a target="_parent" href="https://github.com/hickory-dns/hickory-dns/tree/main/tests/test-data/test_configs/default"><code>test_configs/default</code></a> folder as part of Hickory's test suite.</p>
 <h3 id="zone-signing-key"><a class="header" href="#zone-signing-key">Zone Signing Key</a></h3>
 <p>The second step is to generate a zone signing key (ZSK). Hickory will use this key to sign all zones with during startup.
 Additionally a key signing key is generated as well internally.</p>
