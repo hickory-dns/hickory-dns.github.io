@@ -31,7 +31,9 @@ mdbook:
 
 build: zola mdbook
     mv docs/book public/book
+    # fix up some of the things in the mdbook, css and links...
     rg 'public/mdbook.css' public/book --files-with-matches | xargs sed -i ''  's|public/mdbook.css|mdbook.css|g'
+    rg "<a href=\"http" public/book -t html --files-with-matches | xargs sed -i '' 's|<a href="http|<a target="_parent" href="http|g'
 
 serve: build
     @echo "====> serving zola site"

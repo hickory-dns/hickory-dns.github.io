@@ -17,7 +17,7 @@ create-missing = true
 #site-url = "/docs"
 default-theme = "dark"
 preferred-dark-theme = "ayu"
-git-repository-url = "https://github.com/hickory-dns/hickory-dns.github.io/tree/main/book"
+git-repository-url = "https://github.com/hickory-dns/hickory-dns.github.io/tree/main/docs"
 
 # this is built by zola, make sure to build zola before mdbook
 additional-css = ["../public/mdbook.css"]
