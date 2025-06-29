@@ -8,5 +8,7 @@
 
 # Utilities
 
+[note to developers](util/to_devs.md)
+
 - [dns](util/dns.md)
 - [resolve](util/resolve.md)
