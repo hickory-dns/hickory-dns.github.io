@@ -1,4 +1,3 @@
-[![minimum rustc: 1.70](https://img.shields.io/badge/minimum%20rustc-1.70-green?logo=rust)](https://www.whatrustisit.com)
 [![Build Status](https://github.com/hickory-dns/hickory-dns/workflows/test/badge.svg?branch=main)](https://github.com/hickory-dns/hickory-dns/actions?query=workflow%3Atest)
 [![codecov](https://codecov.io/gh/hickory-dns/hickory-dns/branch/main/graph/badge.svg)](https://codecov.io/gh/hickory-dns/hickory-dns)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE-MIT)
@@ -20,12 +19,12 @@ This repo consists of multiple crates:
 
 | Library         | Description                                                                                                                                                                                                                                                                                                                      |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Hickory DNS**](bin/)             | [![](https://img.shields.io/crates/v/hickory-dns.svg)](https://crates.io/crates/hickory-dns) Provides the `hickory-dns` binary for running a DNS server.                                                                                                                                                                         |
-| [**Proto**](crates/proto/)          | [![](https://img.shields.io/crates/v/hickory-proto.svg)](https://crates.io/crates/hickory-proto) [![hickory-proto](https://docs.rs/hickory-proto/badge.svg)](https://docs.rs/hickory-proto) Low-level DNS library, including message encoding/decoding and DNS transports.                                                       |
-| [**Client**](crates/client/)        | [![](https://img.shields.io/crates/v/hickory-client.svg)](https://crates.io/crates/hickory-client) [![hickory-client](https://docs.rs/hickory-client/badge.svg)](https://docs.rs/hickory-client) Used for sending `query`, `update`, and `notify` messages directly to a DNS server.                                             |
-| [**Server**](crates/server/)        | [![](https://img.shields.io/crates/v/hickory-server.svg)](https://crates.io/crates/hickory-server) [![hickory-server](https://docs.rs/hickory-server/badge.svg)](https://docs.rs/hickory-server) Used to build DNS servers. The `hickory-dns` binary makes use of this library.                                                  |
-| [**Resolver**](crates/resolver/)    | [![](https://img.shields.io/crates/v/hickory-resolver.svg)](https://crates.io/crates/hickory-resolver) [![hickory-resolver](https://docs.rs/hickory-resolver/badge.svg)](https://docs.rs/hickory-resolver) Utilizes the client library to perform DNS resolution. Can be used in place of the standard OS resolution facilities. |
-| [**Recursor**](crates/recursor/)    | [![](https://img.shields.io/crates/v/hickory-recursor.svg)](https://crates.io/crates/hickory-recursor) [![hickory-recursor](https://docs.rs/hickory-recursor/badge.svg)](https://docs.rs/hickory-recursor) Performs recursive DNS resolution, looking up records from their authoritative name servers.                          |
+| [**Hickory DNS**](https://github.com/hickory-dns/hickory-dns/blob/main/bin)             | [![](https://img.shields.io/crates/v/hickory-dns.svg)](https://crates.io/crates/hickory-dns) Provides the `hickory-dns` binary for running a DNS server.                                                                                                                                                                         |
+| [**Proto**](https://github.com/hickory-dns/hickory-dns/blob/main/crates/proto)          | [![](https://img.shields.io/crates/v/hickory-proto.svg)](https://crates.io/crates/hickory-proto) [![hickory-proto](https://docs.rs/hickory-proto/badge.svg)](https://docs.rs/hickory-proto) Low-level DNS library, including message encoding/decoding and DNS transports.                                                       |
+| [**Client**](https://github.com/hickory-dns/hickory-dns/blob/main/crates/client)        | [![](https://img.shields.io/crates/v/hickory-client.svg)](https://crates.io/crates/hickory-client) [![hickory-client](https://docs.rs/hickory-client/badge.svg)](https://docs.rs/hickory-client) Used for sending `query`, `update`, and `notify` messages directly to a DNS server.                                             |
+| [**Server**](https://github.com/hickory-dns/hickory-dns/blob/main/crates/server)        | [![](https://img.shields.io/crates/v/hickory-server.svg)](https://crates.io/crates/hickory-server) [![hickory-server](https://docs.rs/hickory-server/badge.svg)](https://docs.rs/hickory-server) Used to build DNS servers. The `hickory-dns` binary makes use of this library.                                                  |
+| [**Resolver**](https://github.com/hickory-dns/hickory-dns/blob/main/crates/resolver)    | [![](https://img.shields.io/crates/v/hickory-resolver.svg)](https://crates.io/crates/hickory-resolver) [![hickory-resolver](https://docs.rs/hickory-resolver/badge.svg)](https://docs.rs/hickory-resolver) Utilizes the client library to perform DNS resolution. Can be used in place of the standard OS resolution facilities. |
+| [**Recursor**](https://github.com/hickory-dns/hickory-dns/blob/main/crates/recursor)    | [![](https://img.shields.io/crates/v/hickory-recursor.svg)](https://crates.io/crates/hickory-recursor) [![hickory-recursor](https://docs.rs/hickory-recursor/badge.svg)](https://docs.rs/hickory-recursor) Performs recursive DNS resolution, looking up records from their authoritative name servers.                          |
 
 **NOTICE** This project was rebranded from Trust-DNS to Hickory DNS and has been moved to the https://github.com/hickory-dns/hickory-dns organization and repo.
 
@@ -85,8 +84,8 @@ Zones will be automatically resigned on any record updates via dynamic DNS. To e
 - [RFC 6844](https://tools.ietf.org/html/rfc6844): DNS Certification Authority Authorization Resource Record
 - [RFC 6944](https://tools.ietf.org/html/rfc6944): DNSKEY Algorithm Implementation Status
 - [RFC 6975](https://tools.ietf.org/html/rfc6975): Signaling Cryptographic Algorithm Understanding
-- [RFC 7858](https://tools.ietf.org/html/rfc7858): DNS over TLS (feature: `dns-over-rustls`, `dns-over-native-tls`, or `dns-over-openssl`)
-- [RFC 8484](https://tools.ietf.org/html/rfc8484): DNS over HTTPS, DoH (feature: `dns-over-https-rustls`)
+- [RFC 7858](https://tools.ietf.org/html/rfc7858): DNS over TLS (feature: `tls-aws-lc-rs`/`tls-ring`)
+- [RFC 8484](https://tools.ietf.org/html/rfc8484): DNS over HTTPS, DoH (feature: `https-aws-lc-rs`/`https-ring`)
 
 ## RFCs in progress or not yet implemented
 
@@ -105,10 +104,6 @@ Zones will be automatically resigned on any record updates via dynamic DNS. To e
 
 - [DNSCrypt](https://dnscrypt.org): Trusted DNS queries
 - [RFC 8162](https://tools.ietf.org/html/rfc8162): Domain Names For S/MIME
-
-## Minimum Rust Version
-
-- The current minimum rustc version for this project is `1.70`
 
 ## Testing
 
@@ -135,14 +130,11 @@ just all-features
 - Individual feature tests
 
   Hickory DNS has many features, each individual feature can be tested
-  independently. See individual crates for all their features, here is a not
-  necessarily up to date list: `dns-over-rustls`, `dns-over-https-rustls`,
-  `dns-over-native-tls`, `dns-over-openssl`, `dns-dnssec-openssl`,
-  `dns-dnssec-openssl`, `dns-dnssec-ring`, `mdns`. Each feature can be tested
-  with itself as the task target for `just`:
+  independently. See individual crates for all their features.
+  Each feature can be tested with itself as the task target for `just`:
 
 ```shell
-just dns-over-https-rustls
+just tls-aws-lc-rs
 ```
 
 - Benchmarks
