@@ -3,6 +3,9 @@ export CURRENT_BRANCH := `git branch --show-current`
 export TMP_GH_PAGES_SITE := "/tmp/publishing-site"
 export HICKORY_README := "https://raw.githubusercontent.com/hickory-dns/hickory-dns/refs/heads/main/README.md"
 
+# support sed on linux
+sed_inplace := if os() == "linux" { "sed -i" } else { "sed -i ''" }
+
 init:
     @echo "====> initializing and checking dependencies"
     rustup --version
@@ -32,8 +35,8 @@ mdbook:
 build: zola mdbook
     mv docs/book public/book
     # fix up some of the things in the mdbook, css and links...
-    rg 'public/mdbook.css' public/book --files-with-matches | xargs sed -i ''  's|public/mdbook.css|mdbook.css|g'
-    rg "<a href=\"http" public/book -t html --files-with-matches | xargs sed -i '' 's|<a href="http|<a target="_parent" href="http|g'
+    rg 'public/mdbook.css' public/book --files-with-matches | xargs {{sed_inplace}} 's|public/mdbook.css|mdbook.css|g'
+    rg "<a href=\"http" public/book -t html --files-with-matches | xargs {{sed_inplace}} 's|<a href="http|<a target="_parent" href="http|g'
 
 serve: build
     @echo "====> serving zola site"
