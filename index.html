@@ -68,8 +68,7 @@
         src="https://hickory-dns.org/logo.png"
     />
     <h1 class="title">Hickory DNS</h1>
-    <a href="https://www.whatrustisit.com"><img src="https://img.shields.io/badge/minimum%20rustc-1.70-green?logo=rust" alt="minimum rustc: 1.70" /></a>
-<a href="https://github.com/hickory-dns/hickory-dns/actions?query=workflow%3Atest"><img src="https://github.com/hickory-dns/hickory-dns/workflows/test/badge.svg?branch=main" alt="Build Status" /></a>
+    <a href="https://github.com/hickory-dns/hickory-dns/actions?query=workflow%3Atest"><img src="https://github.com/hickory-dns/hickory-dns/workflows/test/badge.svg?branch=main" alt="Build Status" /></a>
 <a href="https://codecov.io/gh/hickory-dns/hickory-dns"><img src="https://codecov.io/gh/hickory-dns/hickory-dns/branch/main/graph/badge.svg" alt="codecov" /></a>
 <a href="LICENSE-MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" /></a>
 <a href="LICENSE-APACHE"><img src="https://img.shields.io/badge/license-Apache_2.0-blue.svg" alt="License: Apache 2.0" /></a>
@@ -142,8 +141,8 @@ implemented.</p>
 <li><a href="https://tools.ietf.org/html/rfc6844">RFC 6844</a>: DNS Certification Authority Authorization Resource Record</li>
 <li><a href="https://tools.ietf.org/html/rfc6944">RFC 6944</a>: DNSKEY Algorithm Implementation Status</li>
 <li><a href="https://tools.ietf.org/html/rfc6975">RFC 6975</a>: Signaling Cryptographic Algorithm Understanding</li>
-<li><a href="https://tools.ietf.org/html/rfc7858">RFC 7858</a>: DNS over TLS (feature: <code>dns-over-rustls</code>, <code>dns-over-native-tls</code>, or <code>dns-over-openssl</code>)</li>
-<li><a href="https://tools.ietf.org/html/rfc8484">RFC 8484</a>: DNS over HTTPS, DoH (feature: <code>dns-over-https-rustls</code>)</li>
+<li><a href="https://tools.ietf.org/html/rfc7858">RFC 7858</a>: DNS over TLS (feature: <code>tls-aws-lc-rs</code>/<code>tls-ring</code>)</li>
+<li><a href="https://tools.ietf.org/html/rfc8484">RFC 8484</a>: DNS over HTTPS, DoH (feature: <code>https-aws-lc-rs</code>/<code>https-ring</code>)</li>
 </ul>
 <h2 id="rfcs-in-progress-or-not-yet-implemented">RFCs in progress or not yet implemented</h2>
 <h3 id="basic-operations-1">Basic operations</h3>
@@ -161,10 +160,6 @@ implemented.</p>
 <ul>
 <li><a href="https://dnscrypt.org">DNSCrypt</a>: Trusted DNS queries</li>
 <li><a href="https://tools.ietf.org/html/rfc8162">RFC 8162</a>: Domain Names For S/MIME</li>
-</ul>
-<h2 id="minimum-rust-version">Minimum Rust Version</h2>
-<ul>
-<li>The current minimum rustc version for this project is <code>1.70</code></li>
 </ul>
 <h2 id="testing">Testing</h2>
 <p>Hickory DNS uses <code>just</code> for build workflow management. While running <code>cargo test</code> at the project root will work, this is not exhaustive. Install <code>just</code> with <code>cargo install just</code>. A few of the <code>just</code> recipes require <a href="https://github.com/pksunkara/cargo-workspaces"><code>cargo-workspaces</code></a> to be installed, a plugin to optimize the workflow around cargo workspaces. Install the plugin with <code>cargo install cargo-workspaces</code>.</p>
@@ -190,14 +185,11 @@ be run from the crate directory, i.e. <code>client</code> or <code>server</code>
 <li>
 <p>Individual feature tests</p>
 <p>Hickory DNS has many features, each individual feature can be tested
-independently. See individual crates for all their features, here is a not
-necessarily up to date list: <code>dns-over-rustls</code>, <code>dns-over-https-rustls</code>,
-<code>dns-over-native-tls</code>, <code>dns-over-openssl</code>, <code>dns-dnssec-openssl</code>,
-<code>dns-dnssec-openssl</code>, <code>dns-dnssec-ring</code>, <code>mdns</code>. Each feature can be tested
-with itself as the task target for <code>just</code>:</p>
+independently. See individual crates for all their features.
+Each feature can be tested with itself as the task target for <code>just</code>:</p>
 </li>
 </ul>
-<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">just dns-over-https-rustls
+<pre data-lang="shell" class="language-shell "><code class="language-shell" data-lang="shell">just tls-aws-lc-rs
 </code></pre>
 <ul>
 <li>
