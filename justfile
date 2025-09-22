@@ -24,6 +24,9 @@ clean: clean_worktree
 get_readme:
     @echo "====> Fetching README.md from ${HICKORY_README}"
     curl --proto '=https' --tlsv1.2 -sSf ${HICKORY_README} -o static/hickory-dns-README.md
+    # fix up some of the links in main readme to direct to correct url
+    {{sed_inplace}} 's#(\(bin\)/)#({{HICKORY_REPO}}/blob/main/\1)#g' static/hickory-dns-README.md
+    {{sed_inplace}} 's#(\(crates/[^/]*\)/)#({{HICKORY_REPO}}/blob/main/\1)#g' static/hickory-dns-README.md
 
 zola: clean get_readme
     @echo "====> building zola site"
@@ -38,9 +41,6 @@ build: zola mdbook
     # fix up some of the things in the mdbook, css and links...
     rg 'public/mdbook.css' public/book --files-with-matches | xargs {{sed_inplace}} 's|public/mdbook.css|mdbook.css|g'
     rg "<a href=\"http" public/book -t html --files-with-matches | xargs {{sed_inplace}} 's|<a href="http|<a target="_parent" href="http|g'
-    # fix up some of the links in main readme to direct to correct url
-    {{sed_inplace}} 's#(\(bin\)/)#({{HICKORY_REPO}}/blob/main/\1)#g' static/hickory-dns-README.md
-    {{sed_inplace}} 's#(\(crates/[^/]*\)/)#({{HICKORY_REPO}}/blob/main/\1)#g' static/hickory-dns-README.md
 
 serve: build
     @echo "====> serving zola site"
