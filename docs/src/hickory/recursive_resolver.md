@@ -52,7 +52,7 @@ The last step is to configure Hickory as a recursive resolver.
 # config.toml
 [[zones]]
 zone = "."
-zone_type = "Hint"
+zone_type = "External"
 stores = { type = "recursor", roots = "/absolute/path/root.hints", dnssec_policy.ValidateWithStaticKey.path = "/absolute/path/trusted-key.key" }
 ```
 
