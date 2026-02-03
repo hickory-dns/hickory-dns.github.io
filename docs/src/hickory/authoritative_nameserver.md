@@ -1,7 +1,7 @@
 # Authoritative Name server
 
 One of the roles Hickory supports is as an [authoritative name server](https://en.wikipedia.org/wiki/Name_server#Authoritative_name_server).
-This type of name server has authoritty over its own zones and can answer queries for which it is responsible.
+This type of name server has authority over its own zones and can answer queries for which it is responsible.
 
 ## Configuration
 
@@ -30,7 +30,7 @@ A list of zone file examples can be found in the [`test_configs/default`](https:
 ### Zone Signing Key
 
 The second step is to generate a zone signing key (ZSK). Hickory will use this key to sign all zones with during startup.
-Additionally a key signing key is generated as well internally.
+Additionally, a key signing key is generated as well internally.
 
 To generate a compatible ZSK we use the `openssl` command line tool:
 
@@ -92,7 +92,7 @@ hickory-dns --port 2345 --debug --config=./config.toml --zone-dir=.
 This starts `hickory-dns` on port `2345` with debug log level. Feel free to pick a different port, typically port `53` is already
 taken by the DNS service of the operating system. The `--config` option specifies the location of the `config.toml`
 otherwise it checks the default file path at `/etc/named.toml`. The `--zone-dir` option specifies the path to check zone
-files in, e.g. to find `root.zone`, the default directoy is `/var/named`.
+files in, e.g. to find `root.zone`, the default directory is `/var/named`.
 
 The debug log of Hickory should contain output that loads a `ZoneConfig`, the authority loads zone records and signs the
 zone `"."` using the generated zone signing key. The `hickory-dns` server should now run and accept DNS queries,
