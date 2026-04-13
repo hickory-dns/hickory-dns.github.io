@@ -42,6 +42,40 @@ This generates a new key using the `RSASHA256` algorithm and stores the private 
 
 > **Note:** Other tools to generate keys exist, but not all key formats are currently supported by Hickory.
 
+### Zone Update
+
+A Zone Store may be created as required by an optional Secret Key Transaction Authentication (TSIG), allowing secure zone updates. The Record Format name is detailed in RFC 2845 section 2.3 as `<id>.fqdn` for example "update.mydomain.tld".
+
+excerpt `config.toml`:
+```
+[[zones]]
+# ...
+
+[zones.stores]
+type = "sqlite"
+zone_path = "mydomain.tld.zone"
+journal_path = "mydomain.tld.journal"
+allow_update = true
+
+[[zones.stores.tsig_keys]]
+name = "update.mydomain.tld"
+key_file = "mydomain.tld.tsig.key"
+algorithm = "hmac-sha512"
+
+[[zones.keys]]
+# ...
+```
+
+The journal will survive restart of Hickory DNS with cached DNS update records. Delete the journal between restart of Hickory DNS to clear these records.
+
+To generate a compatible TSIG we process the output of BIND9 `tsig-keygen` command line tool:
+
+```shell
+umask 0077 # prevent read/write group and world permissions for new key file
+tsig-keygen -a hmac-sha512 update.mydomain.tld > /tmp/mydomain.tld.tsig
+awk -F'"' '/^\ssecret/ {{$0=$2}1;print}' mydomain.tld.tsig > mydomain.tld.tsig.key.txt
+base64 -d mydomain.tld.tsig.key.txt > mydomain.tld.tsig.key
+```
 
 ### `config.toml`
 
