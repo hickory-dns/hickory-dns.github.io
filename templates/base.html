@@ -13,9 +13,9 @@
   <meta property="og:description" content="{{ page_description }}">
   <meta property="og:url" content="{{ current_url | safe }}">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="{{ get_url(path='favicon.png') }}">
-  <link rel="apple-touch-icon" href="{{ get_url(path='apple-touch-icon.png') }}">
-  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?h={{ get_hash(path='style.css', sha_type=256, base64=false) | truncate(length=20, end='') }}">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,8 +23,8 @@
     <div class="wrap">
       <a href="{{ get_url(path='/') }}" class="brand">
         <picture>
-          <source srcset="{{ get_url(path='logo-dark.png') }}" media="(prefers-color-scheme: dark)">
-          <img src="{{ get_url(path='logo-light.png') }}" alt="Hickory DNS home" width="167" height="64">
+          <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="logo-light.png" alt="Hickory DNS home" width="167" height="64">
         </picture>
       </a>
       <nav aria-label="Main">
