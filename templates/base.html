@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  {%- set page_title = section.title | default(value=config.title) %}
-  {%- set page_description = section.description | default(value=config.description) %}
+  {%- if page %}{% set meta = page %}{% else %}{% set meta = section %}{% endif %}
+  {%- set page_title = meta.title | default(value=config.title) %}
+  {%- set page_description = meta.description | default(value=config.description) %}
+  {#- Relative prefix from the current page back to the site root, so asset links stay relative. #}
+  {%- set_global root = "" %}
+  {%- if page %}{% for _ in page.components %}{% set_global root = root ~ "../" %}{% endfor %}{% endif %}
   <title>{% block title %}{{ page_title }}{% endblock title %}</title>
   <meta name="description" content="{{ page_description }}">
   <link rel="canonical" href="{{ current_url | safe }}">
@@ -13,9 +17,9 @@
   <meta property="og:description" content="{{ page_description }}">
   <meta property="og:url" content="{{ current_url | safe }}">
   <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?h={{ get_hash(path='style.css', sha_type=256, base64=false) | truncate(length=20, end='') }}">
+  <link rel="icon" type="image/png" href="{{ root }}favicon.png">
+  <link rel="apple-touch-icon" href="{{ root }}apple-touch-icon.png">
+  <link rel="stylesheet" href="{{ root }}style.css?h={{ get_hash(path='style.css', sha_type=256, base64=false) | truncate(length=20, end='') }}">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,8 +27,8 @@
     <div class="wrap">
       <a href="{{ get_url(path='/') }}" class="brand">
         <picture>
-          <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
-          <img src="logo-light.png" alt="Hickory DNS home" width="167" height="64">
+          <source srcset="{{ root }}logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="{{ root }}logo-light.png" alt="Hickory DNS home" width="167" height="64">
         </picture>
       </a>
       <nav aria-label="Main">
