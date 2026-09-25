@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} · {{ config.title }}{% endblock title %}
+
+{% block content %}
+<article class="doc">
+  <div class="wrap">
+    <header class="doc-header">
+      <h1>{{ page.title }}</h1>
+      {%- if page.extra.applies_to %}
+      <p class="notice"><strong>Version note:</strong> {{ page.extra.applies_to | markdown(inline=true) | safe }}</p>
+      {%- endif %}
+      {%- if page.toc %}
+      <nav class="toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <ol>
+          {%- for h in page.toc %}
+          <li><a href="#{{ h.id }}">{{ h.title }}</a></li>
+          {%- endfor %}
+        </ol>
+      </nav>
+      {%- endif %}
+    </header>
+    <div class="prose">
+      {{ page.content | safe }}
+    </div>
+  </div>
+</article>
+{% endblock content %}
