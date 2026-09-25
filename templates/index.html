@@ -1,26 +1,71 @@
 {% extends "base.html" %}
 
-<!-- Block Content -->
+{% block nav %}
+          <li><a href="#server">Server</a></li>
+          <li><a href="#libraries">Libraries</a></li>
+{% endblock nav %}
 
-{% block content %} {% set readme = load_data(path = "hickory-dns-README.md",
-required = false) %} {% if readme %}
+{% block content %}
+{%- set extra = section.extra %}
+<section class="hero" aria-labelledby="headline">
+  <div class="wrap">
+    <h1 id="headline">{{ extra.headline }}</h1>
+    <p class="lede">{{ extra.lede }}</p>
+    <ul class="actions">
+      <li><a class="button" href="#server">Run a DNS server</a></li>
+      <li><a class="button" href="#libraries">Use the Rust libraries</a></li>
+    </ul>
+  </div>
+</section>
 
-<div class="readme">
-    <img
-        class="readme-logo"
-        alt="Hickory Logo"
-        src="{{ config.base_url | safe }}/logo.png"
-    />
-    <h1 class="title">{{ section.title }}</h1>
-    {{ readme | markdown(inline=true) | safe }}
-</div>
+<section class="highlights" aria-labelledby="why">
+  <div class="wrap">
+    <h2 id="why">Why Hickory DNS</h2>
+    <ul class="grid">
+      {%- for item in extra.highlights %}
+      <li>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body | markdown(inline=true) | safe }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
 
-{% else %}
-<h1 class="title">{{ section.title }}</h1>
+<section id="server" aria-labelledby="server-title">
+  <div class="wrap">
+    <h2 id="server-title">{{ extra.server.title }}</h2>
+    <p class="intro">{{ extra.server.intro | markdown(inline=true) | safe }}</p>
+    <ul class="grid">
+      {%- for item in extra.server.features %}
+      <li>
+        <h3>{{ item.title }}{% if item.badge %} <small class="badge">{{ item.badge }}</small>{% endif %}</h3>
+        <p>{{ item.body | markdown(inline=true) | safe }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
 
-<ul>
-    {% for page in root.pages %}
-    <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endif %} {% endblock content %}
+<section id="libraries" aria-labelledby="libraries-title">
+  <div class="wrap">
+    <h2 id="libraries-title">{{ extra.libraries.title }}</h2>
+    <p class="intro">{{ extra.libraries.intro | markdown(inline=true) | safe }}</p>
+    <ul class="grid">
+      {%- for item in extra.libraries.crates %}
+      <li>
+        <h3>{{ item.title }}</h3>
+        <p class="crate">
+          <a href="https://docs.rs/{{ item.name }}"><code>{{ item.name }}</code></a>
+          {%- if item.feature %} with the <code>{{ item.feature }}</code> feature{% endif %}
+        </p>
+        <p>{{ item.body | markdown(inline=true) | safe }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- if extra.libraries.note %}
+    <p class="note">{{ extra.libraries.note | markdown(inline=true) | safe }}</p>
+    {%- endif %}
+  </div>
+</section>
+{% endblock content %}

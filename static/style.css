@@ -1,0 +1,282 @@
+/* Palette taken from the Hickory DNS logo:
+ * green #259575 ("DNS"), light green #37c098, deep green #032318, mauve #b8afb3. */
+:root {
+  color-scheme: light dark;
+  --bg: #fbfcfb;
+  --surface: #eff5f2;
+  --border: #d3e0da;
+  --text: #111a16;
+  --muted: #47544f;
+  --link: #1b7a5e;
+  --brand: #259575;
+  --brand-light: #37c098;
+  --brand-deep: #032318;
+  --mauve: #b8afb3;
+  --on-brand: #ffffff;
+  --button: #1b7a5e;
+  --focus: #1b7a5e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c1411;
+    --surface: #13201b;
+    --border: #25382f;
+    --text: #e6ede9;
+    --muted: #a5b4ad;
+    --link: #4fcfa4;
+    --on-brand: #04140e;
+    --button: #37c098;
+    --focus: #4fcfa4;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.wrap {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  z-index: 1;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Header */
+
+.site-header {
+  /* The bar echoes the gradient of the logo mark. */
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, var(--brand-light), var(--brand), var(--brand-deep), var(--mauve)) 1;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.75rem;
+}
+
+.brand {
+  display: block;
+}
+
+.brand img {
+  display: block;
+  height: 3rem;
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header nav a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+
+main section {
+  padding-block: 3rem;
+}
+
+main section + section {
+  border-top: 1px solid var(--border);
+}
+
+.hero {
+  padding-block: 4rem 3.5rem;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--button);
+  border-radius: 0.4rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.actions li:first-child .button {
+  background: var(--button);
+  color: var(--on-brand);
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.875rem;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 0 2rem;
+  color: var(--muted);
+}
+
+.highlights h2 {
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid li {
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.grid h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+
+.grid p {
+  margin: 0;
+}
+
+.grid p + p {
+  margin-top: 0.5rem;
+}
+
+.note {
+  max-width: 44rem;
+  margin: 2rem 0 0;
+  color: var(--muted);
+}
+
+.crate {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--muted);
+  border-radius: 1rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: 0.15em;
+}
+
+/* Footer */
+
+.site-footer {
+  padding-block: 2rem 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.site-footer p {
+  margin: 1rem 0 0;
+}
+
+@media print {
+  .skip-link,
+  .actions {
+    display: none;
+  }
+}
