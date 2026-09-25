@@ -32,7 +32,7 @@ body = "Dual-licensed under MIT and Apache 2.0, so it fits in commercial product
 
 [extra.server]
 title = "Run a DNS server"
-intro = "The `hickory-dns` binary is a single, self-contained server configured with one TOML file. Run it as an authoritative name server, a resolver, or both at once."
+intro = "The `hickory-dns` binary is a single, self-contained server configured [with one TOML file](config/). Run it as an authoritative name server, a resolver, or both at once."
 
 [[extra.server.features]]
 title = "Authoritative"

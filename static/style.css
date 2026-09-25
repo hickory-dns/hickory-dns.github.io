@@ -261,6 +261,111 @@ h2 {
   vertical-align: 0.15em;
 }
 
+/* Documentation pages */
+
+.doc {
+  padding-block: 3rem 4rem;
+}
+
+.doc-header,
+.prose {
+  max-width: 48rem;
+}
+
+.doc h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+}
+
+.notice {
+  margin: 0 0 2rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: 0.4rem;
+}
+
+.toc {
+  margin: 0 0 2.5rem;
+}
+
+.toc h2 {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.prose h2 {
+  margin: 3rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.625rem;
+}
+
+.prose h3 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.1875rem;
+}
+
+.prose h2,
+.prose h3 {
+  scroll-margin-top: 1rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem;
+}
+
+.prose :not(pre) > code {
+  padding: 0.1em 0.3em;
+  background: var(--surface);
+  border-radius: 0.25rem;
+  overflow-wrap: anywhere;
+}
+
+.prose pre {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.prose table {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.4rem 1rem 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  font-weight: 600;
+}
+
 /* Footer */
 
 .site-footer {
