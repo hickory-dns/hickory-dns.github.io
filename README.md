@@ -1,13 +1,11 @@
-# Hickory DNS
+# [hickory-dns.org][https://hickory-dns.org/]
 
-**Hickory DNS** is a DNS framework and server written in Rust.
+Source for the [Hickory DNS](https://github.com/hickory-dns/hickory-dns) website, built with [Zola](https://www.getzola.org/).
 
-This repo contains the documentation for the project, please feel free to contribute examples for others to benefit from.
+```sh
+zola serve   # preview at http://127.0.0.1:1111
+zola build   # output in public/
+```
 
-## Contributing to this project
-
-Generally, people should add content to the `mdbook` for Hickory in `docs/src`. Add or update content there.
-
-Once updated, the book can be tested with the local just command, `just serve`, this will build and launch the site locally to verify the content.
-
-After that, submit a PR.
+The front page copy lives in the front matter of `content/_index.md`; markup is in `templates/`, styles in `static/style.css`.
+The logo images in `static/` are derived from `logo.png` in the hickory-dns repository (cropped, with a light wordmark variant for dark mode).

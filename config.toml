@@ -1,19 +1,18 @@
-# The URL the site will be built for
 base_url = "https://hickory-dns.org"
+title = "Hickory DNS"
+description = "A memory-safe DNS server and DNS libraries, written in Rust."
+default_language = "en"
 
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
+compile_sass = false
+minify_html = false
 build_search_index = false
-
-ignored_static = ["README.md"]
+generate_feeds = false
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+smart_punctuation = true
 
 [extra]
-# Put all your custom variables here
-author = "Benjamin Fry"
+repo = "https://github.com/hickory-dns/hickory-dns"
+releases = "https://github.com/hickory-dns/hickory-dns/releases"
+discord = "https://discord.gg/89nxE4n"
+docker = "https://github.com/hickory-dns/docker"
